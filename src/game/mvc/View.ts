@@ -32,7 +32,7 @@ namespace game {
         protected openPoint: number[] = [0, 0];
 
 
-        private grayBg:egret.Shape;
+        protected grayBg:egret.Shape;
         /**
          * 按钮事件的集合
          * 后面可以分两种，一种是初始化就一直存在，直到销毁

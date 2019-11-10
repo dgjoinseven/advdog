@@ -79,6 +79,7 @@ namespace game
                 //更新钻石
                 Modules.mainModule.mainView.updateGem(this.db.mainInfoVo.tlbc);
                 //进行加速显示
+                Modules.mainModule.mainView.speedControl.startSpeed(data);
             }
             this.close();
         }

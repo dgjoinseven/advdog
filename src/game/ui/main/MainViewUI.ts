@@ -2,7 +2,7 @@ namespace ui
 {
 	export class MainViewUI extends morn.View
 	{
-		public imgDogBtn:morn.Button;		public fenHongBtn:morn.Button;		public howBtn:morn.Button;		public transferBtn:morn.Button;		public msgBtn:morn.Button;		public activityBtn:morn.Button;		public steupBtn:morn.Button;		public dogBtn:morn.Button;		public waterDogBtn:morn.Button;		public inviteBtn:morn.Button;		public jiaSuBtn:morn.Button;		public shopBtn:morn.Button;		public restBtn:morn.Button;		public myDogBtn:morn.Button;		public timeGoldLabel:morn.Label;		public goldLabel:morn.Label;		public rateLabel:morn.Label;		public gainMoneyLabel:morn.Label;		public gemLabel:morn.Label;		public foodBtn:morn.Image;		
+		public imgDogBtn:morn.Button;		public fenHongBtn:morn.Button;		public howBtn:morn.Button;		public transferBtn:morn.Button;		public msgBtn:morn.Button;		public activityBtn:morn.Button;		public steupBtn:morn.Button;		public dogBtn:morn.Button;		public waterDogBtn:morn.Button;		public inviteBtn:morn.Button;		public jiaSuBtn:morn.Button;		public shopBtn:morn.Button;		public restBtn:morn.Button;		public myDogBtn:morn.Button;		public timeGoldLabel:morn.Label;		public goldLabel:morn.Label;		public rateLabel:morn.Label;		public gainMoneyLabel:morn.Label;		public gemLabel:morn.Label;		public foodBtn:morn.Image;		public speedTimeLabel:morn.Label;		
 		public constructor()
 		{
 			super();
@@ -30,13 +30,20 @@ namespace ui
 			n2.y = 0
 			n2.width = 752
 			n2.height = 543
-			var n3:morn.Box = new morn.Box
+			var n3:morn.Image = new morn.Image
 			this.addChild(n3)
-			n3.x = 17
-			n3.y = 160
-			var n4:morn.Image = new morn.Image
-			n3.addChild(n4)
-			n4.skin = "main_json.apcc_bg"
+			n3.skin = "main_json.blank"
+			n3.x = 0
+			n3.y = 0
+			n3.width = 752
+			n3.height = 543
+			var n4:morn.Box = new morn.Box
+			this.addChild(n4)
+			n4.x = 17
+			n4.y = 160
+			var n5:morn.Image = new morn.Image
+			n4.addChild(n5)
+			n5.skin = "main_json.apcc_bg"
 			t.imgDogBtn = new morn.Button
 			this.addChild(t.imgDogBtn)
 			t.imgDogBtn.skin = "main_json.btn_dogImg"
@@ -49,11 +56,11 @@ namespace ui
 			t.fenHongBtn.x = 24
 			t.fenHongBtn.y = 47
 			t.fenHongBtn.stateNum = 1
-			var n5:morn.Image = new morn.Image
-			this.addChild(n5)
-			n5.skin = "main_json.gold_bg"
-			n5.x = 23
-			n5.y = 424
+			var n6:morn.Image = new morn.Image
+			this.addChild(n6)
+			n6.skin = "main_json.gold_bg"
+			n6.x = 23
+			n6.y = 424
 			t.howBtn = new morn.Button
 			this.addChild(t.howBtn)
 			t.howBtn.skin = "main_json.btn_howgame"
@@ -193,16 +200,27 @@ namespace ui
 			t.foodBtn.skin = "main_json.sh"
 			t.foodBtn.x = 297
 			t.foodBtn.y = 423
-			var n6:morn.Image = new morn.Image
-			this.addChild(n6)
-			n6.skin = "main_json.water"
-			n6.x = 517
-			n6.y = 423
 			var n7:morn.Image = new morn.Image
 			this.addChild(n7)
-			n7.skin = "main_json.goldGainPro"
-			n7.x = 334
-			n7.y = 108
+			n7.skin = "main_json.water"
+			n7.x = 517
+			n7.y = 423
+			var n8:morn.Image = new morn.Image
+			this.addChild(n8)
+			n8.skin = "main_json.goldGainPro"
+			n8.x = 334
+			n8.y = 108
+			t.speedTimeLabel = new morn.Label
+			this.addChild(t.speedTimeLabel)
+			t.speedTimeLabel.text = "200"
+			t.speedTimeLabel.x = 233
+			t.speedTimeLabel.y = 1146
+			t.speedTimeLabel.width = 157
+			t.speedTimeLabel.height = 40
+			t.speedTimeLabel.size = 30
+			t.speedTimeLabel.color = 0xffffff
+			t.speedTimeLabel.align = "center"
+			t.speedTimeLabel.visible = false
 			
 			
 			

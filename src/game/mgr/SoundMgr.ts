@@ -166,6 +166,7 @@ namespace game
                 sound.addEventListener(egret.IOErrorEvent.IO_ERROR, this.onLoadError, this);
                 //开始加载
                 sound.load(url);
+
             }
         }
         private static onBgSound(): void

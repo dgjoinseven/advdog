@@ -125,7 +125,18 @@ namespace game
 
 
        /////////////////////游戏中的一些常量/////////////////////////////
-       static LoadingSpeed:number = 2;
+       /**
+        * loading的旋转速度
+        */
+       static LoadingSpeed:number = 5;
+       /**
+        * 首页宠物的基础位置，检测范围等都以来这个基数(默认是500)
+        */
+       static Main_Pet_Pos:number = 550;
+       /**
+        * 游戏动画的帧频
+        */
+       static Movie_Rate = 12;
 
        /////////////////////游戏中的调用一些事件/////////////////////////////
        static OpenShowAd_Back:string = "OpenShowAd_Back";

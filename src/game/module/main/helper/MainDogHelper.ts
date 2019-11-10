@@ -31,12 +31,7 @@ namespace game
                 vo = dataList[i];
                 this.db.addDogConfig(vo);
             }
-            // this.db.shopDB.update(data);
-            // let timeGold:number = 0;
-            // let shopVo:ShopPetVo;
             // //检查一下有多少只狗，需要计算他们每秒增加多少金币
-            // let bigNumber = DecimalUtils.add();
-            // let decima = DecimalUtils.createDecimal();
             let timeGold = this.db.currentDogGold;
             if(!timeGold)
                 timeGold = "0";
@@ -51,12 +46,8 @@ namespace game
                     }
                 }
             }
-            timeGold = DecimalUtils.div(timeGold,"5");
             this.db.currentDogGold = timeGold;
-            //除5 
-            timeGold = DecimalUtils.goldChange(timeGold);
-            this.view.updateTimeDogGold(timeGold);
-            
+            this.view.updateTimeDogGold();  
         }
     }
 }

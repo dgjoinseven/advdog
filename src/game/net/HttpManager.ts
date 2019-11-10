@@ -13,6 +13,7 @@ namespace game
         // static token:string = "08c82a4b8d738b7cea3c8a837bb3ec13";
         // static token:string = "74b9300abcb1003f33f4744cb01b9a73";   //有高级狗
         // static token:string = "08c82a4b8d738b7cea3c8a837bb3ec13" //是有高级狗的，有2数组
+        // static token:string = "3f115648ca388d4ba8d793e4db02cef6" //这个都是37只狗
         static token:string = "8252beaa12707e4c85a76596c487e3a8" //这个都是37只狗
         static urlHead:string;
         /**

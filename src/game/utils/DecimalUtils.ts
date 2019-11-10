@@ -57,9 +57,15 @@ namespace game
             let win = window;
             return win["Decimal"].add(num1, num2);
         }
-        static sub(num1:string,num2:string):void
+        static sub(num1:string,num2:string):string
         {
-            
+            let win = window;
+            return win["Decimal"].sub(num1, num2);
+        }
+        static mul(num1:string,num2:string):string
+        {
+            let win = window;
+            return win["Decimal"].mul(num1, num2);
         }
         static div(num1:string,num2:string):string
         {

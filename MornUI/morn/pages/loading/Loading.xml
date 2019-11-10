@@ -1,6 +1,8 @@
-<View width="750" height="1400" sceneColor="0xffffff" layers="3,1,1,0,第 3 层;2,1,1,1,第 2 层;1,1,1,0,第 1 层">
+<View width="750" height="1400" sceneColor="0xffffff" layers="4,1,0,0,第 4 层;3,1,0,1,第 3 层;2,1,0,1,第 2 层;1,1,0,0,第 1 层">
   <Image skin="jpg.loading.loading" x="0" y="0" layer="1"/>
+  <Label text="label" styleSkin="png.loading.label" x="162" y="937" layer="1"/>
   <Image skin="png.loading.dog" x="236" y="492" layer="2" var="dogImg"/>
-  <Label text="60%" styleSkin="png.comp.label" x="266" y="951" layer="2" width="224" height="86" size="70" color="0xffffff" var="loadingLabel" align="center"/>
+  <Label text="0%" styleSkin="png.loading.label" x="266" y="951" layer="2" align="center" backgroundColor="0xffffff" var="loadingLabel" color="0xffffff" size="70" width="224" height="86"/>
   <Image skin="png.loading.black_dog" x="236" y="492" layer="3" var="blackDogImg"/>
+  <Label styleSkin="png.loading.label" x="263" y="897" layer="4" width="351" height="50" color="0xffffff" align="left" size="30" var="configLabel"/>
 </View>

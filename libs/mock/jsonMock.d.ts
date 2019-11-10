@@ -316,7 +316,7 @@ declare module game
     /**
      * 离线产生的值/秒
      */
-    offlineProduceValue:number;
+    offlineProduceValue:string;
 
     /**
      * 预留字段1

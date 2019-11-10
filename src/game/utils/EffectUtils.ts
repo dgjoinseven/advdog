@@ -17,6 +17,19 @@ namespace game
         {
             
         }
+        /**
+         * 播放金钱特效
+         */
+        static playGoldEffect(x:number,y:number):void
+        {
+            let effect:EgretMovieEffect = new EgretMovieEffect(24);
+            effect.x = x - 50;
+            effect.y = y - 60;
+            Session.instance.root.addChild(effect);
+            effect.playOnce("effect/goldEffect/goldEffect");
+            //播放音效
+            SoundMgr.play("money");
+        }
     }
 
     export class EffectUtlBean

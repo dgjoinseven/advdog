@@ -44,15 +44,15 @@ namespace game
         {
             if(evt.currentTarget == this.container.sureBtn)
             {
-                if(this.openParam == 43)
-                {
-                    HttpManager.postHttpByParam(NC.RecoveryDog_Url,this.openParam,this.RecoveryDog_Url,this);
-                }
-                else
+                if(this.openParam.dogGrade == 43)
                 {
                     HttpManager.postHttpByParam(NC.RecoveryRedPacketDog_Url,this.openParam,this.RecoveryRedPacketDog_Url,this);
                 }
-                console.info("没有回收狗狗的参数，无法调用回收接口");
+                else
+                {
+                    HttpManager.postHttpByParam(NC.RecoveryDog_Url,this.openParam,this.RecoveryDog_Url,this);
+                }
+                // console.info("没有回收狗狗的参数，无法调用回收接口");
             }
             else
             {
@@ -64,21 +64,23 @@ namespace game
         private RecoveryRedPacketDog_Url(data:DogBuySellDTOVo):void
         {
             CommonAlertView.showGem(data.tlbcValue.toString());
-            this.db.mainInfoVo.tlbc += data.tlbcValue;
+            if(data.tlbcValue)
+                this.db.mainInfoVo.tlbc += data.tlbcValue;
             Modules.mainModule.mainView.updateGem(this.db.mainInfoVo.tlbc);
 
             this.db.updateDogGold(data.dogGradeId,false);
-            Modules.mainModule.mainView.updateTimeDogGold(this.db.currentDogGold);
+            Modules.mainModule.mainView.updateTimeDogGold();
+            //删除掉回收的狗
+            Modules.mainModule.mainView.removeDog(data.positionId);
         }
         private RecoveryDog_Url(data:DogBuySellDTOVo):void
         {
             console.log("回收狗成功");
-            //删除掉回收的狗
             AlertView.showGainGold(data.recoveryGoldCoin);
-            Modules.mainModule.mainView.removeDog(data.positionId);
+            
             Modules.mainModule.mainView.updateGold(data.goldCoin);
             this.db.updateDogGold(data.dogGradeId,false);
-            Modules.mainModule.mainView.updateTimeDogGold(this.db.currentDogGold);
+            Modules.mainModule.mainView.updateTimeDogGold();
             this.close();
         }
 

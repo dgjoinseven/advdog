@@ -273,6 +273,7 @@ class Main extends egret.DisplayObjectContainer {
             this.stage.addChild(this.loadingView);
             await RES.loadGroup("preload", 0, this.loadingView);
             this.stage.removeChild(this.loadingView);
+            this.loadingView.closeLoading();
             console.info("preload加载完成");
         }
         catch (e) {

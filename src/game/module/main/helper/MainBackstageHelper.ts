@@ -14,6 +14,9 @@ namespace game
          * 钻石数据
          */
         private tlbcDTO:TlbcDTOVo;
+        private goldList:FlyGold[];
+        private maxGoldKey:number = 0;
+        private updateGoldKey:number = 0;
         init():void
         {
             console.log("MainBackstageHelper初始化了");
@@ -21,6 +24,7 @@ namespace game
             mvc.once(NC.Init_Gem,this.createAllGem,this);
             //监听广告回调
             mvc.on(NC.AD_CallBack,this.AD_CallBack,this);
+            this.goldList = [];
         }
         //1.转盘 2.开宝箱  3 摇一摇  4.喂狗粮食 5.加速 6.金币不足看视频 7普通  8离线双倍
         private AD_CallBack(videoType:string):void
@@ -36,6 +40,10 @@ namespace game
                 if(this.session.speedLookVideoData)
                 {
                     //处理加速
+                    let vo:SpeedGoldCoinVo = asf.Global.createAny();
+                    vo.speedGoldCoin = this.session.speedLookVideoData.speedGoldCoin;
+                    vo.speedTime = this.session.speedLookVideoData.speedTime;
+                    Modules.mainModule.mainView.speedControl.startSpeed(vo);
                     return ;
                 }
             }
@@ -45,7 +53,44 @@ namespace game
                 this.db.mainInfoVo.dogFoodCount++;
             }
         }
+
+        
         private onTimeGogGold():void
+        {
+            let petList = this.view.dogList;
+            let showUI:MainPetShowView;
+            let flag = false;
+            for(let i:number = 1; i <= 12; i++)
+            {
+                showUI = petList[i];
+                if(showUI.hasDog)
+                {
+                    //有狗，掉金币
+                    let gold = new morn.Image();
+                    let flyGold:FlyGold = this.goldList[i];
+                    if(!flyGold)
+                    {
+                        flyGold = new FlyGold(this.view.container);
+                        this.goldList[i] = flyGold;
+                    }
+                    flyGold.fly(showUI.x,showUI.y,400 + i * 50);
+                    flag = true;
+                }
+            }
+            //250毫秒之后开始放大缩小金币
+            if(flag)
+                this.maxGoldKey = asf.App.timeMgr.doOnce(450,this.onMaxGoldEffect,this,this.maxGoldKey);
+        }
+        private onMaxGoldEffect():void
+        {
+            //狗狗产生金钱，进行抛物线动画
+            egret.Tween.get(this.view.container.goldLabel,{loop:false}).
+            to({scaleX:1.3,scaleY:1.3},300,egret.Ease.sineOut).
+            to({scaleX:1,scaleY:1},500,egret.Ease.sineIn);
+            //50毫秒后变化
+            this.updateGoldKey = asf.App.timeMgr.doOnce(50,this.onMaxUpdateGold,this,this.updateGoldKey);
+        }
+        private onMaxUpdateGold():void
         {
             //增加金币
             let gold = DecimalUtils.add(this.db.mainInfoVo.goldCoinValue,this.db.currentDogGold);
@@ -54,7 +99,10 @@ namespace game
             this.db.mainInfoVo.goldCoin = goldStr;
             //显示
             this.view.updateGold(goldStr);
+            //播放获得金钱音效
+            SoundMgr.play("money");
         }
+
         private createGem(value:any,isEvent:boolean = true):ui.GemItemUI
         {
             let gemItem:ui.GemItemUI = new ui.GemItemUI();
@@ -145,6 +193,11 @@ namespace game
             let gemItem = evt.currentTarget as ui.GemItemUI;
             if(!gemItem)
                 return ;
+            if(this.tlbcDTO.progress == -1)
+            {
+                TipView.showTip("请去实名认证");
+                return ;
+            }
             // gemItem.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
             this.delIndex = gemItem.tag;
             //提交给服务器
@@ -208,6 +261,7 @@ namespace game
             //更新挖矿进度
             this.tlbcDTO.progress = data.progress;
             this.working();
+            //这里先做放大缩小的动画效果
             ////播放金币变化音效
             // SoundMgr.play("money.wav");
         }

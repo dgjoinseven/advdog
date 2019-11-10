@@ -81,8 +81,7 @@ namespace game
                  effect.x = -110;
                  effect.y = -110;
              }
-             //播放音效
-             SoundMgr.play("lvup",false,true);
+             
              this.addChild(effect);
         }
         cleanDragInfo():void

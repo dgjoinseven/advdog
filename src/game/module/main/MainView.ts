@@ -7,8 +7,10 @@ namespace game
     {
         static NAME         :string = "mainView";
 
-
-        private dogList:MainPetShowView[];
+        /**
+         * 狗动画列表
+         */
+        dogList:MainPetShowView[];
         /**
          * 是否点击
          */
@@ -22,6 +24,7 @@ namespace game
          * 合成狗的等级
          */
         private mergeDogLv:number;
+        speedControl:SpeedControl;
         public constructor()
         {
             super();
@@ -41,6 +44,14 @@ namespace game
         init() 
         {
             console.info("MainView初始化完成");
+
+            this.grayBg = new egret.Shape();
+            this.grayBg.graphics.beginFill( 0x000000, 1);
+            this.grayBg.graphics.drawRect( 0, 0, 752, 543);
+            this.grayBg.graphics.endFill();
+            this.grayBg.alpha = 0.5;
+            //放在最底下
+            this.container.addChildAt(this.grayBg,0);
             
             this.dogList = [];
 
@@ -72,14 +83,37 @@ namespace game
 
             this.container.mouseEnabled = false;
             this.container.mouseChildren = false;
-      
+
+            // this.container.goldLabel.anchorOffsetX = 85;
+            // this.container.goldLabel.anchorOffsetY = 18;
+            this.container.goldLabel.x = 187;
+            this.container.goldLabel.y = 455;
+            this.container.goldLabel.anchorOffsetX = this.container.goldLabel.width / 2;
+            this.container.goldLabel.anchorOffsetY = this.container.goldLabel.height / 2;
+
+            this.speedControl = new SpeedControl(this);
+
         }
         /**
          * 更新狗狗每秒产出的金币
          */
-        updateTimeDogGold(num:string | number):void
+        updateTimeDogGold():void
         {
-            this.container.timeGoldLabel.text = num + "/秒";
+            //除成每秒
+            let timeGold = DecimalUtils.div(this.db.currentDogGold,"5");
+            //查看是否有倍率
+            if(this.db.speedVo)
+            {
+                timeGold = DecimalUtils.mul(timeGold,this.db.speedVo.speedGoldCoin);
+            }
+            this.container.timeGoldLabel.text = DecimalUtils.goldChange(timeGold) + "/秒";
+            // if(num)
+            //     this.container.timeGoldLabel.text = num + "/秒";
+            // else
+            // {
+            //     //自己更新vo
+                
+            // }
         }
 
         private onEndClick(evt:egret.TouchEvent):void
@@ -234,7 +268,8 @@ namespace game
                 dogUI.update(data.mergeLevel);
                 dogUI.showEffect(data.mergeLevel);
             }
-            //根据合成狗显示不同的特效
+            //播放音效
+            SoundMgr.play("lvup",false,true);
         }
 
         private showMainPet():void
@@ -248,10 +283,10 @@ namespace game
                     let showUI:MainPetShowView = new MainPetShowView(index);
                     this.dogList[index] = showUI;
                     showUI.x = 116 + j * 170;//116
-                    showUI.y = 674 + i * 200;//674
+                    showUI.y = NC.Main_Pet_Pos + 174 + i * 190;//674  200
                     //生成全局检测域
                     showUI.checkScope.x = 30 + j * 170;
-                    showUI.checkScope.y = 555 + i * 180;
+                    showUI.checkScope.y = NC.Main_Pet_Pos + 55 + i * 190;  //180
                     let lv = this.db.mainInfoVo["position" + index]
                     if(lv != 0)
                     {
@@ -273,7 +308,8 @@ namespace game
          */
         removeDog(postiton:number):void
         {
-            this.dogList[postiton].closeDog();
+            if(this.dogList[postiton])
+                this.dogList[postiton].closeDog();
         }
         /**
          * 更新当前金币总量
@@ -340,7 +376,7 @@ namespace game
             }
             else if(evt.currentTarget == this.container.myDogBtn)
             {
-                mvc.open(MyDogView);
+                // mvc.open(MyDogView);
             }
             else if(evt.currentTarget == this.container.jiaSuBtn)
             {
@@ -390,15 +426,17 @@ namespace game
             }
         }
         //狗粮使用回调接口
-        private AddSpeedGoldCoin_Url(data):void
+        private AddSpeedGoldCoin_Url(data:SpeedGoldCoinVo):void
         {
-            if(data != "60")
-            {
-                this.db.mainInfoVo.dogFoodCount--;
-                //喂粮成功 
-                TipView.showTip("喂粮成功");
-                //狗产出加快速度
-            }
+            // if(data != "60")
+            // {
+            //     this.db.mainInfoVo.dogFoodCount--;
+            //     //喂粮成功 
+            //     TipView.showTip("喂粮成功");
+            //     //狗产出加快速度
+            // }
+            this.speedControl.startSpeed(data);
         }
+        
     }
 }

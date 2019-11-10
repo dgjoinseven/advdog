@@ -8,6 +8,9 @@ namespace game
         static NAME         :string = "ShopView";
 
         private shopItems:ui.ShopItemUI[];
+
+        private mouseX:number;
+        private mouseY:number;
         public constructor()
         {
             super();
@@ -122,6 +125,8 @@ namespace game
         private selectButton:morn.Button;
         private onClick(evt:egret.TouchEvent):void
         {
+            this.mouseX = evt.$stageX;
+            this.mouseY = evt.$stageY;
             //进行购买
             this.selectButton = evt.currentTarget;
             let petVo:ShopPetVo = this.selectButton.tag;
@@ -161,27 +166,21 @@ namespace game
             if(data.goldCoin)
             {
                  mvc.send(NC.Update_Gold,data.goldCoin);
+                 this.container.goldLabel.text = data.goldCoin;
             }
             else
             {
                 mvc.send(NC.Update_Tlbc,data.tlbcValue);
             }
             Modules.mainModule.addDog(data.dogGradeId,data.positionId);
-            if(data.goldCoin)
-            {
-                this.container.goldLabel.text = data.goldCoin;
-                mvc.send(NC.Update_Gold,data.goldCoin);
-                if(data.goldCoinValue)
-                    this.db.mainInfoVo.goldCoinValue = data.goldCoinValue;
-            }
                 
             if(data.goldCoinValue)
                 this.db.mainInfoVo.goldCoinValue = data.goldCoinValue;
-            
-            Modules.mainModule.mainView.updateGold(data.goldCoin);
+
             this.db.updateDogGold(data.dogGradeId,true);
-            if(Modules.mainModule.mainView)
-                Modules.mainModule.mainView.updateTimeDogGold(this.db.currentDogGold);
+            // let timeGold = DecimalUtils.div(this.db.currentDogGold,"5");
+            // timeGold = DecimalUtils.goldChange(timeGold);
+            Modules.mainModule.mainView.updateTimeDogGold();
             //更新当前狗狗价格
             if(this.selectButton)
             {
@@ -189,6 +188,8 @@ namespace game
                 petVo.currentPrice = data.currentPrice;
                 this.selectButton.label = data.currentPrice;
             }
+            //播放特效
+            EffectUtls.playGoldEffect(this.mouseX,this.mouseY);
         }
     }
 }

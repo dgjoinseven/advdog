@@ -12,6 +12,10 @@ namespace game
         constructor(frameRate?:number)
         {
             super();
+            if(frameRate)
+                this.frameRate = frameRate;
+            else
+                this.frameRate = NC.Movie_Rate;
         }
         playOnce(url:string):void
         {

@@ -24,6 +24,10 @@ namespace game
          * 是否播放音乐
          */
         isSound:boolean = true;
+        /**
+         * 加速设计模型
+         */
+        speedVo:SpeedGoldCoinVo;
         private dogConfigMap:asf.HashMap<number,DogConfigureVo>;
         constructor()
         {
@@ -89,19 +93,22 @@ namespace game
             return this.dogConfigMap.get(dogLv);
         }
         /**
-         * 修改每秒产出
+         * 修改每5秒产出
          */
         updateDogGold(dogLv:number,isAdd:boolean):void
         {
             //重新
             let dogVo:DogConfigureVo = this.dogConfigMap.get(dogLv);
+            //先除5
+            // let petOnline = DecimalUtils.div(dogVo.onlineProduceValue,"5");
             if(dogVo)
             {
                 if(isAdd)
-                    this.currentDogGold = DecimalUtils.add(this.currentDogGold,dogVo.onlineProduceValue).toString();;
-                // else
-                //     this.currentDogGold -= dogVo.onlineProduceValue;
+                    this.currentDogGold = DecimalUtils.add(this.currentDogGold,dogVo.onlineProduceValue);
+                else
+                    this.currentDogGold = DecimalUtils.sub(this.currentDogGold,dogVo.onlineProduceValue);
             }
+            // this.currentDogGold = DecimalUtils.goldChange(this.currentDogGold);
         }
         dogsRes:asf.HashMap<string,string>;
         /**

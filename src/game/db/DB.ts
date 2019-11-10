@@ -20,6 +20,10 @@ namespace game
          * 当前所有狗每秒产生的金币
          */
         currentDogGold:string;
+        /**
+         * 是否播放音乐
+         */
+        isSound:boolean = true;
         private dogConfigMap:asf.HashMap<number,DogConfigureVo>;
         constructor()
         {

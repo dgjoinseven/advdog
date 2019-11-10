@@ -96,8 +96,8 @@ namespace game
          */
         static play(url: string, isBg: boolean = false, isPlay: boolean = true): void
         {
-            // if (isPlay == DB.ins.otherDB.isplated)
-            // {
+            if (isPlay == DB.ins.isSound)
+            {
                 url = this.root + url + ".mp3";
                 let soundMap = this.soundMap;
                 let bean: SoundBean = soundMap.get(url);
@@ -122,7 +122,6 @@ namespace game
                         }
                         this.currentBg = bean;
                         this.onBgSound();
-                        // this.timeKey = asf.App.timeMgr.doOnce(1000,this.onBgSound,this,this.timeKey);
                         return;
                     }
 
@@ -138,24 +137,6 @@ namespace game
                     channel.once(egret.Event.SOUND_COMPLETE, this.onSoundComplete, this);
                     soundMap.put(channel.hashCode, bean);
 
-                    // //优先停掉上一个背景音乐
-                    // if(isBg && this.currentBg)
-                    //     this.currentBg.stop();
-                    // channel = bean.channel = bean.sound.play(0,bean.count);
-                    // bean.isPlay = true;
-                    // if(isBg)
-                    // {
-                    //     this.currentBg = channel;
-                    //     channel.volume = this.volumeBg;
-                    // }
-                    // else
-                    // {
-                    //     //播放一次的音效需要监听事件
-                    //     channel.volume = this.volume;
-                    //     //监听完成事件
-                    //     channel.once(egret.Event.SOUND_COMPLETE, this.onSoundComplete, this);
-                    //     soundMap.put(channel.hashCode,bean);
-                    // }
                     return;
                 }
                 bean = new SoundBean();
@@ -185,7 +166,7 @@ namespace game
                 sound.addEventListener(egret.IOErrorEvent.IO_ERROR, this.onLoadError, this);
                 //开始加载
                 sound.load(url);
-            // }
+            }
         }
         private static onBgSound(): void
         {

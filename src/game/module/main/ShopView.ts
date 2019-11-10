@@ -168,7 +168,13 @@ namespace game
             }
             Modules.mainModule.addDog(data.dogGradeId,data.positionId);
             if(data.goldCoin)
+            {
                 this.container.goldLabel.text = data.goldCoin;
+                mvc.send(NC.Update_Gold,data.goldCoin);
+                if(data.goldCoinValue)
+                    this.db.mainInfoVo.goldCoinValue = data.goldCoinValue;
+            }
+                
             if(data.goldCoinValue)
                 this.db.mainInfoVo.goldCoinValue = data.goldCoinValue;
             

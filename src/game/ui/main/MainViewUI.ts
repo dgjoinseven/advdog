@@ -23,13 +23,20 @@ namespace ui
 			n1.skin = morn.Morn.ResUrl + "main/bg/bom.jpg"
 			n1.x = 0
 			n1.y = 0
-			var n2:morn.Box = new morn.Box
+			var n2:morn.Image = new morn.Image
 			this.addChild(n2)
-			n2.x = 17
-			n2.y = 160
-			var n3:morn.Image = new morn.Image
-			n2.addChild(n3)
-			n3.skin = "main_json.apcc_bg"
+			n2.skin = "main_json.blank"
+			n2.x = 0
+			n2.y = 0
+			n2.width = 752
+			n2.height = 543
+			var n3:morn.Box = new morn.Box
+			this.addChild(n3)
+			n3.x = 17
+			n3.y = 160
+			var n4:morn.Image = new morn.Image
+			n3.addChild(n4)
+			n4.skin = "main_json.apcc_bg"
 			t.imgDogBtn = new morn.Button
 			this.addChild(t.imgDogBtn)
 			t.imgDogBtn.skin = "main_json.btn_dogImg"
@@ -42,11 +49,11 @@ namespace ui
 			t.fenHongBtn.x = 24
 			t.fenHongBtn.y = 47
 			t.fenHongBtn.stateNum = 1
-			var n4:morn.Image = new morn.Image
-			this.addChild(n4)
-			n4.skin = "main_json.gold_bg"
-			n4.x = 23
-			n4.y = 424
+			var n5:morn.Image = new morn.Image
+			this.addChild(n5)
+			n5.skin = "main_json.gold_bg"
+			n5.x = 23
+			n5.y = 424
 			t.howBtn = new morn.Button
 			this.addChild(t.howBtn)
 			t.howBtn.skin = "main_json.btn_howgame"
@@ -186,16 +193,16 @@ namespace ui
 			t.foodBtn.skin = "main_json.sh"
 			t.foodBtn.x = 297
 			t.foodBtn.y = 423
-			var n5:morn.Image = new morn.Image
-			this.addChild(n5)
-			n5.skin = "main_json.water"
-			n5.x = 517
-			n5.y = 423
 			var n6:morn.Image = new morn.Image
 			this.addChild(n6)
-			n6.skin = "main_json.goldGainPro"
-			n6.x = 334
-			n6.y = 108
+			n6.skin = "main_json.water"
+			n6.x = 517
+			n6.y = 423
+			var n7:morn.Image = new morn.Image
+			this.addChild(n7)
+			n7.skin = "main_json.goldGainPro"
+			n7.x = 334
+			n7.y = 108
 			
 			
 			

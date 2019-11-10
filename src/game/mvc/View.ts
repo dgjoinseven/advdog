@@ -82,7 +82,7 @@ namespace game {
             {
                 this.grayBg = new egret.Shape();
                 this.grayBg.graphics.beginFill( 0x000000, 1);
-                this.grayBg.graphics.drawRect( 0, 0, 750, 1400);
+                this.grayBg.graphics.drawRect( 0, 0, this.stage.stageWidth, this.stage.stageHeight);
                 this.grayBg.graphics.endFill();
                 this.grayBg.alpha = 0.5;
                 //放在最底下

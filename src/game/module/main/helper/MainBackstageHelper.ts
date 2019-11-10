@@ -203,7 +203,8 @@ namespace game
          */
         private Select_Gold_Url(data:SelectGoldCoinVo):void
         {
-            this.view.container.goldLabel.text = data.goldCoin;
+            this.view.updateGold(data.goldCoin);
+            this.db.mainInfoVo.goldCoinValue = data.goldCoinValue;
             //更新挖矿进度
             this.tlbcDTO.progress = data.progress;
             this.working();

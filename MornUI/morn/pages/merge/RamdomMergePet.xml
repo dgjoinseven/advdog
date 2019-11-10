@@ -1,0 +1,22 @@
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/merge/RamdomMergePet.png" layers="3,1,0,0,第 3 层;2,1,0,1,第 2 层;1,0,0,1,第 1 层">
+  <Image skin="png.main.bg.radomMergeBg" x="64" y="277" layer="1"/>
+  <Image skin="png.main.perfect_fuzi" x="155" y="517" layer="2"/>
+  <Image skin="png.main.perfect_meng" x="401" y="724" layer="2"/>
+  <Image skin="png.main.perfect_meng" x="220" y="410" layer="2"/>
+  <Image skin="png.main.perfect_zhong" x="174" y="646" layer="2"/>
+  <Image skin="png.main.perfect_zhong" x="451" y="412" layer="2"/>
+  <Image skin="png.main.perfect_yong" x="498" y="644" layer="2"/>
+  <Image skin="png.main.perfect_zhi" x="517" y="516" layer="2"/>
+  <Button skin="png.main.btn_start" x="256" y="941" layer="3" stateNum="1" var="startBtn"/>
+  <Button skin="png.main.btn_close" x="601" y="291" layer="3" stateNum="1" var="closeBtn"/>
+  <Image skin="png.main.perfect_effect" x="439" y="391" layer="3" var="zhong1Effect"/>
+  <Image skin="png.main.perfect_effect" x="164" y="628" layer="3" var="zhong2Effect"/>
+  <Image skin="png.main.perfect_effect" x="388" y="707" layer="3" var="meng1Effect"/>
+  <Image skin="png.main.perfect_effect" x="201" y="392" layer="3" var="meng2Effect"/>
+  <Image skin="png.main.perfect_effect" x="138" y="502" layer="3" var="fuEffect"/>
+  <Image skin="png.main.perfect_effect" x="505" y="500" layer="3" var="zhiEffect"/>
+  <Image skin="png.main.perfect_effect" x="483" y="624" layer="3" var="yongEffect"/>
+  <Image skin="png.main.head_hongbao" x="274" y="717" layer="3" scale="0.85" guide="hongbaoImg" var="img43"/>
+  <Image skin="png.main.hean_fenhong" x="331" y="356" layer="3" scale="0.85" var="img44"/>
+  <Image skin="png.main.title_perfect" x="152" y="224" layer="3"/>
+</View>

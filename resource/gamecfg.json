@@ -1,0 +1,16 @@
+{
+	"debug": true,
+	"showLog": -1,
+	"openVConsole":false,
+	"isPlatform": false,
+	"cfgVersion": "2019111103",
+	"loadingSpeed":2,
+	"version": "2019111103",
+	"server": "http://liuwei.dev.linjiexian.cn/game/",
+	"token":"",
+	"httpVer":"1.0",
+	"howGameUrl":["howGame.html","怎么玩"],
+	"activeUrl":["active.html","活动"],
+	"msgUrl":["msg.html","消息"],
+	"assets": ""
+}

@@ -1,0 +1,24 @@
+/**
+     * 图鉴名称
+     */
+    private String plateName;
+
+    /**
+     * 技能描述
+     */
+    private String skill;
+
+    /**
+     * 图鉴描述 &符号换行
+     */
+    private String description;
+
+    /**
+     * 图鉴图片
+     */
+    private String plateImage;
+
+    /**
+     * 标识 文字 比如：限量
+     */
+    private String mark;

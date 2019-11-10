@@ -1,0 +1,12 @@
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/alert/OffLine.png" layers="8,1,0,0,第 8 层;7,1,0,0,第 7 层">
+  <Image skin="png.main.alert_bg" x="65" y="357" layer="7"/>
+  <Image skin="png.main.bg.gold_effect_bg" x="357" y="607" layer="7" anchorX="0.5" anchorY="0.5" var="effectImg"/>
+  <Image skin="png.main.window_gold_bg" x="217" y="722" layer="7"/>
+  <Label text="1700.0t" styleSkin="png.comp.label" x="221" y="736" layer="7" width="299" height="40" bold="true" size="40" var="gainLabel" align="center"/>
+  <Label text="恭喜获得" styleSkin="png.comp.label" x="119" y="14" layer="7" width="133" height="32" bold="true" size="25"/>
+  <Label styleSkin="png.comp.label" x="177" y="886" layer="7" width="397" height="24" size="20" color="0xffffff" align="center" var="tipLabel" visible="false"/>
+  <Image skin="png.main.title_gain_gold" x="157" y="314" layer="7" var="titleImg"/>
+  <Button skin="png.main.btn_close" x="647" y="279" layer="7" stateNum="1" var="closeBtn"/>
+  <Image skin="png.main.gold_2" x="231" y="462" layer="7"/>
+  <Button skin="png.main.btn_offline" x="174" y="801" layer="8" stateNum="1" var="videoBtn"/>
+</View>

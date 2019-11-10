@@ -1,0 +1,29 @@
+<View width="750" height="1500" sceneColor="0xffffff" sceneBg="morn/views/main.png" layers="5,0,2,1,text;3,0,2,1,button;2,1,2,0,smallBg;4,0,2,0,bg">
+  <Image skin="jpg.main.bg.bom" x="0" y="0" layer="4"/>
+  <Box layers="2,1,0,0,第 2 层;1,0,0,1,bg" layer="2" x="17" y="160">
+    <Image skin="png.main.apcc_bg" layer="1"/>
+  </Box>
+  <Button skin="png.main.btn_dogImg" x="155" y="285" layer="2" stateNum="1" var="imgDogBtn"/>
+  <Button skin="png.main.btn_goldGainBg" x="24" y="47" layer="2" stateNum="1" var="fenHongBtn"/>
+  <Image skin="png.main.gold_bg" x="23" y="424" layer="3"/>
+  <Button skin="png.main.btn_howgame" x="34" y="284" layer="3" stateNum="1" var="howBtn"/>
+  <Button skin="png.main.btn_transfer" x="267" y="284" layer="3" stateNum="1" var="transferBtn"/>
+  <Button skin="png.main.btn_msg" x="381" y="283" layer="3" stateNum="1" var="msgBtn"/>
+  <Button skin="png.main.btn_activity" x="495" y="284" layer="3" stateNum="1" var="activityBtn"/>
+  <Button skin="png.main.btn_steup" x="605" y="285" layer="3" stateNum="1" var="steupBtn"/>
+  <Button skin="png.main.btn_dog" x="299" y="422" layer="3" stateNum="1" var="dogBtn"/>
+  <Button skin="png.main.btn_water" x="516" y="422" layer="3" stateNum="1" var="waterDogBtn"/>
+  <Button skin="png.main.btn_yqjuan" x="41" y="1190" layer="3" var="inviteBtn" stateNum="1"/>
+  <Button skin="png.main.btn_jiaSu" x="226" y="1190" layer="3" stateNum="1" var="jiaSuBtn"/>
+  <Button skin="png.main.btn_shop" x="413" y="1189" layer="3" stateNum="1" var="shopBtn"/>
+  <Button skin="png.main.btn_rest" x="621" y="1182" layer="3" stateNum="1" var="restBtn"/>
+  <Button skin="png.main.btn_dog1_5" x="605" y="47" layer="3" stateNum="1" var="myDogBtn"/>
+  <Label text="13.5t/秒" styleSkin="png.comp.label" x="109" y="478" layer="5" width="148" height="28" size="25" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="timeGoldLabel"/>
+  <Label styleSkin="png.comp.label" x="101" y="435" layer="5" width="170" height="36" size="35" align="center" color="0x0" bold="true" text="1235.5 t" selectable="false" mouseEnabled="false" var="goldLabel"/>
+  <Label text="40%" styleSkin="png.comp.label" x="503" y="70" layer="5" width="43" height="28" size="25" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="rateLabel"/>
+  <Label text="13.5t/秒" styleSkin="png.comp.label" x="133" y="103" layer="5" width="148" height="28" size="25" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="gainMoneyLabel"/>
+  <Label text="100.309" styleSkin="png.comp.label" x="98" y="196" layer="5" width="196" height="38" size="40" align="left" color="0xffffff" selectable="false" mouseEnabled="false" var="gemLabel" bold="true"/>
+  <Image skin="png.main.sh" x="297" y="423" layer="5" var="foodBtn"/>
+  <Image skin="png.main.water" x="517" y="423" layer="5"/>
+  <Image skin="png.main.goldGainPro" x="334" y="108" layer="5"/>
+</View>

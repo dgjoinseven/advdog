@@ -1,0 +1,28 @@
+
+
+http://liuwei.dev.linjiexian.cn/game/api/queryPrize?token=f3182596bc201282dde4c0d206fd643b&ver=1.0
+
+该接口必须调用，否则没办法初始化用户每天的可转转盘次数
+{
+  "msg": "",  
+  "code": 0,  //当code为0 时正常取data的数据 特殊说明当code=401时跳转到登陆  当code不为0 也不为401时取msg展示  ---针对全局的
+  "data": {
+    "prizeList": [ //奖品数据
+      {
+        "id": "0",
+        "gtype": 0,
+        "prizeType": "1",        //具体奖品类型，注：出奖品就是出的此值
+        "prizeName": "少量金币",  //具体奖品名称
+        "prize": null,
+        "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",   //奖品图片
+        "prizeyesimg": null,     																							//中奖后的奖品图片，只出现在出奖品后才有值
+        "prizeCount": null
+      },
+      {
+        .....
+      },
+      
+    ],
+    "prizeCount": "99998" //剩余可转转盘次数
+  }
+}

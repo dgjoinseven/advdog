@@ -1,0 +1,15 @@
+首页数据对应实体类 GameHomePageDTO
+查询金币值 使用实体类 UserGoldCoinDTO
+间隔领取金币、领取水晶 返回对应的值(字符串);
+购买狗、回收狗 统一使用实体类 DogBuySellDTO
+获取超市数据(商店) 使用实体类 DogSupermarketDTO 、DogSupermarketDetailDTO
+移动狗位置或者狗互换位置 使用实体类 DogChangePositionDTO
+狗合成  使用实体类 DogMergeDTO
+tlbc 购买狗 使用实体类 BuyDogByTlbcDTO
+看视频之前请求获取剩余次数 使用实体类 LookVideoCountDTO
+加速(（1:是tlbc加速60秒 3：狗粮加速）,返回单位秒)
+狗配置数据 使用实体类：DogConfigEntity
+
+
+详见接口swagger-ui文档
+15个接口

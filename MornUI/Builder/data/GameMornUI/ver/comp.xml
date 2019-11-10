@@ -1,0 +1,34 @@
+<lib>
+  <bitmapdata class="png.comp.bg" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\bg.png" compression="false" quality="80" create="1572824678000473"/>
+  <bitmapdata class="png.comp.blank" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\blank.png" compression="false" quality="80" create="1572824678000933"/>
+  <bitmapdata class="png.comp.btn_close" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\btn_close.png" compression="false" quality="80" create="1572824678000938"/>
+  <bitmapdata class="png.comp.button" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\button.png" compression="false" quality="80" create="1572824678000846"/>
+  <bitmapdata class="png.comp.checkbox" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\checkbox.png" compression="false" quality="80" create="1572824678000351"/>
+  <bitmapdata class="png.comp.clip_num" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\clip_num.png" compression="false" quality="80" create="15728246780007364"/>
+  <bitmapdata class="png.comp.clip_selectBox" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\clip_selectBox.png" compression="false" quality="80" create="15728246780001001"/>
+  <bitmapdata class="png.comp.clip_tree_arrow" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\clip_tree_arrow.png" compression="false" quality="80" create="15728246780001007"/>
+  <bitmapdata class="png.comp.clip_tree_folder" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\clip_tree_folder.png" compression="false" quality="80" create="15725347300001113"/>
+  <bitmapdata class="png.comp.combobox" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\combobox.png" compression="false" quality="80" create="1572824678000634"/>
+  <bitmapdata class="png.comp.hscroll$bar" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\hscroll$bar.png" compression="false" quality="80" create="15728246780001339"/>
+  <bitmapdata class="png.comp.hscroll$down" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\hscroll$down.png" compression="false" quality="80" create="15728246780001745"/>
+  <bitmapdata class="png.comp.hscroll$up" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\hscroll$up.png" compression="false" quality="80" create="15728246780001684"/>
+  <bitmapdata class="png.comp.hscroll" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\hscroll.png" compression="false" quality="80" create="15728246780002830"/>
+  <bitmapdata class="png.comp.hslider$bar" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\hslider$bar.png" compression="false" quality="80" create="15728246780001248"/>
+  <bitmapdata class="png.comp.hslider" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\hslider.png" compression="false" quality="80" create="15728246780002913"/>
+  <bitmapdata class="png.comp.image" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\image.png" compression="false" quality="80" create="157253473000061202"/>
+  <bitmapdata class="png.comp.label" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\label.png" compression="false" quality="80" create="15728246780002909"/>
+  <bitmapdata class="png.comp.linkbutton" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\linkbutton.png" compression="false" quality="80" create="15728246780002909"/>
+  <bitmapdata class="png.comp.progress$bar" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\progress$bar.png" compression="false" quality="80" create="1572824678000303"/>
+  <bitmapdata class="png.comp.progress" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\progress.png" compression="false" quality="80" create="1572824678000280"/>
+  <bitmapdata class="png.comp.radio" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\radio.png" compression="false" quality="80" create="15728246780001096"/>
+  <bitmapdata class="png.comp.radiogroup" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\radiogroup.png" compression="false" quality="80" create="15728246780001096"/>
+  <bitmapdata class="png.comp.tab" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\tab.png" compression="false" quality="80" create="15728246780001238"/>
+  <bitmapdata class="png.comp.textarea" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\textarea.png" compression="false" quality="80" create="15728246780001068"/>
+  <bitmapdata class="png.comp.textinput" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\textinput.png" compression="false" quality="80" create="15728246780001068"/>
+  <bitmapdata class="png.comp.vscroll$bar" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\vscroll$bar.png" compression="false" quality="80" create="1572824678000450"/>
+  <bitmapdata class="png.comp.vscroll$down" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\vscroll$down.png" compression="false" quality="80" create="1572824678000736"/>
+  <bitmapdata class="png.comp.vscroll$up" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\vscroll$up.png" compression="false" quality="80" create="1572824678000780"/>
+  <bitmapdata class="png.comp.vscroll" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\vscroll.png" compression="false" quality="80" create="15728246780002825"/>
+  <bitmapdata class="png.comp.vslider$bar" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\vslider$bar.png" compression="false" quality="80" create="15728246780001248"/>
+  <bitmapdata class="png.comp.vslider" file="D:\workscopes\EgretProjects\PetADGame\MornUI\morn\assets\comp\vslider.png" compression="false" quality="80" create="15728246780001052"/>
+</lib>

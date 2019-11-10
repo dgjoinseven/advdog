@@ -1,0 +1,4 @@
+<View width="120" height="106" sceneColor="0xffffff" layers="2,1,1,1,第 2 层;1,1,1,0,第 1 层">
+  <Image skin="png.main.perfect_effect" x="0" y="0" layer="1" var="effectImg"/>
+  <Image skin="png.main.perfect_zhong" x="14" y="10" layer="2" var="ziImg"/>
+</View>

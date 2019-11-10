@@ -1,0 +1,41 @@
+ /**
+     * 大类型
+     * 1.金币
+     * 2.钻石
+     * */
+    private int gtype;
+
+    /**
+     * 奖品类型
+     * 1.少量金币 25%
+     * 2.中量金币 15%
+     * 3.大量金币 10%
+     * 4.海量金币 5%
+     * 5.宝箱X5  13%
+     * 6.宝箱X10  9%
+     * 7.TLBCX5  13%
+     * 8.TLBCX10 10%
+     * */
+    private String prizeType;
+
+
+    /**
+     * 奖品名称
+     * */
+    private String prizeName;
+
+    /**
+     * 奖励数值
+     * */
+    private String prize;
+
+
+    /**
+     * 奖品图片url
+     * */
+    private String prizeImage;
+
+    /**
+     * 中奖后的中奖图
+     * */
+    private String prizeyesimg;

@@ -1,0 +1,4 @@
+{"file":"loading.png","frames":{
+"black_dog":{"x":1,"y":1503,"w":288,"h":366,"offX":0,"offY":18,"sourceW":300,"sourceH":403},
+"dog":{"x":291,"y":1503,"w":288,"h":364,"offX":0,"offY":19,"sourceW":300,"sourceH":403},
+"loading":{"x":1,"y":1,"w":750,"h":1500,"offX":0,"offY":0,"sourceW":750,"sourceH":1500}}}

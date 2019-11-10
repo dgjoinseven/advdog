@@ -1,0 +1,9 @@
+<View width="599" height="300" sceneColor="0xffffff" layers="2,1,2,0,第 2 层;1,1,2,0,第 1 层;4,1,2,0,bg">
+  <Image skin="png.main.dogimg_line" x="71" y="291" layer="4"/>
+  <Label text="技能" styleSkin="png.comp.label" x="295" y="33" layer="1" width="59" height="32" size="25"/>
+  <Label text="XXXXXXX看看" styleSkin="png.comp.label" x="291" y="69" layer="1" width="197" height="48" var="skillLabel" size="20" multiline="true"/>
+  <Label text="获取途径" styleSkin="png.comp.label" x="296" y="121" layer="1" width="105" height="29.6962890625" size="25"/>
+  <Label text="获取途径" styleSkin="png.comp.label" x="294" y="158" layer="1" width="192" height="116" multiline="true" var="desLabel" size="20"/>
+  <Label text="分红狗" styleSkin="png.comp.label" x="62" y="228" layer="2" width="224" height="49" var="nameLabel" size="40" align="center"/>
+  <Image x="169" y="213" layer="2" var="dogImg"/>
+</View>

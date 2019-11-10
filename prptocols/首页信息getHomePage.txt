@@ -1,0 +1,139 @@
+//首页
+http://liuwei.dev.linjiexian.cn/game/api/getHomePage?token=f3182596bc201282dde4c0d206fd643b&ver=1.0
+
+/**
+ * 用户id
+ */
+private Long userId;
+
+/**
+ * 金币数量 带单位
+ */
+private String goldCoin;
+
+/**
+ * TLBC
+ */
+private BigDecimal tlbc;
+
+/**
+ * 开始时间
+ */
+private String startTime;
+
+/**
+ * 服务器时间
+ */
+private String serverTime;
+
+/**
+ * 金币时间间隔 单位小时
+ */
+private Integer intervalTime;
+
+/**
+ * tlbc 时间间隔 单位小时
+ */
+private Integer tlbcIntervalTime;
+
+/**
+ * tlbc 时间间隔 单位小时
+ */
+//private BigDecimal tlbcRate;
+
+/**
+ * tlbc开始时间
+ */
+private String tlbcStartTime;
+
+/**
+ * 排位1狗id
+ */
+private Integer position1;
+
+/**
+ * 排位2狗id
+ */
+private Integer position2;
+
+/**
+ * 排位3狗id
+ */
+private Integer position3;
+
+/**
+ * 排位4狗id
+ */
+private Integer position4;
+
+/**
+ * 排位5狗id
+ */
+private Integer position5;
+
+/**
+ * 排位6狗id
+ */
+private Integer position6;
+
+/**
+ * 排位7狗id
+ */
+private Integer position7;
+
+/**
+ * 排位8狗id
+ */
+private Integer position8;
+
+/**
+ * 排位9狗id
+ */
+private Integer position9;
+
+/**
+ * 排位10狗id
+ */
+private Integer position10;
+
+/**
+ * 排位11狗id
+ */
+private Integer position11;
+
+/**
+ * 排位12狗id
+ */
+private Integer position12;
+
+/**
+ * 狗级别
+ */
+private Integer dogGradeId;
+
+/**
+ * 当前购买价格
+ */
+private BigDecimal currentPrice;
+
+/**
+ * 离线收益,若小于等于0 不显示弹框
+ */
+private String offlineGoldCoin;
+
+
+
+/**
+ * tlbc 量
+ */
+private List<BigDecimal> tlbcLists;
+
+/**
+ * 最高等级宠物名称
+ */
+private String maxLevelName;
+
+/**
+ * 最高宠物等级
+ */
+private Integer maxLevel;

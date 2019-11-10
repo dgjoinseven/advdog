@@ -1,0 +1,7 @@
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/main/SpeedUp.png" layers="2,1,0,0,第 2 层;1,0,0,1,第 1 层">
+  <Image skin="png.main.alert_bg" x="63" y="358" layer="1"/>
+  <Button skin="png.main.btn_addSpeed_apcc" x="172" y="472" layer="2" stateNum="1" var="add60Btn"/>
+  <Button skin="png.main.btn_addSpeed_video" x="172" y="657" layer="2" stateNum="1" var="add200Btn"/>
+  <Image skin="png.main.title_speedup" x="155" y="315" layer="2"/>
+  <Button skin="png.main.btn_close" x="645" y="281" layer="2" stateNum="1" var="closeBtn"/>
+</View>

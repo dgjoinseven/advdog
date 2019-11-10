@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<!-- 插件描述，必须完整 -->
+	<plugin>
+		<!-- 插件名称，会显示在插件菜单内 -->
+		<name>发布</name>
+		<!-- 插件资源名称 -->
+		<file>BlackHoleTools.swf</file>
+		<!-- 插件包名，调用的入口，执行时调用下面类的start方法 -->
+		<start>BlackHoleTools</start>
+		<!-- 快捷键(Keyboard对应的数字)，不能与编辑器快捷键冲突 -->
+		<shortcut ctrl="true" shift="true">71</shortcut>
+		<!-- 插件说明及作者信息 -->
+		<intro>本插件可以一键帮你写完一周要写的代码！我反正是信了！</intro>
+	</plugin>
+	<!-- 插件自身配置，可根据自己需求配置 -->
+	<setting>
+		<!--
+			此值代表编辑器使用者的昵称，每台电脑上运行的编辑器用的昵称不应该相同，
+			为了方便识别可以直接用自己的真名
+			注意：要在SVN上传的时候的界面在这个config.xml上点右键
+			选Move to changelist > ignore-on-commit
+		 -->
+		<nickname>soda</nickname>
+		<!-- 工程名称：游戏项目 -->
+		<projectName>游戏项目</projectName>
+		<!-- 是否同时做两个项目的工程里 -->
+		<isDoubleProject>false</isDoubleProject>
+		<!-- E:/LinLong/sango/code/client/svnres/default/MornUI/ -->
+		<mornUrl>G:/workscopes/EgretProjects/PetADGame/MornUI/</mornUrl>
+		<!-- 代码导出路径 -->
+		<uiCodePath>G:/workscopes/EgretProjects/PetADGame/src/game</uiCodePath>
+		<pkUrl>D:/Program Files/Egret/TextureMerger</pkUrl>
+		<!-- 资源导出的全路径 -->
+		<resExportUrl>G:/workscopes/EgretProjects/PetADGame/resource/mornui/</resExportUrl>
+		<!-- 生成layoutJson的路径 -->
+		<layoutJsonPath>G:/workscopes/EgretProjects/PetADGame/resource/mornui/</layoutJsonPath>
+		<!-- 资源导出的相对路径 -->
+		<resExportPath>resource/mornui/</resExportPath>
+		<codeType>ts</codeType>
+	</setting>
+</root>

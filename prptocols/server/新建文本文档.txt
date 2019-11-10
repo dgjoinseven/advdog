@@ -1,0 +1,3 @@
+首页获取数据、回收狗、更改狗的位置、狗合成 都是使用 GameHomePageDTO这个实体类
+狗超市(商店) 是返回实体类 DogSupermarketDTO 下面包含List<DogSupermarketDetailDTO>。
+查询金币值、间隔领取金币、领取水晶 都是返回具体的值(String)

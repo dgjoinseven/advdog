@@ -1,0 +1,7 @@
+namespace {pack} 
+{
+	export class {name}UI extends morn.View
+	{
+		{var}
+	}
+}

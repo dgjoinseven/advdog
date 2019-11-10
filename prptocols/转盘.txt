@@ -1,0 +1,79 @@
+http://liuwei.dev.linjiexian.cn/game/api/queryPrize?token=f3182596bc201282dde4c0d206fd643b&ver=1.0
+{
+    "prizeCount": "5",
+    "code": 0,
+    "data": [
+        {
+            "id": "0",
+            "gtype": 0,
+            "prizeType": "1",
+            "prizeName": "少量金币",
+            "prize": null,
+            "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",
+            "prizeyesimg": null
+        },
+        {
+            "id": "0",
+            "gtype": 0,
+            "prizeType": "2",
+            "prizeName": "中量金币",
+            "prize": null,
+            "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",
+            "prizeyesimg": null
+        },
+        {
+            "id": "0",
+            "gtype": 0,
+            "prizeType": "3",
+            "prizeName": "大量金币",
+            "prize": null,
+            "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",
+            "prizeyesimg": null
+        },
+        {
+            "id": "0",
+            "gtype": 0,
+            "prizeType": "4",
+            "prizeName": "海量金币",
+            "prize": null,
+            "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",
+            "prizeyesimg": null
+        },
+        {
+            "id": "0",
+            "gtype": 0,
+            "prizeType": "5",
+            "prizeName": "宝箱X5",
+            "prize": null,
+            "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",
+            "prizeyesimg": null
+        },
+        {
+            "id": "0",
+            "gtype": 0,
+            "prizeType": "6",
+            "prizeName": "宝箱X10 ",
+            "prize": null,
+            "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",
+            "prizeyesimg": null
+        },
+        {
+            "id": "0",
+            "gtype": 0,
+            "prizeType": "7",
+            "prizeName": "TLBCX5",
+            "prize": null,
+            "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",
+            "prizeyesimg": null
+        },
+        {
+            "id": "0",
+            "gtype": 0,
+            "prizeType": "8",
+            "prizeName": "TLBCX10",
+            "prize": null,
+            "prizeImage": "https://tcshop-1257933730.cos.ap-guangzhou.myqcloud.com/goodsImg/20190902/618026924291129344.jpg",
+            "prizeyesimg": null
+        }
+    ]
+}

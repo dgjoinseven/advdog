@@ -1,0 +1,11 @@
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/merge/MoneyPetMerge.png" layers="3,1,1,0,第 3 层;2,1,1,0,第 2 层;1,0,1,1,第 1 层">
+  <Image skin="png.main.bg.money_bg" x="109" y="344" layer="1"/>
+  <Image skin="png.main.money_zhong" x="120" y="437" layer="2" var="img39"/>
+  <Image skin="png.main.money_yong" x="169" y="710" layer="2" var="img41"/>
+  <Image skin="png.main.money_zhi" x="538" y="463" layer="2" var="img40"/>
+  <Image skin="png.main.money_meng" x="321" y="323" layer="2" var="img38"/>
+  <Image skin="png.main.money_fu" x="472" y="714" layer="2" var="img42"/>
+  <Button skin="png.main.btn_money" x="316" y="548" layer="3" stateNum="1" var="mergeBtn"/>
+  <Button skin="png.main.btn_close" x="600" y="289" layer="3" stateNum="1" var="closeBtn"/>
+  <Image skin="png.main.title_money" x="155" y="223" layer="3"/>
+</View>

@@ -1,0 +1,5 @@
+<View width="149" height="45" sceneColor="0xffffff" layers="3,1,0,0,第 3 层;1,1,0,0,第 1 层;2,1,0,1,第 2 层">
+  <Image skin="png.main.sliderbg" x="0" y="0" layer="2"/>
+  <Image skin="png.main.sliderband" x="8" y="5" layer="1"/>
+  <Image skin="png.main.shop_point" x="78" y="-12" layer="3"/>
+</View>

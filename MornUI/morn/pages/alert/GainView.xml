@@ -1,0 +1,15 @@
+<View width="750" height="1400" sceneColor="0xffffff" layers="10,1,0,0,第 10 层;9,1,0,0,title;2,1,0,0,text;4,1,0,1,bg2;7,1,0,1,第 7 层;6,1,0,1,第 6 层;5,1,0,1,item;8,1,0,0,itembg;1,1,0,1,第 1 层" visible="true">
+  <Image skin="png.main.alert_bg" x="63" y="358" layer="1"/>
+  <Image skin="png.main.bg.gold_effect_bg" x="357" y="570" layer="8" var="effectImg" anchorX="0.5" anchorY="0.5"/>
+  <Image skin="png.main.gold_3" x="239" y="438" layer="5" var="goldImg1"/>
+  <Image skin="png.main.gold_2" x="241" y="467" layer="6" var="goldImg2" visible="false"/>
+  <Image skin="png.main.gold_1" x="262" y="481" layer="7" var="goldImg3" visible="false"/>
+  <Image skin="png.main.window_gold_bg" x="217" y="685" layer="4"/>
+  <Label text="1700、0t" styleSkin="png.comp.label" x="221" y="699" layer="2" width="299" height="40" bold="true" size="40" var="gainLabel" align="center"/>
+  <Label text="恭喜获得" styleSkin="png.comp.label" x="117" y="15" layer="2" width="133" height="32" bold="true" size="25"/>
+  <Label text="每天晚上20点重置视频次数(剩余14次)" styleSkin="png.comp.label" x="184" y="848" layer="2" width="397" height="24" size="20" color="0xffffff" align="center" var="tipLabel" visible="false"/>
+  <Button skin="png.main.btn_look" x="172" y="767" layer="2" stateNum="1" var="videoBtn" visible="false"/>
+  <Image skin="png.main.title_gain_gold" x="155" y="315" layer="9" var="titleImg"/>
+  <Button skin="png.main.btn_close" x="645" y="280" layer="9" stateNum="1" var="closeBtn"/>
+  <Button skin="png.main.btn_sure" x="261" y="759" layer="10" stateNum="1" var="sureBtn"/>
+</View>

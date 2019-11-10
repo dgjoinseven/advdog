@@ -1,0 +1,43 @@
+http://liuwei.dev.linjiexian.cn/game/game/plate/list?token=f3182596bc201282dde4c0d206fd643b&ver=1.0
+
+{
+    "code": 0,
+    "data": [
+        {
+            "id": "3",
+            "plateName": "算力狗",
+            "skill": "持有额外增益500算力，提高TLBC产量",
+            "description": "两只37级宠物狗合成概率获得;&若回收，则算了增益效果消失",
+            "plateImage": null,
+            "mark": null,
+            "createby": null,
+            "createat": "2019-10-17 16:05:43",
+            "updateby": null,
+            "updateat": "2019-10-17 16:07:05"
+        },
+        {
+            "id": "2",
+            "plateName": "红包狗",
+            "skill": "100%获得5-10元现金红包(可提现)",
+            "description": "两只37级宠物狗合成概率获得;&拖动到回收箱即可领取红包",
+            "plateImage": null,
+            "mark": null,
+            "createby": null,
+            "createat": "2019-10-17 16:04:23",
+            "updateby": null,
+            "updateat": "2019-10-17 16:07:03"
+        },
+        {
+            "id": "1",
+            "plateName": "分红狗",
+            "skill": "每天获得宠物世界广告收益分红20%",
+            "description": "两只37级宠物狗合成油概率获得;&福禄寿喜财五只合体100%获得;",
+            "plateImage": "1",
+            "mark": "限量",
+            "createby": "1",
+            "createat": "2019-10-15 21:41:54",
+            "updateby": "1",
+            "updateat": "2019-10-17 16:03:11"
+        }
+    ]
+}

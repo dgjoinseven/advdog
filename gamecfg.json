@@ -1,0 +1,17 @@
+{
+	"debug": true,
+	"showLog": -1,
+	"openVConsole":false,
+	"isPlatform": false,
+	"cfgVersion": "2019111103",
+	"loadingSpeed":2,
+	"version": "2019111103",
+	"server": "http://liuwei.dev.linjiexian.cn/game/",
+	"token":"3f115648ca388d4ba8d793e4db02cef6",
+	"httpVer":"1.0",
+	"howGameUrl":["/web/gameplay.html","怎么玩"],
+	"activeUrl":["/web/activity.html","活动"],
+	"msgUrl":["/web/systemmessage.html","消息"],
+	"fenHongUrl":["/web/bonusbetails.html","分红详情"],
+	"assets": "resource/"
+}

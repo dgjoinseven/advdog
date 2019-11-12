@@ -232,8 +232,9 @@ namespace game {
         open(param?: any): void {
             let c = this.container;
             super.open(param);
-            this.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
-            this.onResize(null);
+            //目前这里好像不需要使用到自动适应，先屏蔽掉
+            // this.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
+            // this.onResize(null);
             //关闭游戏层
             // if (this.isCloseScene)
             //     this.session.currentScene.visible = false;
@@ -242,14 +243,14 @@ namespace game {
         }
 
         close(): void {
-            this.openFlag = false;//wangning
+            this.openFlag = false;
             // if(this.isClose)
             //     return ;
             if (!this.isOpen)
                 return;
             // console.log(this.name + "进行关闭");
-            if (this.stage)
-                this.stage.removeEventListener(egret.Event.RESIZE, this.onResize, this);
+            // if (this.stage)
+            //     this.stage.removeEventListener(egret.Event.RESIZE, this.onResize, this);
 
             //关闭游戏层
             // if (this.isCloseScene)

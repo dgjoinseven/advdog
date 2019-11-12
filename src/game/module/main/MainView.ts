@@ -25,6 +25,10 @@ namespace game
          */
         private mergeDogLv:number;
         speedControl:SpeedControl;
+        /**
+         * 专门给宠物做容器的地方
+         */
+        petContainer:egret.Sprite;
         public constructor()
         {
             super();
@@ -35,6 +39,8 @@ namespace game
             //预加载了就不需要设置
             // this.setUIRes("main");
         }
+
+
 
         public initLayoutJson(completeCallback: asf.CallBack): void
         {
@@ -92,7 +98,20 @@ namespace game
             this.container.goldLabel.anchorOffsetY = this.container.goldLabel.height / 2;
 
             this.speedControl = new SpeedControl(this);
+            
 
+            this.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
+            this.onResize(null); 
+            this.petContainer = new egret.Sprite();
+            this.container.addChild(this.petContainer);
+            this.container.addChild(this.container.bottomBox);
+        }
+
+        protected onResize(e: egret.Event): void 
+        {
+            console.info("舞台的stage.stageHeight：" + this.stage.stageHeight);
+            //子类重写
+            this.container.bottomBox.y = this.stage.stageHeight - 160 - this.session.config.mainBottomY;
         }
         /**
          * 更新狗狗每秒产出的金币
@@ -292,7 +311,8 @@ namespace game
                     {
                         showUI.update(lv);
                     }
-                    this.container.addChild(showUI);
+                    this.petContainer.addChild(showUI);
+                    // this.container.addChild(showUI);
                 }
             }
         }

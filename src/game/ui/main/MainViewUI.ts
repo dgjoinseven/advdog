@@ -2,7 +2,7 @@ namespace ui
 {
 	export class MainViewUI extends morn.View
 	{
-		public imgDogBtn:morn.Button;		public fenHongBtn:morn.Button;		public howBtn:morn.Button;		public transferBtn:morn.Button;		public msgBtn:morn.Button;		public activityBtn:morn.Button;		public steupBtn:morn.Button;		public dogBtn:morn.Button;		public waterDogBtn:morn.Button;		public inviteBtn:morn.Button;		public jiaSuBtn:morn.Button;		public shopBtn:morn.Button;		public restBtn:morn.Button;		public myDogBtn:morn.Button;		public timeGoldLabel:morn.Label;		public goldLabel:morn.Label;		public rateLabel:morn.Label;		public gainMoneyLabel:morn.Label;		public gemLabel:morn.Label;		public foodBtn:morn.Image;		public speedTimeLabel:morn.Label;		
+		public imgDogBtn:morn.Button;		public fenHongBtn:morn.Button;		public howBtn:morn.Button;		public transferBtn:morn.Button;		public msgBtn:morn.Button;		public activityBtn:morn.Button;		public steupBtn:morn.Button;		public dogBtn:morn.Button;		public waterDogBtn:morn.Button;		public myDogBtn:morn.Button;		public timeGoldLabel:morn.Label;		public goldLabel:morn.Label;		public rateLabel:morn.Label;		public gainMoneyLabel:morn.Label;		public gemLabel:morn.Label;		public foodBtn:morn.Image;		public bottomBox:morn.Box;		public inviteBtn:morn.Button;		public jiaSuBtn:morn.Button;		public shopBtn:morn.Button;		public restBtn:morn.Button;		public speedTimeLabel:morn.Label;		
 		public constructor()
 		{
 			super();
@@ -23,27 +23,13 @@ namespace ui
 			n1.skin = morn.Morn.ResUrl + "main/bg/bom.jpg"
 			n1.x = 0
 			n1.y = 0
-			var n2:morn.Image = new morn.Image
+			var n2:morn.Box = new morn.Box
 			this.addChild(n2)
-			n2.skin = "main_json.blank"
-			n2.x = 0
-			n2.y = 0
-			n2.width = 752
-			n2.height = 543
+			n2.x = 17
+			n2.y = 160
 			var n3:morn.Image = new morn.Image
-			this.addChild(n3)
-			n3.skin = "main_json.blank"
-			n3.x = 0
-			n3.y = 0
-			n3.width = 752
-			n3.height = 543
-			var n4:morn.Box = new morn.Box
-			this.addChild(n4)
-			n4.x = 17
-			n4.y = 160
-			var n5:morn.Image = new morn.Image
-			n4.addChild(n5)
-			n5.skin = "main_json.apcc_bg"
+			n2.addChild(n3)
+			n3.skin = "main_json.apcc_bg"
 			t.imgDogBtn = new morn.Button
 			this.addChild(t.imgDogBtn)
 			t.imgDogBtn.skin = "main_json.btn_dogImg"
@@ -56,11 +42,11 @@ namespace ui
 			t.fenHongBtn.x = 24
 			t.fenHongBtn.y = 47
 			t.fenHongBtn.stateNum = 1
-			var n6:morn.Image = new morn.Image
-			this.addChild(n6)
-			n6.skin = "main_json.gold_bg"
-			n6.x = 23
-			n6.y = 424
+			var n4:morn.Image = new morn.Image
+			this.addChild(n4)
+			n4.skin = "main_json.gold_bg"
+			n4.x = 23
+			n4.y = 424
 			t.howBtn = new morn.Button
 			this.addChild(t.howBtn)
 			t.howBtn.skin = "main_json.btn_howgame"
@@ -103,30 +89,6 @@ namespace ui
 			t.waterDogBtn.x = 516
 			t.waterDogBtn.y = 422
 			t.waterDogBtn.stateNum = 1
-			t.inviteBtn = new morn.Button
-			this.addChild(t.inviteBtn)
-			t.inviteBtn.skin = "main_json.btn_yqjuan"
-			t.inviteBtn.x = 41
-			t.inviteBtn.y = 1190
-			t.inviteBtn.stateNum = 1
-			t.jiaSuBtn = new morn.Button
-			this.addChild(t.jiaSuBtn)
-			t.jiaSuBtn.skin = "main_json.btn_jiaSu"
-			t.jiaSuBtn.x = 226
-			t.jiaSuBtn.y = 1190
-			t.jiaSuBtn.stateNum = 1
-			t.shopBtn = new morn.Button
-			this.addChild(t.shopBtn)
-			t.shopBtn.skin = "main_json.btn_shop"
-			t.shopBtn.x = 413
-			t.shopBtn.y = 1189
-			t.shopBtn.stateNum = 1
-			t.restBtn = new morn.Button
-			this.addChild(t.restBtn)
-			t.restBtn.skin = "main_json.btn_rest"
-			t.restBtn.x = 621
-			t.restBtn.y = 1182
-			t.restBtn.stateNum = 1
 			t.myDogBtn = new morn.Button
 			this.addChild(t.myDogBtn)
 			t.myDogBtn.skin = "main_json.btn_dog1_5"
@@ -200,21 +162,47 @@ namespace ui
 			t.foodBtn.skin = "main_json.sh"
 			t.foodBtn.x = 297
 			t.foodBtn.y = 423
-			var n7:morn.Image = new morn.Image
-			this.addChild(n7)
-			n7.skin = "main_json.water"
-			n7.x = 517
-			n7.y = 423
-			var n8:morn.Image = new morn.Image
-			this.addChild(n8)
-			n8.skin = "main_json.goldGainPro"
-			n8.x = 334
-			n8.y = 108
+			var n5:morn.Image = new morn.Image
+			this.addChild(n5)
+			n5.skin = "main_json.water"
+			n5.x = 517
+			n5.y = 423
+			var n6:morn.Image = new morn.Image
+			this.addChild(n6)
+			n6.skin = "main_json.goldGainPro"
+			n6.x = 334
+			n6.y = 108
+			t.bottomBox = new morn.Box
+			this.addChild(t.bottomBox)
+			t.bottomBox.x = 41
+			t.bottomBox.y = 1146
+			t.inviteBtn = new morn.Button
+			this.bottomBox.addChild(t.inviteBtn)
+			t.inviteBtn.skin = "main_json.btn_yqjuan"
+			t.inviteBtn.y = 44
+			t.inviteBtn.stateNum = 1
+			t.jiaSuBtn = new morn.Button
+			this.bottomBox.addChild(t.jiaSuBtn)
+			t.jiaSuBtn.skin = "main_json.btn_jiaSu"
+			t.jiaSuBtn.x = 185
+			t.jiaSuBtn.y = 44
+			t.jiaSuBtn.stateNum = 1
+			t.shopBtn = new morn.Button
+			this.bottomBox.addChild(t.shopBtn)
+			t.shopBtn.skin = "main_json.btn_shop"
+			t.shopBtn.x = 372
+			t.shopBtn.y = 43
+			t.shopBtn.stateNum = 1
+			t.restBtn = new morn.Button
+			this.bottomBox.addChild(t.restBtn)
+			t.restBtn.skin = "main_json.btn_rest"
+			t.restBtn.x = 580
+			t.restBtn.y = 36
+			t.restBtn.stateNum = 1
 			t.speedTimeLabel = new morn.Label
-			this.addChild(t.speedTimeLabel)
+			this.bottomBox.addChild(t.speedTimeLabel)
 			t.speedTimeLabel.text = "200"
-			t.speedTimeLabel.x = 233
-			t.speedTimeLabel.y = 1146
+			t.speedTimeLabel.x = 192
 			t.speedTimeLabel.width = 157
 			t.speedTimeLabel.height = 40
 			t.speedTimeLabel.size = 30

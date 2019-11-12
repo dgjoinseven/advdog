@@ -52,6 +52,10 @@ declare module game
          */
         howGameUrl:string[];
         /**
+         * 首页底板偏移的Y值
+         */
+        mainBottomY:number;
+        /**
          * 分红
          */
         fenHongUrl:string[];

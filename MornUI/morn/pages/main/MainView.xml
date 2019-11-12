@@ -1,4 +1,4 @@
-<View width="750" height="1500" sceneColor="0xffffff" sceneBg="morn/views/main.png" layers="5,1,0,0,text;3,1,0,1,button;2,1,0,1,smallBg;6,1,0,1,透明底板;4,0,0,0,bg">
+<View width="750" height="1500" sceneColor="0xffffff" sceneBg="morn/views/main.png" layers="5,1,2,0,text;3,1,2,0,button;2,1,2,0,smallBg;6,1,2,0,透明底板;4,0,2,0,bg">
   <Image skin="jpg.main.bg.bom" x="0" y="0" layer="4"/>
   <Image skin="png.main.blank" x="0" y="0" layer="6" width="752" height="543"/>
   <Image skin="png.main.blank" x="0" y="0" layer="6" width="752" height="543"/>
@@ -15,10 +15,6 @@
   <Button skin="png.main.btn_steup" x="605" y="285" layer="3" stateNum="1" var="steupBtn"/>
   <Button skin="png.main.btn_dog" x="299" y="422" layer="3" stateNum="1" var="dogBtn"/>
   <Button skin="png.main.btn_water" x="516" y="422" layer="3" stateNum="1" var="waterDogBtn"/>
-  <Button skin="png.main.btn_yqjuan" x="41" y="1190" layer="3" var="inviteBtn" stateNum="1"/>
-  <Button skin="png.main.btn_jiaSu" x="226" y="1190" layer="3" stateNum="1" var="jiaSuBtn"/>
-  <Button skin="png.main.btn_shop" x="413" y="1189" layer="3" stateNum="1" var="shopBtn"/>
-  <Button skin="png.main.btn_rest" x="621" y="1182" layer="3" stateNum="1" var="restBtn"/>
   <Button skin="png.main.btn_dog1_5" x="605" y="47" layer="3" stateNum="1" var="myDogBtn"/>
   <Label text="13.5t/秒" styleSkin="png.comp.label" x="109" y="478" layer="5" width="148" height="28" size="25" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="timeGoldLabel"/>
   <Label styleSkin="png.comp.label" x="101" y="435" layer="5" width="170" height="36" size="35" align="center" color="0x0" bold="true" text="1235.5 t" selectable="false" mouseEnabled="false" var="goldLabel"/>
@@ -28,5 +24,11 @@
   <Image skin="png.main.sh" x="297" y="423" layer="5" var="foodBtn"/>
   <Image skin="png.main.water" x="517" y="423" layer="5"/>
   <Image skin="png.main.goldGainPro" x="334" y="108" layer="5"/>
-  <Label text="200" styleSkin="png.loading.label" x="233" y="1146" layer="5" width="157" height="40" size="30" color="0x0" align="center" var="speedTimeLabel" visible="false" bold="true"/>
+  <Box layers="1,1,0,0,第 1 层" layer="5" x="41" y="1146" var="bottomBox">
+    <Button skin="png.main.btn_yqjuan" y="44" layer="1" var="inviteBtn" stateNum="1"/>
+    <Button skin="png.main.btn_jiaSu" x="185" y="44" layer="1" stateNum="1" var="jiaSuBtn"/>
+    <Button skin="png.main.btn_shop" x="372" y="43" layer="1" stateNum="1" var="shopBtn"/>
+    <Button skin="png.main.btn_rest" x="580" y="36" layer="1" stateNum="1" var="restBtn"/>
+    <Label text="200" styleSkin="png.loading.label" x="192" layer="1" width="157" height="40" size="30" color="0x0" align="center" var="speedTimeLabel" visible="false" bold="true"/>
+  </Box>
 </View>

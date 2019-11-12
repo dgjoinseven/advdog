@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "main_json",
+			"keys": "main_json,comp_json",
 			"name": "preload"
 		},
 		{

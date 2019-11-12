@@ -13,5 +13,11 @@
     "include": [
         "src",
         "libs"
+    ],
+
+    "exclude": [
+        "resource",
+        "libs/vconsole.min.js",
+        "decimal.min.js"
     ]
 }

@@ -50,21 +50,21 @@ class Main extends egret.DisplayObjectContainer {
         //图片跨域
         egret.ImageLoader.crossOrigin = "anonymous";
 
-        egret.lifecycle.addLifecycleListener((context) => {
-            // custom lifecycle plugin
+        // egret.lifecycle.addLifecycleListener((context) => {
+        //     // custom lifecycle plugin
 
-            context.onUpdate = () => {
+        //     context.onUpdate = () => {
 
-            }
-        })
+        //     }
+        // })
 
-        egret.lifecycle.onPause = () => {
-            egret.ticker.pause();
-        }
+        // egret.lifecycle.onPause = () => {
+        //     egret.ticker.pause();
+        // }
 
-        egret.lifecycle.onResume = () => {
-            egret.ticker.resume();
-        }
+        // egret.lifecycle.onResume = () => {
+        //     egret.ticker.resume();
+        // }
 
         try
         {
@@ -99,7 +99,11 @@ class Main extends egret.DisplayObjectContainer {
         } 
         return params;
     }
-
+    /**
+         * 是否暂时游戏
+         */
+    private isPauseGame:boolean;
+    private pauseGameKey:number;
     private async runGame() 
     {
         //初始化游戏使用到的必须池库
@@ -115,6 +119,23 @@ class Main extends egret.DisplayObjectContainer {
          //初始化游戏的正式内容
         this.gameMain = new game.GameMain(this.configBean,this);
         this.gameMain.init();
+
+        egret.lifecycle.onPause = () =>
+         {
+            console.info("焦点离开");
+            egret.ticker.pause();
+            game.SoundMgr.stopAll();
+            // game.Session.instance.isPauseGame = true;
+            // game.Session.instance.pauseGameKey = asf.App.timeMgr.doOnce();
+        }
+
+        egret.lifecycle.onResume = () => 
+        {
+            console.info("焦点获得");
+            egret.ticker.resume();
+            game.SoundMgr.playAll();
+        }
+
         // this.createGameScene();
         // const result = await RES.getResAsync("description_json");
         // this.startAnimation(result);
@@ -125,6 +146,18 @@ class Main extends egret.DisplayObjectContainer {
     
         //测试一下动画看看吧
         // game.MovieMgr.getInstance().load("lvUp", this.configBean.assets + "effect/lvUp/lvUp", new asf.CallBack(this.testMovie,this));
+    }
+    pauseGame():void
+    {
+        this.isPauseGame = true;
+        this.pauseGameKey = asf.App.timeMgr.doOnce(100,this.onPauseGame,this,this.pauseGameKey);
+    }
+    private onPauseGame():void
+    {
+        if(this.isPauseGame)
+        {
+            game.SoundMgr.stopAll();
+        }
     }
 
     // protected mc: egret.MovieClip;
@@ -184,7 +217,7 @@ class Main extends egret.DisplayObjectContainer {
         if(this.configBean.server && this.configBean.server != "")
             game.HttpManager.urlHead = this.configBean.server;
 
-        
+
         //是否需要显示手机查看控制
         if(this.configBean.openVConsole)
         {
@@ -268,9 +301,12 @@ class Main extends egret.DisplayObjectContainer {
             versionController.setVersion(null, this.configBean.cfgVersion, this.configBean.version);
 
             //先加载loading资源
-            await RES.loadGroup("loading", 0);
-            this.loadingView = new LoadingView();
-            this.stage.addChild(this.loadingView);
+            // await RES.loadGroup("loading", 0);
+            // this.loadingView = new LoadingView();
+            // this.stage.addChild(this.loadingView);
+            //关闭掉外面的loading
+            window["isReadyOver"] = true;
+
             await RES.loadGroup("preload", 0, this.loadingView);
             this.stage.removeChild(this.loadingView);
             this.loadingView.closeLoading();

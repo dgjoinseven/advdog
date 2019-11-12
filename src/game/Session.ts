@@ -21,6 +21,15 @@ namespace game
         /** 舞台高度偏移量 */
         /** 游戏配置数据 **/
         config: ConfigBean;
+        /**
+         * 主函数，不轻易使用
+         */
+        main:Main;
+        /**
+         * 是否暂时游戏
+         */
+        isPauseGame:boolean;
+        pauseGameKey:number;
         
 
         /**游戏的图标 */

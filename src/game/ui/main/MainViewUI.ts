@@ -218,9 +218,10 @@ namespace ui
 			t.speedTimeLabel.width = 157
 			t.speedTimeLabel.height = 40
 			t.speedTimeLabel.size = 30
-			t.speedTimeLabel.color = 0xffffff
+			t.speedTimeLabel.color = 0x0
 			t.speedTimeLabel.align = "center"
 			t.speedTimeLabel.visible = false
+			t.speedTimeLabel.bold = true
 			
 			
 			

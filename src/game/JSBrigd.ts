@@ -70,10 +70,15 @@ namespace game
             这里看转盘次数不够看激励视频，openShowAd('1') 方法，记得传1
 
             */
-
+            console.info("初始化app的桥");
             //重新对win进行赋值
             let win:any = window;
             this.win = win;
+
+            console.info("初始化app的桥:" + win);
+            console.info("win.navigator:" + navigator);
+            console.info("win.jsbridge:" + win.jsbridge);
+            // if(win.navigator)
 
             var u = navigator.userAgent;
             win.isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
@@ -95,7 +100,9 @@ namespace game
                     );
                 }
                 
-                if (win.isIOS) {
+                if (win.isIOS) 
+                {
+                    console.info("ios初始化");
                     if (win.WKWebViewJavascriptBridge) { return callback(win.WKWebViewJavascriptBridge); }
                     if (win.WKWVJBCallbacks) { return win.WKWVJBCallbacks.push(callback); }
                     win.WKWVJBCallbacks = [callback];
@@ -109,7 +116,7 @@ namespace game
                     win.webkit.messageHandlers.iOS_Native_InjectJavascript.postMessage(null)
 
                     
-                    
+                    console.info("ios初始化完成");
                 }
             }
 

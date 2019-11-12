@@ -28,5 +28,5 @@
   <Image skin="png.main.sh" x="297" y="423" layer="5" var="foodBtn"/>
   <Image skin="png.main.water" x="517" y="423" layer="5"/>
   <Image skin="png.main.goldGainPro" x="334" y="108" layer="5"/>
-  <Label text="200" styleSkin="png.loading.label" x="233" y="1146" layer="5" width="157" height="40" size="30" color="0xffffff" align="center" var="speedTimeLabel" visible="false"/>
+  <Label text="200" styleSkin="png.loading.label" x="233" y="1146" layer="5" width="157" height="40" size="30" color="0x0" align="center" var="speedTimeLabel" visible="false" bold="true"/>
 </View>

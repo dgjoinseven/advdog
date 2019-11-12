@@ -13,16 +13,86 @@
     <style>
         html, body {
             -ms-touch-action: none;
-            background: #888888;
+            background: #000000;
             padding: 0;
             border: 0;
             margin: 0;
             height: 100%;
+            width: 100%;
+        }
+        .loading.g1 .t1 {
+            text-align: center;
+            margin-top: 0.7em;
+        }
+        .loading.g1 .t1 p {
+            margin: 0 0 0.24414063em;
+            font-size: 0.9em;
+            font-family: "Microsoft YaHei";
+            color: #573b3b;
+        }
+        .loading.g1 .t1 p span {
+            color: #efd332;
+            font-size: 1.2em;
+        }
+        .loading.g1 .t1 p.blue {
+            color: #00c0ff;
+        }
+        .pic1 {
+            background: url("assets/loading.jpg") no-repeat;
+            /*width: 20em;
+            height: 12em;*/
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            position: relative;
+            /*top:2%;*/
+            /*margin-top: 20%;*/
+        }
+        .loading .loading-progress {
+            margin-top: 8vh;
+        }
+        .loading .loading-into-info{
+            color: #000000;
+            position: absolute;
+            top: 0.625em;
+            right: 0.625em;
+            width: 12.5em;
+            height: 6.5625em;
+            overflow: hidden;
+        }
+        .loading .loading-into-info-list{
+            position: relative;
+            text-align: left;
+            top: 5em;
+        }
+        .loading .loading-into-info-list span{
+            font-size: 1em;
         }
     </style>
 </head>
 
-<body>
+<body onload="ready()">
+    <div class="loading g1" id='loadingUi' style='overflow: hidden; margin: auto;width: 100%;height: 100%;position:absolute;z-index:2;background-color: white;'>
+        <div class="pic1"></div>
+        <div id="prossDiv" style="display: none;width: 100%;height: 100%;position:relative;top:-30%;">
+        <div class="loading-progress">
+            <div class="loading-progress-bar">
+                <div class="loading-progress-finish" id='loadingBar'></div>
+                <!--<div class="loading-progress-hw"></div>-->
+                <!--<div class="loading-progress-effect" id="effect"></div>-->
+            </div>
+        </div>
+        <div class="t1" style="position:relative;bottom:8%;">
+            <p class="006eff">正在加载游戏……</p>
+        </div>
+        <div class="loading-into-info">
+            <div class="loading-into-info-list">
+            </div>
+        </div>
+        </div>
+    </div>
     <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
          data-entry-class="Main"
          data-orientation="portrait"
@@ -36,6 +106,82 @@
          data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
     </div>
 <script>
+
+    isReadyOver = false;
+    function ready() {  
+        var progressInterID;
+        window["platform"] = "egret";
+        var loadingUi = document.getElementById('loadingUi');
+        var lbar = document.getElementById('loadingBar');
+        var t1 = document.getElementsByClassName("t1")[0].firstElementChild;
+        // var effect = document.getElementById('effect');
+        document.getElementById('prossDiv').style.display = "block";
+        var loadpercent = 0;
+        var loadpercent1 = 0;
+        var maxWidth = 356;
+        var percent = 0.6;
+        var percent1 = 0.1;
+        var tempTime = 0;
+        var rateTime = 10;
+        var lbIndex = 0;
+        var showLbList = ["正在加载游戏资源……","首次加载游戏耗时较长，请耐心等待","正在解析配置，请等待"];
+        if (location.search.search("login_type=guest") > 0) {
+            var pic1 = document.getElementsByClassName("pic1")[0];
+            pic1.className = "pic2";
+            var pic1 = document.getElementsByClassName("loading-progress")[0];
+            pic1.className = "loading-progress1";
+        }
+        // var prefixStr = "每分钟就会爆发<span>8次</span>大规模团战";
+        var prefixStr = showLbList[lbIndex];
+
+        overLoad = function () {
+            console.log("index overLoad");
+            clearInterval(progressInterID);
+            // effect.style.visibility = 'hidden';
+            lbar.style.width = "99.5%";
+            t1.innerHTML = prefixStr;
+            if (loadingUi.parentNode)
+                loadingUi.parentNode.removeChild(loadingUi);
+        }
+
+        var tick = function () {
+            tempTime += rateTime;
+            if (tempTime >= 1000) {
+                // prefixStr = "还有<span>5秒</span>即可进入游戏";
+                lbIndex ++ ;
+                if(lbIndex > 2)
+                    lbIndex = 0;
+                prefixStr = showLbList[lbIndex];
+                tempTime = 0;
+            }
+            loadpercent += percent;
+            if (loadpercent > 100) {
+                loadpercent = isReadyOver ? 100 : 0;
+            }
+            loadpercent1 += percent1;
+            if (loadpercent1 >= 100) {
+                loadpercent1 = 100;
+                if (isReadyOver) {
+                    overLoad();
+                    return;
+                }
+            } else if (isReadyOver) {
+                percent = 3;
+                percent1 = 2;
+            }
+            // var targetPercent = loadpercent1 >= 99.5 ? 99.5 : loadpercent1;
+            // effect.style.left = targetPercent + "%";
+            // lbar.style.width = targetPercent + "%";
+            // t1.innerHTML = prefixStr + "（" + Math.floor(loadpercent1) + "%）";
+            t1.innerHTML = prefixStr ;
+        }
+
+
+        setTimeout(function () {
+            progressInterID = setInterval(tick, rateTime);
+        }, 100);
+    }
+
     var loadScript = function (list, callback) {
         var loaded = 0;
         var loadNext = function () {

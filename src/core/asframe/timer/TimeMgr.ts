@@ -170,7 +170,7 @@ namespace asf
 		 * @param	args   回调参数
 		 * @param	lastKey   上一个重复方法实例key，如果没有则可以传0
 		 * @return 返回唯一ID，均用来作为clearTimer的参数*/
-		public doOnce(delay: number, method: Function, thisObj: any, lastKey: number, args: any[] = null): number
+		public doOnce(delay: number, method: Function, thisObj: any, lastKey: number = 0, args: any[] = null): number
 		{
 			if (lastKey)
 				this.clearTimer(lastKey);
@@ -184,7 +184,7 @@ namespace asf
 		 * @param	args   回调参数
 		 * @param	lastKey   上一个重复方法实例key，如果没有则可以传0
 		 * @return 返回唯一ID，均用来作为clearTimer的参数*/
-		public doLoop(delay: number, method: Function, thisObj: any, lastKey: number, args: any[] = null, isFillFrame: boolean = false): number
+		public doLoop(delay: number, method: Function, thisObj: any, lastKey: number = 0, args: any[] = null, isFillFrame: boolean = false): number
 		{
 			if (lastKey)
 				this.clearTimer(lastKey);

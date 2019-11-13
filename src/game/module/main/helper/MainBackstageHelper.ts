@@ -17,6 +17,10 @@ namespace game
         private goldList:FlyGold[];
         private maxGoldKey:number = 0;
         private updateGoldKey:number = 0;
+        /**
+         * 5秒狗加金币事件
+         */
+        private fiveDogGoldKey:number = 0;
         init():void
         {
             console.log("MainBackstageHelper初始化了");
@@ -24,7 +28,24 @@ namespace game
             mvc.once(NC.Init_Gem,this.createAllGem,this);
             //监听广告回调
             mvc.on(NC.AD_CallBack,this.AD_CallBack,this);
+            //监听加速事件
+            mvc.on(NC.Add_Speed_Gold,this.Add_Speed_Gold,this);
+            //监听结束加速事件
+            mvc.on(NC.End_Add_Speed_Gold,this.End_Add_Speed_Gold,this);
+            
             this.goldList = [];
+        }
+        private Add_Speed_Gold(data:SpeedGoldCoinVo):void
+        {
+            // asf.App.timeMgr.clearTimer(this.fiveDogGoldKey);
+            //加速
+            let time = 5000 / Number(data.speedGoldCoin);
+            this.fiveDogGoldKey = asf.App.timeMgr.doLoop(time,this.onTimeGogGold,this,this.fiveDogGoldKey);
+        }
+        private End_Add_Speed_Gold():void
+        {
+            //恢复5秒
+            asf.App.timeMgr.doLoop(5000,this.onTimeGogGold,this,this.fiveDogGoldKey);
         }
         //1.转盘 2.开宝箱  3 摇一摇  4.喂狗粮食 5.加速 6.金币不足看视频 7普通  8离线双倍
         private AD_CallBack(videoType:string):void
@@ -119,9 +140,9 @@ namespace game
         private createAllGem(tlbcDTO:TlbcDTOVo):void
         {
             //启动计时器，主动拉去一些服务器数据
-            asf.App.timer.doLoop(120000,this.onMinuteUpdate,this);
+            asf.App.timeMgr.doLoop(120000,this.onMinuteUpdate,this);
             //5秒自动增加一下宠物的金币
-            asf.App.timer.doLoop(5000,this.onTimeGogGold,this);
+            this.fiveDogGoldKey = asf.App.timeMgr.doLoop(5000,this.onTimeGogGold,this);
             this.tlbcDTO = tlbcDTO;
             
             

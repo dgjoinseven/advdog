@@ -7,6 +7,7 @@ namespace game
     {
         static NAME         :string = "MyDogView";
 
+        private dog:egret.MovieClip;
         public constructor()
         {
             super();
@@ -42,7 +43,32 @@ namespace game
             }
             this.showGrayBg();
             //获得当前狗狗的等级
-            let url = this.db.dogsRes.get("pet" + this.db.mainInfoVo.showLevel)
+            let url = this.db.dogsRes.get("pet" + this.db.mainInfoVo.showLevel);
+            //目前先显示1-5的狗狗吧
+            game.MovieMgr.getInstance().load("dog", Session.instance.config.assets + "pet/" + url, new asf.CallBack(this.onLoadMove,this));
+        }
+
+        private onLoadMove(mcData: egret.MovieClipData, name: string, url: string):void
+        {
+            this.dog = new egret.MovieClip(mcData);
+            this.dog.scaleX = this.dog.scaleY = 1.2;
+            // this.dog.x = -190;
+            // this.dog.y = -240;
+            this.dog.x = -165;
+            this.dog.y = -220;
+            this.dog.frameRate = 10;
+            this.container.addChild(this.dog);
+            // this.mc.addEventListener(egret.Event.LOOP_COMPLETE,this.mcOver,this);
+            this.dog.play(-1);
+            
+            if(this.db.mainInfoVo.showLevel >= 31 && this.db.mainInfoVo.showLevel <= 36)
+            {
+                //生成对应的颜色
+                ImageUtils.dogColor(this.dog,this.db.mainInfoVo.showLevel);
+            }
+
+            //test
+            // this.showEffect(this.dogLv);
         }
 
         private onClick(evt:egret.TouchEvent):void

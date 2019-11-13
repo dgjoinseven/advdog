@@ -169,7 +169,7 @@ namespace game
                 return;
             this.isClick = true;
             //启动误触机制
-            asf.App.timer.doOnce(10,this.onDragEvent,this);
+            asf.App.timeMgr.doOnce(10,this.onDragEvent,this);
         }
         private onDragEvent():void
         {

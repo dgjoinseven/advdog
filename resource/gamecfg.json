@@ -9,8 +9,11 @@
 	"server": "http://liuwei.dev.linjiexian.cn/game/",
 	"token":"",
 	"httpVer":"1.0",
-	"howGameUrl":["howGame.html","怎么玩"],
-	"activeUrl":["active.html","活动"],
-	"msgUrl":["msg.html","消息"],
+	"isSoundPoint":true,
+	"mainBottomY":0,
+	"howGameUrl":["/web/gameplay.html","怎么玩"],
+	"activeUrl":["/web/activity.html","活动"],
+	"msgUrl":["/web/systemmessage.html","消息"],
+	"fenHongUrl":["/web/bonusbetails.html","分红详情"],
 	"assets": ""
 }

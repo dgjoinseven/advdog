@@ -121,10 +121,10 @@ namespace game
             //除成每秒
             let timeGold = DecimalUtils.div(this.db.currentDogGold,"5");
             //查看是否有倍率
-            if(this.db.speedVo)
-            {
-                timeGold = DecimalUtils.mul(timeGold,this.db.speedVo.speedGoldCoin);
-            }
+            // if(this.db.speedVo)
+            // {
+            //     timeGold = DecimalUtils.mul(timeGold,this.db.speedVo.speedGoldCoin);
+            // }
             this.container.timeGoldLabel.text = DecimalUtils.goldChange(timeGold) + "/秒";
             // if(num)
             //     this.container.timeGoldLabel.text = num + "/秒";
@@ -412,6 +412,11 @@ namespace game
             }
             else if(evt.currentTarget == this.container.dogBtn)
             {
+                // let data:SpeedGoldCoinVo = asf.Global.createAny();
+                // data.speedGoldCoin = "2";
+                // data.speedTime = "30";
+                // this.speedControl.startSpeed(data);
+                // return ;
                 //喂狗粮加速
                 if(this.db.mainInfoVo.dogFoodCount > 0)
                 {

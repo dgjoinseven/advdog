@@ -4,7 +4,7 @@ namespace asf
 	{
 		/**全局stage引用*/
 		public static stage: egret.Stage;
-		/**时钟管理器*/
+		// /**时钟管理器*/
 		public static timer: TimerManager;
 		/**渲染管理器*/
 		public static render: RenderManager;

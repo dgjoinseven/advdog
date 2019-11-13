@@ -122,6 +122,18 @@ namespace game
         * 广告回调事件
         */
        static AD_CallBack:string = "AD_CallBack";
+       /**
+        * 加速事件
+        */
+       static Add_Speed_Gold:string = "Add_Speed_Gold";
+       /**
+        * 结束加速事件
+        */
+       static End_Add_Speed_Gold:string = "End_Add_Speed_Gold";
+       /**
+        * 更新token
+        */
+       static Update_Token:string = "OpenShowAd_Token";
 
 
        /////////////////////游戏中的一些常量/////////////////////////////
@@ -138,11 +150,6 @@ namespace game
         */
        static Movie_Rate = 12;
 
-       /////////////////////游戏中的调用一些事件/////////////////////////////
-       static OpenShowAd_Back:string = "OpenShowAd_Back";
-       /**
-        * 更新token
-        */
-       static Update_Token:string = "OpenShowAd_Token";
+       
     }
 }

@@ -28,8 +28,10 @@ namespace game
             this.maxTime = Number(speedVo.speedTime);
             this.time = 0;
             //更新倍率
-            this.mainView.updateTimeDogGold();
+            // this.mainView.updateTimeDogGold();
             this.mainView.container.speedTimeLabel.text = speedVo.speedTime;
+            //发出加速的事件通知
+            mvc.send(NC.Add_Speed_Gold,speedVo);
         }
         private onLoop():void
         {
@@ -39,6 +41,7 @@ namespace game
                 //关闭
                 asf.App.timeMgr.clearTimer(this.loopKey);
                 this.mainView.container.speedTimeLabel.visible = false;
+                mvc.send(NC.End_Add_Speed_Gold);
                 return ;
             }
             this.mainView.container.speedTimeLabel.text = (this.maxTime - this.time) + "";

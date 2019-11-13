@@ -1,14 +1,13 @@
-<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/main/Invite.png" layers="3,1,0,0,第 3 层;2,1,0,0,第 2 层;1,0,0,1,第 1 层" var="btn_invite_">
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/main/Invite.png" layers="3,1,1,0,第 3 层;2,1,1,0,第 2 层;1,1,1,1,第 1 层" var="btn_invite_">
   <Image skin="png.main.alert_bg" x="62" y="358" layer="1"/>
   <Button skin="png.main.btn_close" x="645" y="281" layer="2" stateNum="1" var="closeBtn"/>
   <Image skin="png.main.title_invite" x="154" y="314" layer="2"/>
-  <Label text="我的邀请卡：0张" styleSkin="png.comp.label" x="166" y="493" layer="2" width="407" height="56" color="0xffffff" size="50" align="left" var="cardLabel"/>
-  <Label text="1张邀请卡 = 1名有效好友" styleSkin="png.comp.label" x="179" y="602" layer="2" width="387" height="42" size="40" color="0x4a2d00"/>
   <Button skin="png.main.btn_invite_pyq" x="230" y="739" layer="2" stateNum="1" var="pyqBtn" visible="false"/>
   <Button skin="png.main.btn_invite_qq" x="426" y="738" layer="2" stateNum="1" var="qqBtn" visible="false"/>
   <Button skin="png.main.btn_invite_wb" x="327" y="739" layer="2" stateNum="1" var="wbBtn" visible="false"/>
   <Button skin="png.main.btn_invite_wx" x="139" y="739" layer="2" stateNum="1" var="wxBtn" visible="false"/>
   <Button skin="png.main.btn_invite_zone" x="524" y="739" layer="2" stateNum="1" var="zoneBtn" visible="false"/>
+  <Button label="邀请" skin="png.main.btn_syellow" x="317" y="563" layer="2" stateNum="1" var="inviteBtn" labelSize="25" labelColors="0xffffff"/>
   <Label text="微信" styleSkin="png.comp.label" x="140" y="815" layer="3" color="0xd6d6d6" width="69" height="22" align="center" mouseEnabled="false" size="20" visible="false"/>
   <Label text="朋友圈" styleSkin="png.comp.label" x="232" y="815" layer="3" color="0xd6d6d6" width="69" height="22" align="center" mouseEnabled="false" size="20" visible="false"/>
   <Label text="微博" styleSkin="png.comp.label" x="330" y="815" layer="3" color="0xd6d6d6" width="69" height="22" align="center" mouseEnabled="false" size="20" visible="false"/>

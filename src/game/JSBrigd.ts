@@ -30,11 +30,6 @@ namespace game
                 callback:function(responseData:any)
                 {
                     console.info("调用广告的回调参数:" + responseData);
-                    // console.info("openShowAd调用成功:",responseData);
-                    // //进行mvc事件通知
-                    // // mvc.send(NC.OpenShowAd_Back,responseData);
-                    // //立刻弹窗
-                    // CommonAlertView.showGainGold(responseData);
                 }
             })
         }
@@ -45,6 +40,38 @@ namespace game
         {
             console.info("调用app的jumpClick方法:" + url + " " + title);
             this.win.jumpClick(url,title);
+        }
+        /**
+         * 跳转到原生邀请
+         */
+        jumpInvitation():void
+        {
+            //原生跳转界面
+            let data = {
+                method: "jumpInvitation",
+                data: "",
+                callback: function (responseData)
+                {
+                    console.info("调用jumpInvitation的回调参数:" + responseData);
+                }
+            };
+            window["bridgeCallHandler"](data);
+        }
+        /**
+         * 跳转到原生邀请
+         */
+        jumpShiMing():void
+        {
+            //原生跳转界面
+            let data = {
+                method: "jumpAuthen",
+                data: "",
+                callback: function (responseData)
+                {
+                    console.info("调用jumpShiMing的回调参数:" + responseData);
+                }
+            };
+            window["bridgeCallHandler"](data);
         }
 
         getToken()
@@ -266,11 +293,23 @@ namespace game
                 })
             }
             //---------------------------------------------
-            //1.转盘 2.开宝箱  3 摇一摇  4.喂狗粮食 5.加速 6.金币不足看视频 7普通
+            //1.转盘 2.开宝箱  3 摇一摇  4.喂狗粮食 5.加速 6.金币不足看视频 7普通,8,9喂水
             //打开激励视频广告(注册)
             win.callNativeOpenShowAd = function (option) {
                 win.bridgeCallHandler({
                     method: 'openShowAd',
+                    data: option.data,
+                    callback: function (responseData) {
+                        if (option.callback) {
+                            option.callback(responseData);
+                        }
+                    }
+                })
+            }
+            //原生跳转界面
+            win.callNativeJumpInvitation = function (option) {
+                win.bridgeCallHandler({
+                    method: 'jumpInvitation',
                     data: option.data,
                     callback: function (responseData) {
                         if (option.callback) {
@@ -289,20 +328,6 @@ namespace game
                     }
                 })
             }
-
-            //注册一个给原生调用的js
-            win.callVidioGainGold = function (option) {
-                win.bridgeCallHandler({
-                    method: 'vidioGainGold',
-                    data: option.data,
-                    callback: function (responseData) {
-                        if (option.callback) {
-                            option.callback(responseData);
-                        }
-                    }
-                })
-            }
-
             //notLoginJumpLogin登录
             // win.vidioGainGold = function() {
             //     win.callVidioGainGold({
@@ -318,12 +343,23 @@ namespace game
                 method:"adCallBack",
                 callback:function(responseData)
                 {
-                    console.info("responseData:" + responseData);
+                    console.info("adCallBack responseData:" + responseData);
                     //事件派发出去
                     mvc.send(NC.AD_CallBack,responseData);
                     //1.转盘 2.开宝箱  3 摇一摇  4.喂狗粮食 5.加速 6.金币不足看视频 7普通,8是离线
                     // if(responseData && responseData != "")
                     //         CommonAlertView.showGainGold(responseData);
+                }
+            });
+
+            //App_Update_Gold
+            win.bridgeRegisterHandler({
+                method:"appUpdateGold",
+                callback:function(data)
+                {
+                    console.info("appUpdaeGold data:" + data);
+                    //事件派发出去
+                    mvc.send(NC.App_Update_Gold,data);
                 }
             });
         }

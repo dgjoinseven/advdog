@@ -59,6 +59,22 @@ declare module game
          * 分红
          */
         fenHongUrl:string[];
+        /**
+         * 邀请
+         */
+        inviteUrl:string[];
+        /**
+         * 实名
+         */
+        shimingUrl:string[];
+        /**
+         * 是否前端自己更新金币变化
+         */
+        isClientUpdateGold:boolean;
+        /**
+         * 实名的方法
+         */
+        shimingFun:string;
         openVConsole:boolean;
         token:string;
         httpVer:string;

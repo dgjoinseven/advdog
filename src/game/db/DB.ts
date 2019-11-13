@@ -21,9 +21,9 @@ namespace game
          */
         currentDogGold:string;
         /**
-         * 是否播放音乐
+         * 是否播放音乐，默认关闭声音
          */
-        isSound:boolean = true;
+        isSound:boolean = false;
         /**
          * 加速设计模型
          */

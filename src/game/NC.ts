@@ -127,6 +127,10 @@ namespace game
         */
        static Add_Speed_Gold:string = "Add_Speed_Gold";
        /**
+        * App过来的金币更新事件（5秒更新一次）
+        */
+       static App_Update_Gold:string = "App_Update_Gold";
+       /**
         * 结束加速事件
         */
        static End_Add_Speed_Gold:string = "End_Add_Speed_Gold";

@@ -39,8 +39,8 @@ namespace ui
 			t.sureBtn = new morn.Button
 			this.addChild(t.sureBtn)
 			t.sureBtn.skin = "main_json.btn_sure"
-			t.sureBtn.x = 253
-			t.sureBtn.y = 708
+			t.sureBtn.x = 248
+			t.sureBtn.y = 713
 			t.sureBtn.stateNum = 1
 			t.closeBtn = new morn.Button
 			this.addChild(t.closeBtn)
@@ -54,10 +54,10 @@ namespace ui
 			t.tipLabel.x = 134
 			t.tipLabel.y = 524
 			t.tipLabel.width = 471
-			t.tipLabel.height = 43
+			t.tipLabel.height = 93
 			t.tipLabel.color = 0x0
 			t.tipLabel.size = 30
-			t.tipLabel.multiline = false
+			t.tipLabel.multiline = true
 			t.tipLabel.align = "center"
 			
 			

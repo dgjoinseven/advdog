@@ -11,9 +11,12 @@
 	"httpVer":"1.0",
 	"isSoundPoint":true,
 	"mainBottomY":0,
+	"isClientUpdateGold":false,
 	"howGameUrl":["/web/gameplay.html","怎么玩"],
 	"activeUrl":["/web/activity.html","活动"],
 	"msgUrl":["/web/systemmessage.html","消息"],
 	"fenHongUrl":["/web/bonusbetails.html","分红详情"],
+	"inviteUrl":["/web/jumpInvitation.html","邀请"],
+	"shimingUrl":["/web/shiming.html","实名认证"],
 	"assets": "resource/"
 }

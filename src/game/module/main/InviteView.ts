@@ -24,6 +24,18 @@ namespace game
         init() 
         {
             console.info("InviteView初始化完成");
+
+            //点击事件
+            this.addButtonEvent(this.container.inviteBtn,this.onClick,this);
+            JSBrigd.getInstance().jumpClick(this.session.config.shimingUrl[0],this.session.config.shimingUrl[1]);
+        }
+        private onClick(evt:egret.TouchEvent):void
+        {
+            let urls:string[];
+            if(evt.currentTarget == this.container.inviteBtn)
+            {
+                JSBrigd.getInstance().jumpClick(this.session.config.inviteUrl[0],this.session.config.inviteUrl[1]);
+            }
         }
     }
 }

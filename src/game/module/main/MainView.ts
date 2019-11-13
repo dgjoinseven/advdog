@@ -111,7 +111,7 @@ namespace game
         {
             console.info("舞台的stage.stageHeight：" + this.stage.stageHeight);
             //子类重写
-            this.container.bottomBox.y = this.stage.stageHeight - 160 - this.session.config.mainBottomY;
+            this.container.bottomBox.y = this.stage.stageHeight - 145 - this.session.config.mainBottomY;
         }
         /**
          * 更新狗狗每秒产出的金币
@@ -402,10 +402,10 @@ namespace game
             {
                 mvc.open(SpeedUpView);
             }
-            else if(evt.currentTarget == this.container.inviteBtn)
-            {
-                mvc.open(InviteView);
-            }
+            // else if(evt.currentTarget == this.container.inviteBtn)
+            // {
+            //     mvc.open(InviteView);
+            // }
             else if(evt.currentTarget == this.container.waterDogBtn)
             {
                 TipView.showTip("该功能尚未开放！");
@@ -444,6 +444,12 @@ namespace game
             {
                 urls = this.session.config.fenHongUrl;
             }
+            else if(evt.currentTarget == this.container.inviteBtn)
+            {
+                // urls = this.session.config.inviteUrl;
+                JSBrigd.getInstance().jumpInvitation();
+            }
+
 
             if(urls)
             {

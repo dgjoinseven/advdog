@@ -32,8 +32,26 @@ namespace game
             mvc.on(NC.Add_Speed_Gold,this.Add_Speed_Gold,this);
             //监听结束加速事件
             mvc.on(NC.End_Add_Speed_Gold,this.End_Add_Speed_Gold,this);
-            
+            //监听app那边回调过来
+            mvc.on(NC.App_Update_Gold,this.App_Update_Gold,this);
             this.goldList = [];
+        }
+        private App_Update_Gold(data:string):void
+        {
+            this.db.mainInfoVo.goldCoin = data;
+            //总金币变大效果
+            egret.Tween.get(this.view.container.goldLabel,{loop:false}).
+            to({scaleX:1.3,scaleY:1.3},300,egret.Ease.sineOut).
+            to({scaleX:1,scaleY:1},500,egret.Ease.sineIn);
+            //50毫秒后变化
+            this.updateGoldKey = asf.App.timeMgr.doOnce(50,this.onAppUpdateGold,this,this.updateGoldKey);
+        }
+        private onAppUpdateGold():void
+        {
+            //显示
+            this.view.updateGold(this.db.mainInfoVo.goldCoin);
+            //播放获得金钱音效
+            SoundMgr.play("money");
         }
         private Add_Speed_Gold(data:SpeedGoldCoinVo):void
         {
@@ -98,13 +116,13 @@ namespace game
                     flag = true;
                 }
             }
-            //250毫秒之后开始放大缩小金币
+            //450毫秒之后开始放大缩小金币
             if(flag)
                 this.maxGoldKey = asf.App.timeMgr.doOnce(450,this.onMaxGoldEffect,this,this.maxGoldKey);
         }
         private onMaxGoldEffect():void
         {
-            //狗狗产生金钱，进行抛物线动画
+            //总金币变大效果
             egret.Tween.get(this.view.container.goldLabel,{loop:false}).
             to({scaleX:1.3,scaleY:1.3},300,egret.Ease.sineOut).
             to({scaleX:1,scaleY:1},500,egret.Ease.sineIn);
@@ -142,7 +160,9 @@ namespace game
             //启动计时器，主动拉去一些服务器数据
             asf.App.timeMgr.doLoop(120000,this.onMinuteUpdate,this);
             //5秒自动增加一下宠物的金币
-            this.fiveDogGoldKey = asf.App.timeMgr.doLoop(5000,this.onTimeGogGold,this);
+            if(this.session.config.isClientUpdateGold)
+                this.fiveDogGoldKey = asf.App.timeMgr.doLoop(5000,this.onTimeGogGold,this);
+
             this.tlbcDTO = tlbcDTO;
             
             
@@ -216,7 +236,10 @@ namespace game
                 return ;
             if(this.tlbcDTO.progress == -1)
             {
-                TipView.showTip("请去实名认证");
+                // TipView.showTip("请去实名认证");
+                //跳转到app的实名认证
+                // JSBrigd.getInstance().jumpClick(this.session.config.shimingUrl[0],this.session.config.shimingUrl[1]);
+                JSBrigd.getInstance().jumpShiMing();
                 return ;
             }
             // gemItem.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);

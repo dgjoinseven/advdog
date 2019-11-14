@@ -470,8 +470,8 @@ namespace game
             }
             else
             {
-                // mvc.open(TipDogView,NC.Water_Video);
-                JSBrigd.getInstance().openShowAd(NC.Water_Video);
+                mvc.open(TipDogView,NC.Water_Video);
+                // JSBrigd.getInstance().openShowAd(NC.Water_Video);
             }
         }
         //狗粮使用回调接口

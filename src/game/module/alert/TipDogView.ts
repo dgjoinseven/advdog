@@ -64,9 +64,9 @@ namespace game
                 // }
                 // else
                 // {
-                //     JSBrigd.getInstance().openShowAd(this.openParam);
+                    JSBrigd.getInstance().openShowAd(this.openParam);
                 // }
-                JSBrigd.getInstance().openShowAd(NC.Dog_Food_Video);
+                // JSBrigd.getInstance().openShowAd(NC.Dog_Food_Video);
             }
             this.close();
         }
@@ -78,9 +78,12 @@ namespace game
             {
                 this.container.tipLabel.text = "您没水，请观看视频获得";
             }
-
-            //这里应该查看是否还有看视频的次数的
-            HttpManager.postHttpByParam(NC.LookVideoCount_Url,{lookType:videoType},this.LookVideoCount_Url,this);
+            else
+            {
+                this.container.tipLabel.text = "您没狗粮，请观看视频获得";
+                //这里应该查看是否还有看视频的次数的
+                HttpManager.postHttpByParam(NC.LookVideoCount_Url,{lookType:videoType},this.LookVideoCount_Url,this);
+            }       
         }
     }
 }

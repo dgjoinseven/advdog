@@ -142,6 +142,7 @@ namespace game
                 console.log("转盘的其他结果");
                 CommonAlertView.showGem(this.transferStartVo.prizeCount);
             }
+            JSBrigd.getInstance().openShowAd(NC.Transter_AD_Video);
         }
 
         private updateCount(count:string):void

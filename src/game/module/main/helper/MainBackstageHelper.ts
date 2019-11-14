@@ -29,22 +29,24 @@ namespace game
             //监听广告回调
             mvc.on(NC.AD_CallBack,this.AD_CallBack,this);
             //监听加速事件
-            mvc.on(NC.Add_Speed_Gold,this.Add_Speed_Gold,this);
+            // mvc.on(NC.Add_Speed_Gold,this.Add_Speed_Gold,this);
             //监听结束加速事件
-            mvc.on(NC.End_Add_Speed_Gold,this.End_Add_Speed_Gold,this);
+            // mvc.on(NC.End_Add_Speed_Gold,this.End_Add_Speed_Gold,this);
             //监听app那边回调过来
             mvc.on(NC.App_Update_Gold,this.App_Update_Gold,this);
             this.goldList = [];
         }
         private App_Update_Gold(data:string):void
         {
-            this.db.mainInfoVo.goldCoin = data;
+            this.db.mainInfoVo.goldCoin = DecimalUtils.goldChange(data);
             //总金币变大效果
-            egret.Tween.get(this.view.container.goldLabel,{loop:false}).
-            to({scaleX:1.3,scaleY:1.3},300,egret.Ease.sineOut).
-            to({scaleX:1,scaleY:1},500,egret.Ease.sineIn);
-            //50毫秒后变化
-            this.updateGoldKey = asf.App.timeMgr.doOnce(50,this.onAppUpdateGold,this,this.updateGoldKey);
+            // egret.Tween.get(this.view.container.goldLabel,{loop:false}).
+            // to({scaleX:1.3,scaleY:1.3},300,egret.Ease.sineOut).
+            // to({scaleX:1,scaleY:1},500,egret.Ease.sineIn);
+            // //50毫秒后变化
+            // this.updateGoldKey = asf.App.timeMgr.doOnce(50,this.onAppUpdateGold,this,this.updateGoldKey);
+            //走回以前的5秒出发狗的流程
+            this.onTimeGogGold();
         }
         private onAppUpdateGold():void
         {
@@ -133,12 +135,12 @@ namespace game
         private onMaxUpdateGold():void
         {
             //增加金币
-            let gold = DecimalUtils.add(this.db.mainInfoVo.goldCoinValue,this.db.currentDogGold);
-            this.db.mainInfoVo.goldCoinValue = gold + "";
-            let goldStr = DecimalUtils.goldChange(gold);
-            this.db.mainInfoVo.goldCoin = goldStr;
+            // let gold = DecimalUtils.add(this.db.mainInfoVo.goldCoinValue,this.db.currentDogGold);
+            // this.db.mainInfoVo.goldCoinValue = gold + "";
+            // let goldStr = DecimalUtils.goldChange(gold);
+            // this.db.mainInfoVo.goldCoin = goldStr;
             //显示
-            this.view.updateGold(goldStr);
+            this.view.updateGold(this.db.mainInfoVo.goldCoin);
             //播放获得金钱音效
             SoundMgr.play("money");
         }

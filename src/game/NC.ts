@@ -105,6 +105,10 @@ namespace game
          * 喂水
          */
         static Water_Video:string = "9";
+        /**
+         * 转盘插广告
+         */
+        static Transter_AD_Video:string = "10";
 
 
 

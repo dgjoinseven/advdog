@@ -56,7 +56,7 @@ namespace ui
 			t.closeBtn.stateNum = 1
 			t.tipLabel = new morn.Label
 			this.addChild(t.tipLabel)
-			t.tipLabel.text = "您没有狗粮，请观看视频获得狗粮"
+			t.tipLabel.text = "您没狗粮，请观看视频获得"
 			t.tipLabel.x = 134
 			t.tipLabel.y = 524
 			t.tipLabel.width = 471

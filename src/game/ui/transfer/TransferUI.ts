@@ -26,7 +26,7 @@ namespace ui
 			t.height = 1400
 			var n1:morn.Image = new morn.Image
 			t.addChild(n1)
-			n1.skin = "main_json.tan_bg"
+			n1.skin = morn.Morn.ResUrl + "main/bg/tan_bg.png"
 			n1.x = 101
 			n1.y = 318
 			t.closeBtn = new morn.Button

@@ -33,6 +33,7 @@ namespace ui
 			t.dogImg.y = 6
 			t.dogImg.width = 152
 			t.dogImg.height = 143
+			t.dogImg.mouseEnabled = false
 			var n2:morn.Image = new morn.Image
 			this.addChild(n2)
 			n2.skin = "main_json.shop_point"
@@ -59,6 +60,8 @@ namespace ui
 			t.nameLabel.height = 44
 			t.nameLabel.align = "left"
 			t.nameLabel.size = 40
+			t.nameLabel.mouseEnabled = false
+			t.nameLabel.selectable = false
 			t.starLabel = new morn.Label
 			this.addChild(t.starLabel)
 			t.starLabel.text = "1星"
@@ -68,6 +71,8 @@ namespace ui
 			t.starLabel.height = 44
 			t.starLabel.align = "left"
 			t.starLabel.size = 35
+			t.starLabel.mouseEnabled = false
+			t.starLabel.selectable = false
 			t.indexLabel = new morn.Label
 			this.addChild(t.indexLabel)
 			t.indexLabel.text = "1"
@@ -77,6 +82,8 @@ namespace ui
 			t.indexLabel.height = 37
 			t.indexLabel.align = "center"
 			t.indexLabel.size = 35
+			t.indexLabel.mouseEnabled = false
+			t.indexLabel.selectable = false
 			
 			
 			

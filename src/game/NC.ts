@@ -66,9 +66,11 @@ namespace game
          * 回收红包狗
          */
         static RecoveryRedPacketDog_Url:string = "/api/recoveryRedPacketDog";
-        
+        /**
+         * 喂水
+         */
+        static Feedingwater_Url:string = "/api/feedingwater";
 
-        
         /**
          * 看视频之前请求获取剩余次数
          * 4.喂狗粮食 5.加速 是全局的次数(每天15次) 6.金币不足看视频 商品点击购买次数每天3次
@@ -99,6 +101,10 @@ namespace game
          * 离线
          */
         static OffLine_Video:string = "8";
+        /**
+         * 喂水
+         */
+        static Water_Video:string = "9";
 
 
 
@@ -148,7 +154,7 @@ namespace game
        /**
         * 首页宠物的基础位置，检测范围等都以来这个基数(默认是500)
         */
-       static Main_Pet_Pos:number = 550;
+       static Main_Pet_Pos:number = 500;
        /**
         * 游戏动画的帧频
         */

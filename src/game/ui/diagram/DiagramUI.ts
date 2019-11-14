@@ -35,9 +35,9 @@ namespace ui
 			this.addChild(t.panel)
 			t.panel.vScrollBarSkin = "null_json.null"
 			t.panel.width = 599
-			t.panel.height = 992
-			t.panel.x = 63
-			t.panel.y = 203
+			t.panel.height = 833
+			t.panel.x = 74
+			t.panel.y = 289
 			t.closeBtn = new morn.Button
 			this.addChild(t.closeBtn)
 			t.closeBtn.skin = "main_json.btn_close"
@@ -49,6 +49,13 @@ namespace ui
 			n3.skin = "main_json.title_dog_img"
 			n3.x = 155
 			n3.y = 157
+			var n4:morn.Panel = new morn.Panel
+			this.addChild(n4)
+			n4.x = 0
+			n4.y = 0
+			var n5:morn.Image = new morn.Image
+			n4.addChild(n5)
+			n5.skin = "main_json.blank"
 			
 			
 			

@@ -153,11 +153,15 @@ declare module game
          * 狗粮总值
          */
         dogFoodCount:number;
-
+        /**
+         * 分红进度
+         */
+        fhdogProcess:string;
         /**
          * 分红总金额
          */
         shareTotalAmount:string;
+        newShare:boolean;
         /**
          * 显示宠物名称
          */
@@ -166,6 +170,7 @@ declare module game
          * 显示宠物等级
          */
         showLevel:number;
+        setShow:string;
     }
     export class TlbcDTOVo 
     {
@@ -609,5 +614,21 @@ declare module game
          * 多小秒
          */
         speedTime:string; 
+    }
+    /**
+     * 喂水返回的结果
+     */
+    export class FeedingwaterVo
+    {
+        /*
+        * 1是有水，直接加下面的金币
+        * 2是没水，弹出提示框看视频
+        */
+        showWind:number;
+
+        /**
+         * 有水的时候增加的金币总量
+         */
+        goldCoin:string; 
     }
 }

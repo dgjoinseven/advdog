@@ -1,9 +1,9 @@
 <View width="453" height="165" sceneColor="0xffffff" layers="3,1,3,0,text;4,1,3,0,bg2;5,1,3,0,image;1,1,3,1,bg">
   <Image skin="png.main.item_bg" x="0" y="0" layer="1" sizeGrid="20,20,20,20" width="453" height="165"/>
-  <Image skin="png.main.shop1_5" x="21" y="6" layer="5" width="152" height="143" var="dogImg"/>
+  <Image skin="png.main.shop1_5" x="21" y="6" layer="5" width="152" height="143" var="dogImg" mouseEnabled="false"/>
   <Image skin="png.main.shop_point" x="-27" y="61" layer="4" width="56" height="56"/>
   <Button skin="png.main.btn_shop_close" x="243" y="97" layer="4" stateNum="1" var="bugBtn" pointX="0" pointY="0" labelSize="30" labelColors="0x000000"/>
-  <Label text="小土狗" styleSkin="png.comp.label" x="162" y="31" layer="3" width="271" height="44" align="left" size="40" var="nameLabel"/>
-  <Label text="1星" styleSkin="png.comp.label" x="168" y="96" layer="3" width="56" height="44" align="left" size="35" var="starLabel"/>
-  <Label text="1" styleSkin="png.comp.label" x="-18" y="71" layer="3" width="40" height="37" align="center" size="35" var="indexLabel"/>
+  <Label text="小土狗" styleSkin="png.comp.label" x="162" y="31" layer="3" width="271" height="44" align="left" size="40" var="nameLabel" mouseEnabled="false" selectable="false"/>
+  <Label text="1星" styleSkin="png.comp.label" x="168" y="96" layer="3" width="56" height="44" align="left" size="35" var="starLabel" mouseEnabled="false" selectable="false"/>
+  <Label text="1" styleSkin="png.comp.label" x="-18" y="71" layer="3" width="40" height="37" align="center" size="35" var="indexLabel" mouseEnabled="false" selectable="false"/>
 </View>

@@ -90,8 +90,6 @@ namespace game
             this.container.mouseEnabled = false;
             this.container.mouseChildren = false;
 
-            // this.container.goldLabel.anchorOffsetX = 85;
-            // this.container.goldLabel.anchorOffsetY = 18;
             this.container.goldLabel.x = 187;
             this.container.goldLabel.y = 455;
             this.container.goldLabel.anchorOffsetX = this.container.goldLabel.width / 2;
@@ -363,7 +361,6 @@ namespace game
             this.showMainPet();
             //初始化相关的界面值
             this.container.goldLabel.text = result.goldCoin;
-            this.container.gainMoneyLabel.text = result.shareTotalAmount;
             this.container.gemLabel.text = result.tlbc.toString();
             //离线收益
             if(result.offlineGoldCoin && result.offlineGoldCoin != "" && result.offlineGoldCoin != "0.0" && result.offlineGoldCoin != "0.00" && result.offlineGoldCoin != "0")
@@ -373,6 +370,9 @@ namespace game
                 mvc.open(OfflineView);
             }
             mvc.send(NC.Init_Gem,result.tlbcDTO);
+            //更新分红数据
+            this.container.gainMoneyLabel.text = result.shareTotalAmount;
+            this.container.rateLabel.text = Math.floor(Number(result.fhdogProcess) * 100) + "%";
         }
 
         private onClick(evt:egret.TouchEvent):void
@@ -408,7 +408,9 @@ namespace game
             // }
             else if(evt.currentTarget == this.container.waterDogBtn)
             {
-                TipView.showTip("该功能尚未开放！");
+                // TipView.showTip("该功能尚未开放！");
+                //喂水，流程跟狗粮一样
+                HttpManager.postHttp(NC.Feedingwater_Url,this.Feedingwater_Url,this);
             }
             else if(evt.currentTarget == this.container.dogBtn)
             {
@@ -425,7 +427,7 @@ namespace game
                 else
                 {
                     //弹出提示信息
-                    mvc.open(TipDogView);
+                    mvc.open(TipDogView,NC.Dog_Food_Video);
                 }
             }
             else if(evt.currentTarget == this.container.howBtn)
@@ -454,6 +456,22 @@ namespace game
             if(urls)
             {
                 JSBrigd.getInstance().jumpClick(urls[0],urls[1]);
+            }
+        }
+        /**
+         * 喂水回调接口
+         */
+        private Feedingwater_Url(data:FeedingwaterVo):void
+        {
+            if(data.showWind == 1)
+            {
+                //有水，弹出获得金币的效果，直接更新金币
+                this.updateGold(data.goldCoin);
+            }
+            else
+            {
+                // mvc.open(TipDogView,NC.Water_Video);
+                JSBrigd.getInstance().openShowAd(NC.Water_Video);
             }
         }
         //狗粮使用回调接口

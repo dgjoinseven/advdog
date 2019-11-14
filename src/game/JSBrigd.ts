@@ -165,6 +165,7 @@ namespace game
              */
             win.bridgeCallHandler = function(option) 
             { 
+                console.info("执行jsbridge调用原生方法:",option);
                 win.jsbridge(function (bridge) {
                     bridge.callHandler(
                         option.method,

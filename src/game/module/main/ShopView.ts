@@ -87,7 +87,7 @@ namespace game
                 //todo 高级狗需要改算法
                 let star = PetUtls.getDogStar(petVo.dogGradeId);
                 
-                item.skin = "main_json." + this.db.dogsRes.get("shop" + petVo.dogGradeId);
+                item.dogImg.skin = "main_json." + this.db.dogsRes.get("shop" + petVo.dogGradeId);
                 item.starLabel.text = star + "星";
                 item.indexLabel.text = String(i + 1);
                 item.nameLabel.text = petVo.dogLevelName;

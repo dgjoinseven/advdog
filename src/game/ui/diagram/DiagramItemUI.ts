@@ -31,6 +31,8 @@ namespace ui
 			n2.width = 59
 			n2.height = 32
 			n2.size = 25
+			n2.mouseEnabled = false
+			n2.selectable = false
 			t.skillLabel = new morn.Label
 			this.addChild(t.skillLabel)
 			t.skillLabel.text = "XXXXXXX看看"
@@ -40,6 +42,9 @@ namespace ui
 			t.skillLabel.height = 48
 			t.skillLabel.size = 20
 			t.skillLabel.multiline = true
+			t.skillLabel.color = 0xd8d5d4
+			t.skillLabel.mouseEnabled = false
+			t.skillLabel.selectable = false
 			var n3:morn.Label = new morn.Label
 			this.addChild(n3)
 			n3.text = "获取途径"
@@ -48,6 +53,7 @@ namespace ui
 			n3.width = 105
 			n3.height = 29
 			n3.size = 25
+			n3.selectable = false
 			t.desLabel = new morn.Label
 			this.addChild(t.desLabel)
 			t.desLabel.text = "获取途径"
@@ -57,6 +63,9 @@ namespace ui
 			t.desLabel.height = 116
 			t.desLabel.multiline = true
 			t.desLabel.size = 20
+			t.desLabel.color = 0xd8d5d4
+			t.desLabel.mouseEnabled = false
+			t.desLabel.selectable = false
 			t.nameLabel = new morn.Label
 			this.addChild(t.nameLabel)
 			t.nameLabel.text = "分红狗"
@@ -66,10 +75,15 @@ namespace ui
 			t.nameLabel.height = 49
 			t.nameLabel.size = 40
 			t.nameLabel.align = "center"
+			t.nameLabel.backgroundColor = 0x0
+			t.nameLabel.color = 0xffffff
+			t.nameLabel.mouseEnabled = false
+			t.nameLabel.selectable = false
 			t.dogImg = new morn.Image
 			this.addChild(t.dogImg)
 			t.dogImg.x = 169
 			t.dogImg.y = 213
+			t.dogImg.mouseEnabled = false
 			
 			
 			

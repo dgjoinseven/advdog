@@ -2,7 +2,7 @@ namespace ui
 {
 	export class MainViewUI extends morn.View
 	{
-		public imgDogBtn:morn.Button;		public fenHongBtn:morn.Button;		public howBtn:morn.Button;		public transferBtn:morn.Button;		public msgBtn:morn.Button;		public activityBtn:morn.Button;		public steupBtn:morn.Button;		public dogBtn:morn.Button;		public waterDogBtn:morn.Button;		public myDogBtn:morn.Button;		public timeGoldLabel:morn.Label;		public goldLabel:morn.Label;		public rateLabel:morn.Label;		public gainMoneyLabel:morn.Label;		public gemLabel:morn.Label;		public foodBtn:morn.Image;		public bottomBox:morn.Box;		public inviteBtn:morn.Button;		public jiaSuBtn:morn.Button;		public shopBtn:morn.Button;		public restBtn:morn.Button;		public speedTimeLabel:morn.Label;		
+		public imgDogBtn:morn.Button;		public fenHongBtn:morn.Button;		public howBtn:morn.Button;		public transferBtn:morn.Button;		public msgBtn:morn.Button;		public activityBtn:morn.Button;		public steupBtn:morn.Button;		public dogBtn:morn.Button;		public waterDogBtn:morn.Button;		public myDogBtn:morn.Button;		public timeGoldLabel:morn.Label;		public goldLabel:morn.Label;		public rateLabel:morn.Label;		public gainMoneyLabel:morn.Label;		public gemLabel:morn.Label;		public foodBtn:morn.Image;		public rateImg:morn.Image;		public bottomBox:morn.Box;		public inviteBtn:morn.Button;		public jiaSuBtn:morn.Button;		public shopBtn:morn.Button;		public restBtn:morn.Button;		public speedTimeLabel:morn.Label;		
 		public constructor()
 		{
 			super();
@@ -23,13 +23,27 @@ namespace ui
 			n1.skin = morn.Morn.ResUrl + "main/bg/bom.jpg"
 			n1.x = 0
 			n1.y = 0
-			var n2:morn.Box = new morn.Box
+			var n2:morn.Image = new morn.Image
 			this.addChild(n2)
-			n2.x = 17
-			n2.y = 160
+			n2.skin = "main_json.blank"
+			n2.x = 0
+			n2.y = 0
+			n2.width = 752
+			n2.height = 543
 			var n3:morn.Image = new morn.Image
-			n2.addChild(n3)
-			n3.skin = "main_json.apcc_bg"
+			this.addChild(n3)
+			n3.skin = "main_json.blank"
+			n3.x = 0
+			n3.y = 0
+			n3.width = 752
+			n3.height = 543
+			var n4:morn.Box = new morn.Box
+			this.addChild(n4)
+			n4.x = 17
+			n4.y = 160
+			var n5:morn.Image = new morn.Image
+			n4.addChild(n5)
+			n5.skin = "main_json.apcc_bg"
 			t.imgDogBtn = new morn.Button
 			this.addChild(t.imgDogBtn)
 			t.imgDogBtn.skin = "main_json.btn_dogImg"
@@ -40,13 +54,13 @@ namespace ui
 			this.addChild(t.fenHongBtn)
 			t.fenHongBtn.skin = "main_json.btn_goldGainBg"
 			t.fenHongBtn.x = 24
-			t.fenHongBtn.y = 47
+			t.fenHongBtn.y = 53
 			t.fenHongBtn.stateNum = 1
-			var n4:morn.Image = new morn.Image
-			this.addChild(n4)
-			n4.skin = "main_json.gold_bg"
-			n4.x = 23
-			n4.y = 424
+			var n6:morn.Image = new morn.Image
+			this.addChild(n6)
+			n6.skin = "main_json.gold_bg"
+			n6.x = 23
+			n6.y = 424
 			t.howBtn = new morn.Button
 			this.addChild(t.howBtn)
 			t.howBtn.skin = "main_json.btn_howgame"
@@ -93,7 +107,7 @@ namespace ui
 			this.addChild(t.myDogBtn)
 			t.myDogBtn.skin = "main_json.btn_dog1_5"
 			t.myDogBtn.x = 605
-			t.myDogBtn.y = 47
+			t.myDogBtn.y = 53
 			t.myDogBtn.stateNum = 1
 			t.timeGoldLabel = new morn.Label
 			this.addChild(t.timeGoldLabel)
@@ -124,7 +138,7 @@ namespace ui
 			this.addChild(t.rateLabel)
 			t.rateLabel.text = "40%"
 			t.rateLabel.x = 503
-			t.rateLabel.y = 70
+			t.rateLabel.y = 76
 			t.rateLabel.width = 43
 			t.rateLabel.height = 28
 			t.rateLabel.size = 25
@@ -136,7 +150,7 @@ namespace ui
 			this.addChild(t.gainMoneyLabel)
 			t.gainMoneyLabel.text = "13.5t/秒"
 			t.gainMoneyLabel.x = 133
-			t.gainMoneyLabel.y = 103
+			t.gainMoneyLabel.y = 109
 			t.gainMoneyLabel.width = 148
 			t.gainMoneyLabel.height = 28
 			t.gainMoneyLabel.size = 25
@@ -162,16 +176,16 @@ namespace ui
 			t.foodBtn.skin = "main_json.sh"
 			t.foodBtn.x = 297
 			t.foodBtn.y = 423
-			var n5:morn.Image = new morn.Image
-			this.addChild(n5)
-			n5.skin = "main_json.water"
-			n5.x = 517
-			n5.y = 423
-			var n6:morn.Image = new morn.Image
-			this.addChild(n6)
-			n6.skin = "main_json.goldGainPro"
-			n6.x = 334
-			n6.y = 108
+			var n7:morn.Image = new morn.Image
+			this.addChild(n7)
+			n7.skin = "main_json.water"
+			n7.x = 517
+			n7.y = 423
+			t.rateImg = new morn.Image
+			this.addChild(t.rateImg)
+			t.rateImg.skin = "main_json.goldGainPro"
+			t.rateImg.x = 334
+			t.rateImg.y = 114
 			t.bottomBox = new morn.Box
 			this.addChild(t.bottomBox)
 			t.bottomBox.x = 41

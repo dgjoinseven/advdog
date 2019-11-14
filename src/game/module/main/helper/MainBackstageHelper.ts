@@ -70,7 +70,8 @@ namespace game
         {
             //稳妥，都转换成字符串
             videoType = String(videoType);
-            if(videoType == "6" || videoType == "8")
+            //商店、离线、喂水的金币不足
+            if(videoType == NC.Shop_Video || videoType == NC.OffLine_Video || videoType == NC.Water_Video)
             {
                 HttpManager.postHttp(NC.Select_Gold_Url,this.Select_Gold_Url,this);
             }

@@ -30,7 +30,7 @@ namespace ui
 			n2.y = 313
 			var n3:morn.Image = new morn.Image
 			this.addChild(n3)
-			n3.skin = "main_json.item_bg"
+			n3.skin = morn.Morn.ResUrl + "main/bg/item_bg.png"
 			n3.x = 131
 			n3.y = 470
 			n3.width = 476

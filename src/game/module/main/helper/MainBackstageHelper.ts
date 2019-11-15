@@ -38,7 +38,8 @@ namespace game
         }
         private App_Update_Gold(data:string):void
         {
-            this.db.mainInfoVo.goldCoin = DecimalUtils.goldChange(data);
+            // this.db.mainInfoVo.goldCoin = DecimalUtils.goldChange(data);
+            this.db.mainInfoVo.goldCoin = data;
             //总金币变大效果
             // egret.Tween.get(this.view.container.goldLabel,{loop:false}).
             // to({scaleX:1.3,scaleY:1.3},300,egret.Ease.sineOut).

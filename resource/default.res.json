@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "main_json,comp_json",
+			"keys": "comp_json,main_json",
 			"name": "preload"
 		},
 		{
@@ -41,7 +41,7 @@
 			"url": "mornui/main/main.json",
 			"type": "sheet",
 			"name": "main_json",
-			"subkeys": "alert_bg,apcc_bg,apcc_effect,blank,btn_activity,btn_addSpeed_apcc,btn_addSpeed_video,btn_blue,btn_close,btn_dog,btn_dog11_15,btn_dog16-20,btn_dog16_20,btn_dog1_5,btn_dog21_25,btn_dog26_30,btn_dog30_36,btn_dog31_37,btn_dog38_42,btn_dog43,btn_dog44,btn_dog6_10,btn_dogImg,btn_goldGainBg,btn_howgame,btn_invite_pyq,btn_invite_qq,btn_invite_wb,btn_invite_wx,btn_invite_zone,btn_jiaSu,btn_look,btn_money,btn_msg,btn_offline,btn_rest,btn_shop,btn_shop_close,btn_shop_gem,btn_shop_gold,btn_start,btn_steup,btn_sure,btn_syellow,btn_transfer,btn_video,btn_water,btn_yellow,btn_yqjuan,dog_bom_effect,dogimg_line,gem_big,gem_small,gold,goldGainBg,goldGainPro,gold_1,gold_2,gold_3,gold_bg,gold_effect_bg,head_hongbao,hean_fenhong,item_bg,label,logo_apcc,money_fu,money_meng,money_yong,money_zhi,money_zhong,my_dog_bg,perfect_effect,perfect_fuzi,perfect_meng,perfect_yong,perfect_zhi,perfect_zhong,setup_tile,sh,shop11_15,shop16_20,shop1_5,shop21_25,shop30_36,shop31_37,shop38,shop39,shop40,shop41,shop42,shop43,shop44,shop6_10,shop_point,shop_title,slider_point,sliderband,sliderbg,star,tan_bg,tan_pointer,tan_titile,textarea,title_dog_img,title_gain,title_gain_gold,title_gain_more_gold,title_invite,title_money,title_myDog,title_online_gold,title_perfect,title_recover,title_setup,title_speedup,title_tip,water,window_gold_bg,商店_38分红犬,商店_38碎片犬_勇,商店_38碎片犬_忠,商店_38碎片犬_智,商店_38碎片犬_福,商店_38碎片犬_萌,商店_38红包犬,我的_分红犬,我的_恭喜发大财,我的_红包犬,我的_贵宾,标题栏_合成分红犬,标题栏_生成完美狗狗"
+			"subkeys": "alert_bg,apcc_bg,apcc_effect,blank,btn_activity,btn_addSpeed_apcc,btn_addSpeed_video,btn_blue,btn_close,btn_dog,btn_dog11_15,btn_dog16-20,btn_dog16_20,btn_dog1_5,btn_dog21_25,btn_dog26_30,btn_dog31_37,btn_dog38_42,btn_dog43,btn_dog44,btn_dog6_10,btn_dogImg,btn_goldGainBg,btn_howgame,btn_invite_pyq,btn_invite_qq,btn_invite_wb,btn_invite_wx,btn_invite_zone,btn_jiaSu,btn_look,btn_money,btn_msg,btn_offline,btn_rest,btn_shop,btn_shop_close,btn_shop_gem,btn_shop_gold,btn_start,btn_steup,btn_sure,btn_syellow,btn_transfer,btn_video,btn_water,btn_yellow,btn_yqjuan,dog_bom_effect,dogimg_line,gem_big,gem_small,gold,goldGainPro,gold_1,gold_2,gold_3,gold_bg,head_hongbao,hean_fenhong,item_bg,label,logo_apcc,money_fu,money_meng,money_yong,money_zhi,money_zhong,my_dog_bg,perfect_effect,perfect_fuzi,perfect_meng,perfect_yong,perfect_zhi,perfect_zhong,setup_tile,sh,shop11_15,shop16_20,shop1_5,shop21_25,shop26_30,shop31_37,shop38,shop39,shop40,shop41,shop42,shop43,shop44,shop6_10,shop_point,shop_title,slider_point,sliderband,sliderbg,star,tan_pointer,tan_titile,title_dog_img,title_gain,title_gain_gold,title_gain_more_gold,title_goldNot,title_invite,title_money,title_myDog,title_online_gold,title_perfect,title_recover,title_setup,title_speedup,title_tip,water,window_gold_bg,商店_38分红犬,商店_38碎片犬_勇,商店_38碎片犬_忠,商店_38碎片犬_智,商店_38碎片犬_福,商店_38碎片犬_萌,商店_38红包犬,我的_分红犬,我的_恭喜发大财,我的_红包犬,我的_贵宾,标题栏_合成分红犬,标题栏_生成完美狗狗"
 		}
 	]
 }

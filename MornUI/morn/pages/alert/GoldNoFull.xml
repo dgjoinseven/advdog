@@ -7,6 +7,6 @@
   <Label text="恭喜获得" styleSkin="png.comp.label" x="117" y="15" layer="2" width="133" height="32" bold="true" size="25"/>
   <Label text="每天晚上20点重置视频次数(剩余14次)" styleSkin="png.comp.label" x="184" y="848" layer="2" width="397" height="24" size="20" color="0xffffff" align="center" var="tipLabel" visible="true"/>
   <Button skin="png.main.btn_look" x="172" y="767" layer="2" stateNum="1" var="videoBtn" visible="true"/>
-  <Image skin="png.main.title_gain_more_gold" x="155" y="315" layer="9" var="titleImg"/>
+  <Image skin="png.main.title_goldNot" x="155" y="315" layer="9" var="titleImg"/>
   <Button skin="png.main.btn_close" x="645" y="280" layer="9" stateNum="1" var="closeBtn"/>
 </View>

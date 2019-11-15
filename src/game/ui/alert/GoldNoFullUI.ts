@@ -80,7 +80,7 @@ namespace ui
 			t.videoBtn.visible = true
 			t.titleImg = new morn.Image
 			this.addChild(t.titleImg)
-			t.titleImg.skin = "main_json.title_gain_more_gold"
+			t.titleImg.skin = "main_json.title_goldNot"
 			t.titleImg.x = 155
 			t.titleImg.y = 315
 			t.closeBtn = new morn.Button

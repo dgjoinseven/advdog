@@ -35,7 +35,8 @@ namespace game
             this.lv = mvc.MvcConst.VIEW_LV_0;
             this.layer = mvc.MvcConst.MAIN_LAYER;
             //目前参数写死
-            this.restCheckScope = new egret.Rectangle(619,1159,100,130);
+            // this.restCheckScope = new egret.Rectangle(619,1159,100,130);
+            this.restCheckScope = new egret.Rectangle(600,1159,200,200);
             //预加载了就不需要设置
             // this.setUIRes("main");
         }
@@ -110,6 +111,7 @@ namespace game
             console.info("舞台的stage.stageHeight：" + this.stage.stageHeight);
             //子类重写
             this.container.bottomBox.y = this.stage.stageHeight - 145 - this.session.config.mainBottomY;
+            this.restCheckScope.y = this.stage.stageHeight - 100 - this.session.config.mainBottomY;
         }
         /**
          * 更新狗狗每秒产出的金币

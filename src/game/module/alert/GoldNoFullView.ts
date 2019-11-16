@@ -42,7 +42,7 @@ namespace game
                 this.container.gainLabel.text = data.getGoldCoin; 
                 // this.container.videoBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
             }
-            this.container.tipLabel.text = "每天晚上20点重置视频次数(剩余" + data.remainingTimes + "次)";
+            this.container.tipLabel.text = "每天凌晨12点重置视频次数(剩余" + data.remainingTimes + "次)";
         }
 
         private onClick(evt:egret.TouchEvent):void

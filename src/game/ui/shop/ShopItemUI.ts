@@ -20,7 +20,7 @@ namespace ui
 			this.height = 165
 			var n1:morn.Image = new morn.Image
 			this.addChild(n1)
-			n1.skin = "main_json.item_bg"
+			n1.skin = morn.Morn.ResUrl + "main/bg/item_bg.png"
 			n1.x = 0
 			n1.y = 0
 			n1.sizeGrid = "20,20,20,20"
@@ -28,11 +28,8 @@ namespace ui
 			n1.height = 165
 			t.dogImg = new morn.Image
 			this.addChild(t.dogImg)
-			t.dogImg.skin = "main_json.shop1_5"
-			t.dogImg.x = 21
-			t.dogImg.y = 6
-			t.dogImg.width = 152
-			t.dogImg.height = 143
+			t.dogImg.x = -56
+			t.dogImg.y = -59
 			t.dogImg.mouseEnabled = false
 			var n2:morn.Image = new morn.Image
 			this.addChild(n2)
@@ -81,7 +78,7 @@ namespace ui
 			t.indexLabel.width = 40
 			t.indexLabel.height = 37
 			t.indexLabel.align = "center"
-			t.indexLabel.size = 35
+			t.indexLabel.size = 32
 			t.indexLabel.mouseEnabled = false
 			t.indexLabel.selectable = false
 			

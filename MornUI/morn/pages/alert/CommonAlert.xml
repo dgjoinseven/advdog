@@ -1,11 +1,11 @@
-<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/alert/CommonAlert.png" layers="2,1,4,1,第 2 层;3,1,4,1,第 3 层;4,1,4,1,第 4 层;1,1,4,0,第 1 层;6,1,4,0,第 6 层;5,1,4,1,第 5 层">
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/alert/CommonAlert.png" layers="2,1,0,0,第 2 层;3,1,0,0,第 3 层;4,1,0,0,第 4 层;1,1,0,0,第 1 层;6,1,0,1,第 6 层;5,1,0,1,第 5 层">
   <Image skin="png.main.alert_bg" x="62" y="356" layer="5"/>
   <Image skin="png.main.bg.gold_effect_bg" x="367" y="582" layer="6" var="effectImg" anchorX="0.5" anchorY="0.5"/>
   <Label text="恭喜获得" styleSkin="png.comp.label" x="127" y="25" layer="1" width="133" height="32" bold="true" size="25"/>
   <Image skin="png.main.title_gain_gold" x="156" y="312" layer="1" var="titleImg"/>
   <Button skin="png.main.btn_close" x="646" y="281" layer="1" stateNum="1" var="closeBtn"/>
   <Image skin="png.main.window_gold_bg" x="207" y="692" layer="1"/>
-  <Image skin="png.main.logo_apcc" x="347" y="538" layer="3" var="videoImg"/>
+  <Image skin="png.main.gem_big" x="345" y="535" layer="3" var="videoImg"/>
   <Button label="确定" skin="png.main.btn_yellow" x="169" y="766" layer="3" stateNum="1" sizeGrid="20,20,20,20" width="394" height="77" labelSize="40" var="videoBtn" visible="false"/>
   <Label text="每天晚上20点重置视频次数(剩余14次)" styleSkin="png.comp.label" x="186" y="847" layer="3" width="397" height="24" size="20" color="0xffffff" align="center" var="tipLabel" visible="false"/>
   <Label text="1700、0t" styleSkin="png.comp.label" x="219" y="707" layer="2" width="299" height="40" bold="true" size="40" var="gainLabel" align="center"/>

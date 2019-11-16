@@ -63,6 +63,9 @@ namespace game
             let dataList = data.lists;
             
             this.container.goldLabel.text = data.goldCoin;
+            //狗锁住的最小等级
+            let lockMin:number = 2;
+            let selectIndex:number = 0;;
             //生成狗的列表
             for(let i:number = 0; i < dataList.length; i++)
             {
@@ -91,36 +94,45 @@ namespace game
                 item.starLabel.text = star + "星";
                 item.indexLabel.text = String(i + 1);
                 item.nameLabel.text = petVo.dogLevelName;
-                // if(petVo.isLock == 0)
-                // {
-                //     item.bugBtn.skin = "main_json.btn_shop_close";
-                //     item.bugBtn.mouseEnabled = false;
-                // }
-                // else
-                // {
-                    item.bugBtn.mouseEnabled = true;
+
+                ImageUtils.tryDogColor(item.dogImg,petVo.dogGradeId);
+        
+                item.bugBtn.mouseEnabled = true;
+                item.bugBtn.labelMargin = "20,0,0,0";
+                // item.bugBtn.getLabel().align = "right";
+                
+                //判断是使用金币还是使用
+                if(petVo.isBuyGoldcoin == 1)
+                {
+                    item.bugBtn.skin = "main_json.btn_shop_gold";
                     item.bugBtn.label = String(petVo.currentPrice);
-                    //判断是使用金币还是使用
-                    if(petVo.isBuyGoldcoin == 1)
+                    if(petVo.dogGradeId > lockMin)
                     {
-                        item.bugBtn.skin = "main_json.btn_shop_gold";
+                        lockMin = petVo.dogGradeId;
+                        selectIndex = i - 1;
+                        if(selectIndex < 0)
+                            selectIndex = 0;
                     }
-                    else if(petVo.isBuyTlbc == 1)
-                    {
-                        item.bugBtn.skin = "main_json.btn_shop_gem";
-                    }
-                    else
-                    {
-                        item.bugBtn.skin = "main_json.btn_shop_close";
-                        item.bugBtn.mouseEnabled = false;
-                        item.bugBtn.label = "";
-                    }
-                    item.bugBtn.tag = petVo; 
-                    item.bugBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
-                    //填充金额
-                    
-                // }
+                }
+                else if(petVo.isBuyTlbc == 1)
+                {
+                    item.bugBtn.skin = "main_json.btn_shop_gem";
+                    item.bugBtn.label = String(petVo.tlbcPrice);
+                }
+                else
+                {
+                    item.bugBtn.skin = "main_json.btn_shop_close";
+                    item.bugBtn.mouseEnabled = false;
+                    item.bugBtn.label = "";
+                }
+                item.bugBtn.tag = petVo; 
+                //弹起的时候就买
+                item.bugBtn.addEventListener(egret.TouchEvent.TOUCH_END,this.onClick,this);
             }
+            // this.container.panel.vScrollBar.value = 1700;
+            // selectIndex = 10;
+            if(selectIndex != 0)
+                this.container.panel.vScrollBar.scrollToValue(5 + selectIndex * (20 + 160));
         }
         private selectButton:morn.Button;
         private onClick(evt:egret.TouchEvent):void

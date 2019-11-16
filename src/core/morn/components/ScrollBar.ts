@@ -318,6 +318,13 @@ namespace morn
 		{
 			this._slider.value = value;
 		}
+		public scrollToValue(value:number):void
+		{
+			asf.App.render.renderAll();
+			if(value > this._slider.max)
+				value = this._slider.max;
+			this._slider.value = value;
+		}
 		/**滚动到最底层 */
 		public scrollToBottom(): void
 		{

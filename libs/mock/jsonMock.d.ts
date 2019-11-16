@@ -259,94 +259,98 @@ declare module game
     export class DogConfigureVo
     {
        /**
-     * id
-     */
-    id:number;
+         * id
+         */
+        id:number;
 
-    /**
-     * 等级id
-     */
-    gradeId:number;
+        /**
+         * 等级id
+         */
+        gradeId:number;
 
-    /**
-     * 等级name
-     */
-    gradeName:string;
+        /**
+         * 等级name
+         */
+        gradeName:string;
 
-    /**
-     * 开始购买价格
-     */
-    lowBuyPrice:number;
+        /**
+         * 开始购买价格
+         */
+        lowBuyPrice:number;
 
-    /**
-     * 购买叠加率
-     */
-    buyRate:number;
+        /**
+         * 购买叠加率
+         */
+        buyRate:number;
 
-    /**
-     * 最高购买价格
-     */
-    hightBuyPrice:number;
+        /**
+         * 最高购买价格
+         */
+        hightBuyPrice:number;
 
-    /**
-     * 最高购买次数
-     */
-    hightBuyNum:number;
+        /**
+         * 最高购买次数
+         */
+        hightBuyNum:number;
 
-    /**
-     * tlbc购买值
-     */
-    tlbcValue:number;
+        /**
+         * tlbc购买值
+         */
+        tlbcValue:number;
 
-    /**
-     * tlbc是否可以购买
-     */
-    isTlbc:number;
+        /**
+         * tlbc是否可以购买
+         */
+        isTlbc:number;
 
-    /**
-     * 回收值
-     */
-    recoveryValue:number;
+        /**
+         * 回收值
+         */
+        recoveryValue:string;
+        /**
+         * 回收值字符串
+         */
+        recoveryStrValue:string;
 
-    /**
-     * 回收率
-     */
-    recoveryRate:number;
+        /**
+         * 回收率
+         */
+        recoveryRate:number;
 
-    /**
-     * 在线产生的值/秒
-     */
-    onlineProduceValue:string;
+        /**
+         * 在线产生的值/秒
+         */
+        onlineProduceValue:string;
 
-    /**
-     * 离线产生的值/秒
-     */
-    offlineProduceValue:string;
+        /**
+         * 离线产生的值/秒
+         */
+        offlineProduceValue:string;
 
-    /**
-     * 预留字段1
-     */
-    reserved1:string;
+        /**
+         * 预留字段1
+         */
+        reserved1:string;
 
-    /**
-     * 预留字段2
-     */
-    reserved2:string;
+        /**
+         * 预留字段2
+         */
+        reserved2:string;
 
-    /**
-     * 预留字段3
-     */
-    reserved3:string;
+        /**
+         * 预留字段3
+         */
+        reserved3:string;
 
-    /**
-     * tlbc 加速
-     */
-    addSpeedTlbc:number;
+        /**
+         * tlbc 加速
+         */
+        addSpeedTlbc:number;
 
-    /**
-     * 狗粮 加速
-     */
-    addSpeedDogfood:number;
+        /**
+         * 狗粮 加速
+         */
+        addSpeedDogfood:number;
 
     
     }
@@ -386,6 +390,10 @@ declare module game
          * 当前购买价格
          */
         currentPrice:string;
+        /**
+         * tblc钻石购买价格
+         */
+        tlbcPrice:string;
 
         /**
          * tlbc是否可购买

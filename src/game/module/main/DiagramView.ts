@@ -39,20 +39,22 @@ namespace game
             {
                 let item = new ui.DiagramItemUI();
                 let data = datas[i];
-                item.y = 70 + i * 300;
+                // item.y = 70 + i * 300;
+                item.y = 70 + i * 230;
                 item.nameLabel.text = data.plateName;
                 // item.dogImg.width = 120;
                 // item.dogImg.height = 120;
-                if(data.plateImage && data.plateImage != "")
-                {
-                    let img = new morn.Image();
-                    img.url = data.plateImage;
-                    // img.width = 120;
-                    // img.height = 180;
-                    img.x = -120;
-                    img.y = -200;
-                    item.dogImg.addChild(img);
-                }
+                // if(data.plateImage && data.plateImage != "")
+                // {
+                //     let img = new morn.Image();
+                //     img.url = data.plateImage;
+                //     // img.width = 120;
+                //     // img.height = 180;
+                //     img.x = -120;
+                //     img.y = -200;
+                //     item.dogImg.addChild(img);
+                // }
+                item.dogImg.skin = "main_json." + this.db.dogsRes.get("shop" + data.plateImage);
                     
 
                 // item.dongImg.url = "https://tcshipin-1257933730.cos.ap-guangzhou.myqcloud.com/other/dpg.png";

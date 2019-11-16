@@ -8,9 +8,12 @@ package game.ui.diagram {
 			<View width="750" height="1400">
 			  <Image skin="png.main.bg.0_狗狗图鉴" x="0" y="0"/>
 			  <Image skin="png.main.alert_bg" x="63" y="203" width="600" height="992" sizeGrid="200,200,200,200"/>
-			  <Panel vScrollBarSkin="null" width="599" height="992" var="panel" x="63" y="203"/>
+			  <Panel vScrollBarSkin="null" width="599" height="833" var="panel" x="74" y="289"/>
 			  <Button skin="png.main.btn_close" x="645" y="125" stateNum="1" var="closeBtn"/>
 			  <Image skin="png.main.title_dog_img" x="155" y="157"/>
+			  <Panel x="0" y="0">
+			    <Image skin="png.main.blank"/>
+			  </Panel>
 			</View>;
 		public function DiagramUI(){}
 		override protected function createChildren():void {

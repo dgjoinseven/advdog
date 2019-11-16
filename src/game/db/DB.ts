@@ -38,36 +38,43 @@ namespace game
                 if(i >= 1 && i <= 5)
                 {
                     this.dogsRes.put("pet" + i,"pet1_5");
+                    this.dogsRes.put("dog" + i,"dog1_5");
                     this.dogsRes.put("shop" + i,"shop1_5");
                 }
                 else if(i >= 6 && i <= 10)
                 {
                     this.dogsRes.put("pet" + i,"pet6_10");
+                    this.dogsRes.put("dog" + i,"dog6_10");
                     this.dogsRes.put("shop" + i,"shop6_10");
                 }
                 else if(i >= 11 && i <= 15)
                 {
                     this.dogsRes.put("pet" + i,"pet11_15");
+                    this.dogsRes.put("dog" + i,"dog11_15");
                     this.dogsRes.put("shop" + i,"shop11_15");
                 }
                 else if(i >= 16 && i <= 20)
                 {
                     this.dogsRes.put("pet" + i,"pet16_20");
+                    this.dogsRes.put("dog" + i,"dog16_20");
                     this.dogsRes.put("shop" + i,"shop16_20");
                 }
                 else if(i >= 21 && i <= 25)
                 {
                     this.dogsRes.put("pet" + i,"pet21_25");
+                    this.dogsRes.put("dog" + i,"dog21_25");
                     this.dogsRes.put("shop" + i,"shop21_25");
                 }
                 else if(i >= 26 && i <= 30)
                 {
                     this.dogsRes.put("pet" + i,"pet26_30");
+                    this.dogsRes.put("dog" + i,"dog26_30");
                     this.dogsRes.put("shop" + i,"shop26_30");
                 }
                 else if(i >= 31 && i <= 37)
                 {
                     this.dogsRes.put("pet" + i,"pet31_37");
+                    this.dogsRes.put("dog" + i,"dog31_37");
                     this.dogsRes.put("shop" + i,"shop31_37");
                 }
                 // else if(i >= 38 && i <= 42)
@@ -78,6 +85,7 @@ namespace game
                 else
                 {
                     this.dogsRes.put("pet" + i,"pet" + i);
+                    this.dogsRes.put("dog" + i,"dog" + i);
                     this.dogsRes.put("shop" + i,"shop" + i);
                 }
             }

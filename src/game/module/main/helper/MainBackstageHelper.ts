@@ -246,6 +246,11 @@ namespace game
                 JSBrigd.getInstance().jumpShiMing();
                 return ;
             }
+            //挖矿中
+            if(gemItem.tag == 10000)
+            {
+                return ;
+            }
             // gemItem.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
             this.delIndex = gemItem.tag;
             //提交给服务器
@@ -256,8 +261,9 @@ namespace game
         private ReceiveGoldTlbc_Url(data:number):void
         {
             //弹出恭喜获得界面
-            let currentGem = Number(this.view.container.gemLabel.text) + Number(data);
-            this.view.container.gemLabel.text = String(currentGem);
+            // let currentGem = Number(this.view.container.gemLabel.text) + Number(data);
+            // this.view.container.gemLabel.text = String(Math.floor(currentGem * 1000) / 1000);
+            this.view.container.gemLabel.text = String(data);
             //删除掉，其他几个往前挪动
             let gemItem:GemItem = this.gemList[this.delIndex];
             //从列表中删除
@@ -289,6 +295,8 @@ namespace game
                 let gemItem = this.createGem("采挖" + this.tlbcDTO.progress * 100 + "%");
                 gemItem.x = 287;
                 gemItem.y = 169;
+                //目前定义1w
+                gemItem.tag = 10000;
             }
         }
         /**

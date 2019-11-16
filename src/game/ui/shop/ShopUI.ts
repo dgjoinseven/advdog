@@ -30,6 +30,9 @@ namespace ui
 			n2.skin = "main_json.window_gold_bg"
 			n2.x = 126
 			n2.y = 290
+			n2.sizeGrid = "50,50,50,50"
+			n2.width = 358
+			n2.height = 68
 			var n3:morn.Image = new morn.Image
 			this.addChild(n3)
 			n3.skin = "main_json.gold"
@@ -37,11 +40,11 @@ namespace ui
 			n3.y = 303
 			t.goldLabel = new morn.Label
 			this.addChild(t.goldLabel)
-			t.goldLabel.x = 206
+			t.goldLabel.x = 202
 			t.goldLabel.y = 299
-			t.goldLabel.width = 215
+			t.goldLabel.width = 276
 			t.goldLabel.height = 51
-			t.goldLabel.size = 45
+			t.goldLabel.size = 40
 			t.goldLabel.bold = true
 			t.goldLabel.align = "center"
 			var n4:morn.Image = new morn.Image

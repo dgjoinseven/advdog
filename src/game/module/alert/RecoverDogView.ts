@@ -77,10 +77,11 @@ namespace game
         {
             console.log("回收狗成功");
             AlertView.showGainGold(data.recoveryGoldCoin);
-            
             Modules.mainModule.mainView.updateGold(data.goldCoin);
             this.db.updateDogGold(data.dogGradeId,false);
             Modules.mainModule.mainView.updateTimeDogGold();
+            //对应位置的狗进行清除
+            Modules.mainModule.mainView.removeDog(data.positionId);
             this.close();
         }
 
@@ -109,7 +110,7 @@ namespace game
             if(dogConfig)
             {
                 this.container.tipLabel.text = "您当前回收" + dogConfig.gradeName + "，可获取：";
-                this.container.gainLabel.text = dogConfig.recoveryValue + "";
+                this.container.gainLabel.text = dogConfig.recoveryStrValue;
             }
             else
             {

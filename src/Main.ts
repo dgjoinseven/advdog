@@ -211,7 +211,8 @@ class Main extends egret.DisplayObjectContainer {
         game.SoundMgr.init(this.configBean.assets + "sounds/");
         //http相关信息
         if(this.configBean.token && this.configBean.token != "")
-            game.HttpManager.token = this.configBean.token;
+            game.HttpManager.initHeaders(this.configBean.token);
+            // game.HttpManager.token = this.configBean.token;
         if(this.configBean.httpVer && this.configBean.httpVer != "")
             game.HttpManager.ver = this.configBean.httpVer;
         if(this.configBean.server && this.configBean.server != "")
@@ -253,7 +254,8 @@ class Main extends egret.DisplayObjectContainer {
         //更新token
         if(this.urlParams && this.urlParams["token"] && this.urlParams["token"] != "")
         {
-            game.HttpManager.token = this.urlParams["token"];
+            // game.HttpManager.token = this.urlParams["token"];
+            game.HttpManager.initHeaders(this.urlParams["token"]);
             //正式跑游戏啦
             this.runGame().catch(e => 
             {
@@ -280,7 +282,8 @@ class Main extends egret.DisplayObjectContainer {
     private onUpdateToken(token:string):void
     {
         console.info("app传回的token：" + token);
-        game.HttpManager.token = token;
+        // game.HttpManager.token = token;
+        game.HttpManager.initHeaders(token);
         //正式跑游戏啦
         this.runGame().catch(e => 
         {

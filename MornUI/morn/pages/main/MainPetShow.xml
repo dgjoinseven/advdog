@@ -1,3 +1,4 @@
-<View width="10" height="10" sceneColor="0xffffff" layers="2,1,1,0,star;3,1,1,0,第 3 层">
-  <Image skin="png.main.dog_bom_effect" x="-87" y="-23" layer="3"/>
+<View width="10" height="10" sceneColor="0xffffff" layers="4,1,0,0,第 4 层;2,1,0,0,star;3,1,0,0,第 3 层">
+  <Image skin="png.main.dog_bom_effect" x="-87" y="-23" layer="3" mouseEnabled="false"/>
+  <Image skin="png.main.lv_bg" x="94" y="-101" layer="4"/>
 </View>

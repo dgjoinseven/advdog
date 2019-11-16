@@ -2,6 +2,14 @@ namespace game
 {
     export class MainPetShowView extends egret.Sprite
     {
+        /**
+         * 是否有狗狗点击了，这些狗只有一只狗可以点击，不支持同时点击多只狗
+         */
+        static isClickDog:boolean = false;
+        /**
+         * 当前点击选中的对象
+         */
+        static selectPet:MainPetShowView;
         private bg:ui.MainPetShowUI;
         private stars:morn.Image[];
         private dog:egret.MovieClip;
@@ -86,7 +94,7 @@ namespace game
         }
         cleanDragInfo():void
         {
-            Session.instance.root.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onMoveClick,this);
+            Session.instance.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onMoveClick,this);
         }
         /**
          * 关闭掉这里的狗狗显示
@@ -97,10 +105,6 @@ namespace game
             {
                this.dog.stop();
                this.removeChild(this.dog);
-               this.dog = null;
-               this.hasDog = false;
-               this.dogLv = 0;
-               DB.instance.mainInfoVo["position" + this.index] = 0;
                //星星也要删除隐藏掉
                for(let i:number = 1; i <= this.stars.length; i++)
                 {
@@ -111,8 +115,13 @@ namespace game
                     }
                 }
             }
-            Session.instance.root.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onMoveClick,this);
+            this.dog = null;
+            this.hasDog = false;
+            this.dogLv = 0;
+            DB.instance.mainInfoVo["position" + this.index] = 0;
+            Session.instance.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onMoveClick,this);
         }
+        
 
         update(dogLv:number):void
         {
@@ -167,9 +176,16 @@ namespace game
             console.log("点击了");
             if(!this.dog || !this.hasDog)
                 return;
+            if(MainPetShowView.isClickDog)
+            {
+                return ;
+            }
+            MainPetShowView.selectPet = this;
+            //注册唯一点击标记
+            MainPetShowView.isClickDog = true;
             this.isClick = true;
             //启动误触机制
-            asf.App.timeMgr.doOnce(10,this.onDragEvent,this);
+            asf.App.timeMgr.doOnce(5,this.onDragEvent,this);
         }
         private onDragEvent():void
         {
@@ -178,12 +194,18 @@ namespace game
                 Session.instance.selectDogUI = this;
                 //狗狗
                 //还在点击中，启动拖动程序
-                Session.instance.root.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onMoveClick,this);
+                Session.instance.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onMoveClick,this);
                 // this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onMoveClick,this);
             }
         }
         private onMoveClick(evt:egret.TouchEvent):void
         {
+            //选中对象不是自己，进行清除
+            if(MainPetShowView.selectPet != this)
+            {
+                 Session.instance.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onMoveClick,this);
+                return ;
+            }
             console.log("开始移动了");
             Session.instance.moveDragDog(this.index,this.dogLv,evt.stageX,evt.stageY);
         }
@@ -199,7 +221,14 @@ namespace game
             // }
             this.isClick = false;
             // this.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onBeginClick,this);
-            Session.instance.root.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onBeginClick,this);
+            //只有选择是自己的生活，才删除首页的移动效果
+            if(MainPetShowView.selectPet == this)
+            {
+                MainPetShowView.isClickDog = false;
+                MainPetShowView.selectPet = null;
+            } 
+            //自己的事件肯定清除
+            Session.instance.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onBeginClick,this);
         }
 
 
@@ -224,11 +253,12 @@ namespace game
             // this.mc.addEventListener(egret.Event.LOOP_COMPLETE,this.mcOver,this);
             this.dog.play(-1);
             
-            if(this.dogLv >= 31 && this.dogLv <= 36)
-            {
-                //生成对应的颜色
-                ImageUtils.dogColor(this.dog,this.dogLv);
-            }
+            ImageUtils.tryDogColor(this.dog,this.dogLv);
+            // if(this.dogLv >= 31 && this.dogLv <= 36)
+            // {
+            //     //生成对应的颜色
+            //     ImageUtils.dogColor(this.dog,this.dogLv);
+            // }
 
             //test
             // this.showEffect(this.dogLv);

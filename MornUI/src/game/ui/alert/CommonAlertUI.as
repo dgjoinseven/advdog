@@ -17,7 +17,7 @@ package game.ui.alert {
 			  <Image skin="png.main.title_gain_gold" x="156" y="312" var="titleImg"/>
 			  <Button skin="png.main.btn_close" x="646" y="281" stateNum="1" var="closeBtn"/>
 			  <Image skin="png.main.window_gold_bg" x="207" y="692"/>
-			  <Image skin="png.main.logo_apcc" x="347" y="538" var="videoImg"/>
+			  <Image skin="png.main.gem_big" x="345" y="535" var="videoImg"/>
 			  <Button label="确定" skin="png.main.btn_yellow" x="169" y="766" stateNum="1" sizeGrid="20,20,20,20" width="394" height="77" labelSize="40" var="videoBtn" visible="false"/>
 			  <Label text="每天晚上20点重置视频次数(剩余14次)" x="186" y="847" width="397" height="24" size="20" color="0xffffff" align="center" var="tipLabel" visible="false"/>
 			  <Label text="1700、0t" x="219" y="707" width="299" height="40" bold="true" size="40" var="gainLabel" align="center"/>

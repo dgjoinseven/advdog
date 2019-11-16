@@ -43,12 +43,12 @@ namespace game
             this.instance.container.videoImg.visible = true;
         }
         /**
-         * 获得钻石
+         * 恭喜获得钻石
          */
         public static showGem(num:string):void
         {
-            this.instance.showTile("main_json.title_gain_gold",num);
-            this.instance.container.videoImg.skin = "main_json.gold_2";
+            this.instance.showTile("main_json.title_gain",num);
+            this.instance.container.videoImg.skin = "main_json.gem_big";
         }
 
         public showTile(title:string,num:string,btnContext?:string,tip?:string):void

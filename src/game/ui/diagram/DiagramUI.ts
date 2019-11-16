@@ -25,7 +25,7 @@ namespace ui
 			n1.y = 0
 			var n2:morn.Image = new morn.Image
 			this.addChild(n2)
-			n2.skin = "main_json.alert_bg"
+			n2.skin = morn.Morn.ResUrl + "main/bg/deam_bg.png"
 			n2.x = 63
 			n2.y = 203
 			n2.width = 600
@@ -35,9 +35,9 @@ namespace ui
 			this.addChild(t.panel)
 			t.panel.vScrollBarSkin = "null_json.null"
 			t.panel.width = 599
-			t.panel.height = 833
+			t.panel.height = 853
 			t.panel.x = 74
-			t.panel.y = 289
+			t.panel.y = 269
 			t.closeBtn = new morn.Button
 			this.addChild(t.closeBtn)
 			t.closeBtn.skin = "main_json.btn_close"
@@ -49,13 +49,6 @@ namespace ui
 			n3.skin = "main_json.title_dog_img"
 			n3.x = 155
 			n3.y = 157
-			var n4:morn.Panel = new morn.Panel
-			this.addChild(n4)
-			n4.x = 0
-			n4.y = 0
-			var n5:morn.Image = new morn.Image
-			n4.addChild(n5)
-			n5.skin = "main_json.blank"
 			
 			
 			

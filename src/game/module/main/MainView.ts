@@ -52,13 +52,13 @@ namespace game
         {
             console.info("MainView初始化完成");
 
-            this.grayBg = new egret.Shape();
-            this.grayBg.graphics.beginFill( 0x000000, 1);
-            this.grayBg.graphics.drawRect( 0, 0, 752, 543);
-            this.grayBg.graphics.endFill();
-            this.grayBg.alpha = 0.5;
-            //放在最底下
-            this.container.addChildAt(this.grayBg,0);
+            // this.grayBg = new egret.Shape();
+            // this.grayBg.graphics.beginFill( 0x000000, 1);
+            // this.grayBg.graphics.drawRect( 0, 0, 752, 543);
+            // this.grayBg.graphics.endFill();
+            // this.grayBg.alpha = 0.5;
+            // //放在最底下
+            // this.container.addChildAt(this.grayBg,0);
             
             this.dogList = [];
 
@@ -85,7 +85,8 @@ namespace game
 
             //注册拖动相关的处理
             // this.container.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onBeginClick,this);
-            this.container.addEventListener(egret.TouchEvent.TOUCH_END,this.onEndClick,this);
+            // this.container.addEventListener(egret.TouchEvent.TOUCH_END,this.onEndClick,this);
+            this.session.stage.addEventListener(egret.TouchEvent.TOUCH_END,this.onEndClick,this);
 
 
             this.container.mouseEnabled = false;
@@ -146,7 +147,11 @@ namespace game
                 //有拖动的狗，进行碰撞检测
                 mvc.send(NC.Merger_Dog,session.selectDogUI);
                 this.closeDragDog();
-            } 
+            }
+            //清掉状态
+            MainPetShowView.selectPet = null;
+            //注册唯一点击标记
+            MainPetShowView.isClickDog = false;
         }
         /** */
         private closeDragDog():void
@@ -392,6 +397,8 @@ namespace game
             //更新分红数据
             this.container.gainMoneyLabel.text = result.shareTotalAmount;
             this.container.rateLabel.text = Math.floor(Number(result.fhdogProcess) * 100) + "%";
+            //更新当前狗狗头像
+            this.container.myDogBtn.skin = "main_json.btn_" + this.db.dogsRes.get("dog" + result.maxLevel);
         }
 
         private onClick(evt:egret.TouchEvent):void
@@ -415,7 +422,8 @@ namespace game
             }
             else if(evt.currentTarget == this.container.myDogBtn)
             {
-                // mvc.open(MyDogView);
+                //我的狗狗面板
+                mvc.open(MyDogView);
             }
             else if(evt.currentTarget == this.container.jiaSuBtn)
             {

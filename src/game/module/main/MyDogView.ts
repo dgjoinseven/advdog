@@ -26,20 +26,35 @@ namespace game
         {
             console.info("MyDogView初始化完成");
             //请求当前狗的信息，以及相关的解锁信息
-            //生成默认数据
-            let dogs = ["dog1_5","dog6_10","dog11_15","dog16_20","dog21_25","dog26_30","dog30_37","dog38_42","dog43","dog44"];
-            for(let i:number = 0; i < dogs.length; i++)
+            //防止重复生成
+            let dogMap:asf.HashMap<string,morn.Button> = new asf.HashMap<string, morn.Button>();
+            let key:string;
+            let count:number = 0;
+            for(let i:number = 1; i <= 44; i++)
             {
-                let img = new morn.Button();
-                img.skin = "main_json.btn_" + dogs[i];
-                img.stateNum = 1
-                // img.width = 160;
-                // img.height = 140;
-                img.x = i * 120;
-                img.tag = i;
-                this.container.dogPanel.addChild(img);
-                
-                this.addButtonEvent(img,this.onClick,this);
+                key = this.db.dogsRes.get("dog" + i);
+                let img = dogMap.get(key);
+                if(!img)
+                {
+                    img = new morn.Button();
+                    img.skin = "main_json.btn_" + key;
+                    img.stateNum = 1;
+                    img.x = count * 120;
+                    //狗狗的等级
+                    img.tag = i;
+                    dogMap.put(key,img);
+                    this.container.dogPanel.addChild(img);
+                    if(i < this.db.mainInfoVo.maxLevel)
+                    {
+                        this.addButtonEvent(img,this.onClick,this);
+                    }
+                    else
+                    {
+                        //显示的狗等级大于最大等级，灰色，不可点击
+                        morn.ObjectUtils.gray(img,true);
+                    }
+                    count++;
+                }
             }
             this.showGrayBg();
             //获得当前狗狗的等级
@@ -47,6 +62,7 @@ namespace game
             //目前先显示1-5的狗狗吧
             game.MovieMgr.getInstance().load("dog", Session.instance.config.assets + "pet/" + url, new asf.CallBack(this.onLoadMove,this));
         }
+
 
         private onLoadMove(mcData: egret.MovieClipData, name: string, url: string):void
         {
@@ -57,7 +73,7 @@ namespace game
             this.dog.x = -165;
             this.dog.y = -220;
             this.dog.frameRate = 10;
-            this.container.addChild(this.dog);
+            this.container.dogContainer.addChild(this.dog);
             // this.mc.addEventListener(egret.Event.LOOP_COMPLETE,this.mcOver,this);
             this.dog.play(-1);
             
@@ -66,9 +82,6 @@ namespace game
                 //生成对应的颜色
                 ImageUtils.dogColor(this.dog,this.db.mainInfoVo.showLevel);
             }
-
-            //test
-            // this.showEffect(this.dogLv);
         }
 
         private onClick(evt:egret.TouchEvent):void
@@ -76,12 +89,19 @@ namespace game
             //点击狗狗，切换狗
             let imgBtn:morn.Button = evt.currentTarget;
 
-            HttpManager.postHttpByParam(NC.UpdateHomeDogAvatar_Url,{dogGrade:1},this.UpdateHomeDogAvatar_Url,this);
+            HttpManager.postHttpByParam(NC.UpdateHomeDogAvatar_Url,{dogGrade:imgBtn.tag},this.UpdateHomeDogAvatar_Url,this);
         }
 
         private UpdateHomeDogAvatar_Url(dogGrade:string):void
         {
             console.info(dogGrade);
+            this.db.mainInfoVo.showLevel = Number(dogGrade);
+            //更新当前狗狗头像
+            Modules.mainModule.mainView.container.myDogBtn.skin = "main_json.btn_" + this.db.dogsRes.get("dog" + dogGrade);
+            //获得当前狗狗的等级
+            let url = this.db.dogsRes.get("pet" + this.db.mainInfoVo.showLevel);
+            //目前先显示1-5的狗狗吧
+            game.MovieMgr.getInstance().load("dog", Session.instance.config.assets + "pet/" + url, new asf.CallBack(this.onLoadMove,this));
         }
         
     }

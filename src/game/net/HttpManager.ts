@@ -21,7 +21,7 @@ namespace game
         // 917f5f6cc0547ed918f8c1cdff1e9ca6
         // e93cef05b57735689f3c821692a7dd0c
         
-        static token:string = "8252beaa12707e4c85a76596c487e3a8" //这个都是37只狗
+        private static token:string = "8252beaa12707e4c85a76596c487e3a8" //这个都是37只狗
         static urlHead:string;
         /**
          * 版本信息
@@ -31,19 +31,28 @@ namespace game
         private static callBackMap:asf.HashMap<string,asf.CallBack> = new asf.HashMap<string,asf.CallBack>();
 
         private static checkRestUrlMap:asf.HashMap<string,number> = new asf.HashMap<string,number>();
-
+        private static headers:egret.URLRequestHeader[] = [new egret.URLRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8")];
+        /**
+         * 设置token放到协议头
+         */
+        static initHeaders(token:string):void
+        {
+            this.token = token;
+            this.headers.push(new egret.URLRequestHeader("token", token));
+        }
         private static createURLLoader(url:string,params?:Object):string
         {
             let http:egret.URLLoader = new egret.URLLoader();
             let urlRequest:egret.URLRequest = new egret.URLRequest();
             urlRequest.method = egret.URLRequestMethod.POST;
             urlRequest.url = this.urlHead + url;
-            urlRequest.requestHeaders = [new egret.URLRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8")];
+            urlRequest.requestHeaders = this.headers;
             let urlVariables:egret.URLVariables = new egret.URLVariables();
             if(!params)
             {
                 params = {};
             }
+            //todo 正式环境需要注释掉
             params["token"] = this.token;
             params["ver"] = this.ver;
             urlVariables.variables = params;
@@ -151,12 +160,21 @@ namespace game
                         mvc.open(GoldNoFullView,NC.Shop_Video);
                         return ;
                     }
-                     //弹出错误码
-                    //console.error(result);
-                    if(result.msg && result.msg != "")
+                    if(result.code == 1101)
                     {
-                        TipView.showTip(result.msg);
+                        //拖动或者交换出现位置错误。进行数据纠正
+                        
                     }
+                    else
+                    {
+                        //弹出错误码
+                        //console.error(result);
+                        if(result.msg && result.msg != "")
+                        {
+                            TipView.showTip(result.msg);
+                        }
+                    }
+                    
                  }
              }
         }

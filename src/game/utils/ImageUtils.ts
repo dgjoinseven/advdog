@@ -7,6 +7,18 @@ namespace game
     {
         private static dogColors:any;
         /**
+         * 尝试改变狗的颜色
+         */
+        static tryDogColor(sprite:egret.DisplayObject,dogLv:number):void
+        {
+            if(dogLv >= 31 && dogLv <= 36)
+            {
+                //生成对应的颜色
+                this.dogColor(sprite,dogLv);
+            }
+
+        }
+        /**
          * 狗的颜色
          */
         static dogColor(sprite:egret.DisplayObject,dogLv:number):void

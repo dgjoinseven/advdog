@@ -298,6 +298,13 @@ namespace morn {
 		public get skin(): string {
 			return this._skin;
 		}
+		/**
+		 * 返回按钮上的文本对象
+		 */
+		public getLabel():morn.Label
+		{
+			return this._btnLabel;
+		}
 
 		public set skin(value: string) {
 			if (this._skin != value) {

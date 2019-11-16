@@ -2,7 +2,7 @@ namespace ui
 {
 	export class RamdomMergePetUI extends morn.View
 	{
-		public startBtn:morn.Button;		public closeBtn:morn.Button;		public zhong1Effect:morn.Image;		public zhong2Effect:morn.Image;		public meng1Effect:morn.Image;		public meng2Effect:morn.Image;		public fuEffect:morn.Image;		public zhiEffect:morn.Image;		public yongEffect:morn.Image;		public fenhongImg:morn.Image;		
+		public startBtn:morn.Button;		public closeBtn:morn.Button;		public zhong1Effect:morn.Image;		public zhong2Effect:morn.Image;		public meng1Effect:morn.Image;		public meng2Effect:morn.Image;		public fuEffect:morn.Image;		public zhiEffect:morn.Image;		public yongEffect:morn.Image;		public img43:morn.Image;		public img44:morn.Image;		
 		public constructor()
 		{
 			super();
@@ -105,24 +105,23 @@ namespace ui
 			t.yongEffect.skin = "main_json.perfect_effect"
 			t.yongEffect.x = 483
 			t.yongEffect.y = 624
+			t.img43 = new morn.Image
+			this.addChild(t.img43)
+			t.img43.skin = "main_json.dog43"
+			t.img43.x = 274
+			t.img43.y = 717
+			t.img43.scale = 0.85
+			t.img44 = new morn.Image
+			this.addChild(t.img44)
+			t.img44.skin = "main_json.dog44"
+			t.img44.x = 331
+			t.img44.y = 356
+			t.img44.scale = 0.85
 			var n9:morn.Image = new morn.Image
 			this.addChild(n9)
-			n9.skin = "main_json.head_hongbao"
-			n9.x = 274
-			n9.y = 717
-			n9.scale = 0.85
-			n9.guide = "hongbaoImg"
-			t.fenhongImg = new morn.Image
-			this.addChild(t.fenhongImg)
-			t.fenhongImg.skin = "main_json.hean_fenhong"
-			t.fenhongImg.x = 331
-			t.fenhongImg.y = 356
-			t.fenhongImg.scale = 0.85
-			var n10:morn.Image = new morn.Image
-			this.addChild(n10)
-			n10.skin = "main_json.title_perfect"
-			n10.x = 152
-			n10.y = 224
+			n9.skin = "main_json.title_perfect"
+			n9.x = 152
+			n9.y = 224
 			
 			
 			

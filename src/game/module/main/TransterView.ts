@@ -15,6 +15,10 @@ namespace game
          * 服务器拉去的转盘数据
          */
         private transferVo:TransferVo;
+        /**
+         * 是否先转3圈
+         */
+        private isThree:boolean;
         public constructor()
         {
             super();
@@ -112,9 +116,15 @@ namespace game
                     break;
                 }
             }
+            this.container.startBtn.gray = true;
+            this.container.startBtn.mouseEnabled = false;
             this.currentAngle = 0;
             this.speedCount = 0;
             //测试轮盘转
+            this.isThree = true;
+            this.container.pointerImg.rotation = 0;
+            this.turnCount = 0;
+            this.turnAngle = 0;
             this.timeKey = asf.App.timeMgr.doLoop(33,this.onLoop,this,this.timeKey);
             //查找一下物品在第几个位置，然后进行转动
             // this.showResult();
@@ -133,16 +143,22 @@ namespace game
             {
                 AlertView.showGainGold(this.transferStartVo.prize);
             }
-            else if(this.transferStartVo.prizeType == "3" || this.transferStartVo.prizeType == "4")
+            else if(this.transferStartVo.prizeType == "3" || this.transferStartVo.prizeType == "4" || this.transferStartVo.prizeType == "5")
             {
                 AlertView.showMoreGainGold(this.transferStartVo.prize);
+            }
+            else if(this.transferStartVo.prizeType == "6" || this.transferStartVo.prizeType == "7" || this.transferStartVo.prizeType == "8")
+            {
+                CommonAlertView.showGem(this.transferStartVo.prize);
             }
             else
             {
                 console.log("转盘的其他结果");
-                CommonAlertView.showGem(this.transferStartVo.prizeCount);
+                CommonAlertView.showGem(this.transferStartVo.prize);
             }
             JSBrigd.getInstance().openShowAd(NC.Transter_AD_Video);
+            this.container.startBtn.gray = false;
+            this.container.startBtn.mouseEnabled = true;
         }
 
         private updateCount(count:string):void
@@ -154,8 +170,25 @@ namespace game
         private speedList:number[] = [27,28,21.5,22.5,23.5,24.5,25.5,26];
         private speed:number = 24.5;//[21.5,22.5,23.5,24.5,25.5,26,27,28]
         private speedCount:number =0;
+        private turnCount:number;
+        private turnAngle:number;
         private onLoop():void
         {
+            if(this.isThree)
+            {
+                
+                if(this.turnAngle >= 1080)
+                {
+                    this.container.pointerImg.rotation = 0;
+                    this.isThree = false;
+                }
+                else
+                {
+                    this.turnAngle += 30;
+                    this.container.pointerImg.rotation += 30;
+                    return ;
+                }
+            }
             this.currentAngle += this.speed;
             this.speed-=0.5;
             if(this.currentAngle >= 360)

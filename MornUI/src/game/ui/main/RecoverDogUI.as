@@ -2,7 +2,7 @@
 package game.ui.main {
 	import morn.core.components.*;
 	public class RecoverDogUI extends View {
-		public var goldBgImg:Image = null;
+		public var effectImg:Image = null;
 		public var gainLabel:Label = null;
 		public var goldImg:Image = null;
 		public var closeBtn:Button = null;
@@ -12,9 +12,9 @@ package game.ui.main {
 		protected static var uiXML:XML =
 			<View width="750" height="1400">
 			  <Image skin="png.main.alert_bg" x="65" y="356"/>
-			  <Image skin="png.main.gold_effect_bg" x="186" y="406" var="goldBgImg"/>
+			  <Image skin="png.main.gold_effect_bg" x="371" y="598" var="effectImg" anchorX="0.5" anchorY="0.5"/>
 			  <Image skin="png.main.window_gold_bg" x="240" y="701"/>
-			  <Label text="1700、0t" x="238" y="713" width="299" height="40" bold="true" size="40" var="gainLabel" align="center"/>
+			  <Label x="238" y="713" width="299" height="40" bold="true" size="40" var="gainLabel" align="center"/>
 			  <Image skin="png.main.gold_1" x="262" y="485" var="goldImg"/>
 			  <Image skin="png.main.title_recover" x="154" y="311"/>
 			  <Button skin="png.main.btn_close" x="643" y="283" stateNum="1" var="closeBtn"/>

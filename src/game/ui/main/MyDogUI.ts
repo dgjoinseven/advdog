@@ -43,8 +43,10 @@ namespace ui
 			t.dogPanel.hScrollBarSkin = "null_json.null"
 			t.dogContainer = new morn.Image
 			t.addChild(t.dogContainer)
-			t.dogContainer.x = 375
-			t.dogContainer.y = 538
+			t.dogContainer.x = 351
+			t.dogContainer.y = 511
+			t.dogContainer.width = 81
+			t.dogContainer.height = 21
 			t.closeBtn = new morn.Button
 			t.addChild(t.closeBtn)
 			t.closeBtn.skin = "main_json.btn_close"

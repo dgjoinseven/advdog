@@ -1,13 +1,16 @@
 namespace game 
 {
     /**
-     * 游戏主界面
+     * 红包分红犬合成
      */
     export class MoneyPetMergeView extends View<ui.MoneyPetMergeUI, any,any>
     {
         static NAME         :string = "MonyPetMergeView";
 
         private fiveMap:asf.HashMap<number,number>;
+        private autoEffect:AutoRotationEffect;
+        private effectList:EgretMovieEffect[];
+        private data:DogMergeDTOVo;
         public constructor()
         {
             super();
@@ -29,7 +32,7 @@ namespace game
             console.info("InviteView初始化完成");
             for(let j:number = 38; j <= 42; j++)
             {
-                let img:morn.Image = this.container["img" + j];
+                let img:morn.Image = this.container["dog" + j];
                 img.gray = true;
             }
             this.container.mergeBtn.gray = true;
@@ -48,7 +51,7 @@ namespace game
                     //狗的类型和位置存放起来
                     this.fiveMap.put(dogLv,i);
                     //对应的狗图标亮起来
-                    this.container["img" + dogLv].gray = false;
+                    this.container["dog" + dogLv].gray = false;
                 }
             }
             //有5只
@@ -58,6 +61,13 @@ namespace game
                 this.addButtonEvent(this.container.mergeBtn,this.onClick,this);
             }
             this.showGrayBg();
+            this.autoEffect = new AutoRotationEffect(this.container.imgBg);
+            this.autoEffect.play();
+        }
+
+        onClose():void
+        {
+            this.autoEffect.clear();
         }
 
         private onClick(evt:egret.TouchEvent):void
@@ -89,8 +99,21 @@ namespace game
 
         private SeparateDogMerge(data:DogMergeDTOVo):void
         {
+            this.data = data;
+            this.effectList = [];
+            for(let j:number = 38; j <= 42; j++)
+            {
+                let img:morn.Image = this.container["dog" + j];
+                //特效和他们保持
+                let effect = new EgretMovieEffect();
+                effect.playOnce("effect/lvUp/lvUp");
+                effect.x = -110 + img.x;
+                effect.y = -110 + img.y;
+                this.container.addChild(effect);
+            }
+            //延迟多少秒
             //直接调用主界面的合成狗狗的方法，统一处理
-            Modules.mainModule.mainView.onMergeDog(data);
+            // Modules.mainModule.mainView.onMergeDog(data);
         }
     }
 }

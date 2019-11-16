@@ -10,7 +10,7 @@ package game.ui.shop {
 			  <Image skin="png.main.alert_bg" x="63" y="202" sizeGrid="200,200,200,200" height="995"/>
 			  <Image skin="png.main.window_gold_bg" x="126" y="290"/>
 			  <Image skin="png.main.gold" x="163" y="303"/>
-			  <Label text="1700、0t" x="206" y="299" width="215" height="51" size="45" bold="true" align="center" var="goldLabel"/>
+			  <Label x="203" y="299" width="232" height="51" size="45" bold="true" align="center" var="goldLabel"/>
 			  <Image skin="png.main.shop_title" x="155" y="158"/>
 			  <Button skin="png.main.btn_close" x="644" y="127" stateNum="1" var="closeBtn"/>
 			  <Panel x="112" y="384" width="486" height="712" var="panel" vScrollBarSkin="null"/>

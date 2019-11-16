@@ -11,7 +11,7 @@ package game.ui.transfer {
 		public var videoBtn:Button = null;
 		protected static var uiXML:XML =
 			<View width="750" height="1400" var="pecksLabel">
-			  <Image skin="png.main.tan_bg" x="101" y="318"/>
+			  <Image skin="png.main.bg.tan_bg" x="101" y="318"/>
 			  <Button skin="png.main.btn_close" x="598" y="292" stateNum="1" var="closeBtn"/>
 			  <Label text="转盘卷 x 5" x="240" y="892" width="266" height="56" size="50" color="0x331e00" var="pecksLabel"/>
 			  <Label text="消耗完每天凌晨赠送5张转盘卷" x="233" y="975" width="289" height="22" size="20" color="0xffffff" var="tipLabel"/>

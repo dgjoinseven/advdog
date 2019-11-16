@@ -145,15 +145,26 @@ namespace game
             {
                 //有拖动的狗，进行碰撞检测
                 mvc.send(NC.Merger_Dog,session.selectDogUI);
+                this.closeDragDog();
+            } 
+        }
+        /** */
+        private closeDragDog():void
+        {
+            let session = Session.instance;
+            if(session.dragDog && session.selectDogUI)
+            {
                 this.isClick = false;
                 this.selectDogUI = null;
                 //清除一下选中相关逻辑
                 session.selectDogUI.cleanDragInfo();
                 session.selectDogUI = null;
                 session.closeDragDog();
-            } 
+            }
         }
-
+        /**
+         * 合成狗的操作
+         */
         private onMergerEvent(dragDogUI:MainPetShowView):void
         {
             let dragDog = this.session.dragDogContainer;
@@ -256,6 +267,9 @@ namespace game
             {
                 showUI.update(data.toDogGradeId);
             }
+
+            //尝试关闭错误操作的狗狗
+            this.closeDragDog();
         }
         /**
          * 合成狗的回调，会被别的地方进行回调的
@@ -289,6 +303,9 @@ namespace game
             }
             //播放音效
             SoundMgr.play("lvup",false,true);
+
+            //尝试关闭错误操作的狗狗
+            this.closeDragDog();
         }
 
         private showMainPet():void
@@ -459,6 +476,8 @@ namespace game
             {
                 JSBrigd.getInstance().jumpClick(urls[0],urls[1]);
             }
+            //尝试关闭错误操作的狗狗
+            this.closeDragDog();
         }
         /**
          * 喂水回调接口

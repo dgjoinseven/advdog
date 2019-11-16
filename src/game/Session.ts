@@ -69,6 +69,7 @@ namespace game
         dragDog:egret.MovieClip;
         private dragX:number;
         private dragY:number;
+        private dogLv:number;
 
         static get instance():Session
         {
@@ -86,6 +87,7 @@ namespace game
         moveDragDog(dragDogIndex:number,dogLv:number,x:number,y:number):void
         {
             this.dragDogIndex = dragDogIndex;
+            this.dogLv = dogLv;
             if(this.dragDog)
             {
                 // this.dragDog.x = -190 + x;
@@ -128,6 +130,12 @@ namespace game
             this.dragDog.y = -220;
             // this.mc.addEventListener(egret.Event.LOOP_COMPLETE,this.mcOver,this);
             this.dragDog.play(-1);
+
+            if(this.dogLv >= 31 && this.dogLv <= 36)
+            {
+                //生成对应的颜色
+                ImageUtils.dogColor(this.dragDog,this.dogLv);
+            }
         }
     }
 }

@@ -92,8 +92,8 @@ namespace ui
 			t.myDogBtn = new morn.Button
 			this.addChild(t.myDogBtn)
 			t.myDogBtn.skin = "main_json.btn_dog1_5"
-			t.myDogBtn.x = 605
-			t.myDogBtn.y = 53
+			t.myDogBtn.x = 604
+			t.myDogBtn.y = 43
 			t.myDogBtn.stateNum = 1
 			t.timeGoldLabel = new morn.Label
 			this.addChild(t.timeGoldLabel)
@@ -201,15 +201,16 @@ namespace ui
 			t.restBtn.stateNum = 1
 			t.speedTimeLabel = new morn.Label
 			this.bottomBox.addChild(t.speedTimeLabel)
-			t.speedTimeLabel.text = "200"
-			t.speedTimeLabel.x = 192
+			t.speedTimeLabel.text = "200秒"
+			t.speedTimeLabel.x = 194
 			t.speedTimeLabel.width = 157
 			t.speedTimeLabel.height = 40
 			t.speedTimeLabel.size = 30
-			t.speedTimeLabel.color = 0x0
+			t.speedTimeLabel.color = 0x333333
 			t.speedTimeLabel.align = "center"
 			t.speedTimeLabel.visible = false
 			t.speedTimeLabel.bold = true
+			t.speedTimeLabel.y = 9
 			
 			
 			

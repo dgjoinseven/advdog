@@ -1,4 +1,4 @@
-<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/merge/MoneyPetMerge.png" layers="3,1,2,1,第 3 层;2,1,2,1,第 2 层;5,1,2,1,dog;1,1,2,0,第 1 层">
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/merge/MoneyPetMerge.png" layers="3,1,0,0,第 3 层;2,1,0,1,第 2 层;5,1,0,1,dog;1,1,0,1,第 1 层">
   <Image skin="png.main.bg.money_bg" x="370" y="604" layer="1" anchorX="0.5" anchorY="0.5" var="imgBg"/>
   <Image skin="png.main.shop38" x="415" y="349" layer="5" width="323" height="323" var="dog38"/>
   <Image skin="png.main.shop41" x="48" y="576" layer="5" width="323" height="323" var="dog41"/>
@@ -10,7 +10,7 @@
   <Image skin="png.main.money_zhi" x="446" y="506" layer="2" width="91" height="94"/>
   <Image skin="png.main.money_meng" x="324" y="428" layer="2" width="90" height="89"/>
   <Image skin="png.main.money_fu" x="400" y="650" layer="2" width="97" height="92"/>
-  <Button skin="png.main.btn_money" x="316" y="549" layer="3" stateNum="1" var="mergeBtn"/>
+  <Button skin="png.main.btn_money" x="313" y="547" layer="3" stateNum="1" var="mergeBtn"/>
   <Button skin="png.main.btn_close" x="600" y="289" layer="3" stateNum="1" var="closeBtn"/>
   <Image skin="png.main.title_money" x="155" y="223" layer="3"/>
 </View>

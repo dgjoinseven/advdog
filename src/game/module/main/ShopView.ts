@@ -137,6 +137,10 @@ namespace game
         private selectButton:morn.Button;
         private onClick(evt:egret.TouchEvent):void
         {
+            // if(evt.target instanceof morn.Button)
+            // {
+            //     console.info("11111");
+            // }
             this.mouseX = evt.$stageX;
             this.mouseY = evt.$stageY;
             //进行购买

@@ -83,13 +83,12 @@ namespace game
                 effect.x = -85;
                 effect.y = -150;
              }
-             else
+             else //if(dogLv < 43)
              {
                  effect.playOnce("effect/lvUp/lvUp");
                  effect.x = -110;
                  effect.y = -110;
              }
-             
              this.addChild(effect);
         }
         cleanDragInfo():void

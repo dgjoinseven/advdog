@@ -74,7 +74,7 @@ namespace game
         onOpen(videoType:string):void
         {
             //根据视频类型去请求服务器，看能不能看视频
-            if(videoType == NC.Feedingwater_Url)
+            if(videoType == NC.Water_Video)
             {
                 this.container.tipLabel.text = "您没水，请观看视频获得";
             }

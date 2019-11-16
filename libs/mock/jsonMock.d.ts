@@ -607,6 +607,10 @@ declare module game
         goldCoin:string;
         //收集tlbc进度
         progress:number;
+        /**
+         * 钻石数据结构
+         */
+        tlbcDTO:TlbcDTOVo;
     }
     /**
      * 加速返回结果

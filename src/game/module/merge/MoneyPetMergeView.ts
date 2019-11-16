@@ -11,6 +11,10 @@ namespace game
         private autoEffect:AutoRotationEffect;
         private effectList:EgretMovieEffect[];
         private data:DogMergeDTOVo;
+        /**
+         * 新出生的狗狗
+         */
+        private dog:egret.MovieClip;
         public constructor()
         {
             super();
@@ -72,29 +76,38 @@ namespace game
 
         private onClick(evt:egret.TouchEvent):void
         {
-            if(evt.currentTarget == this.container.mergeBtn)
+            for(let j:number = 38; j <= 42; j++)
             {
-                let param:any = {};
-                for(let key in this.fiveMap.getContainer())
-                {
-                    let key1 = Number(key);
-                    if(param.strDogId)
-                    {
-                        //等级
-                        param.strDogId  += "," + key;
-                        //位置
-                        param.strPosition  += "," + this.fiveMap.get(key1);
-                    }
-                    else
-                    {
-                        param.strDogId  = key;
-                        param.strPosition  = this.fiveMap.get(key1);
-                    }
-                }
-                param.toPositionId  = this.openParam;
-                //生成合成信息
-                HttpManager.postHttpByParam(NC.SeparateDogMerge,param,this.SeparateDogMerge,this);
+                let img:morn.Image = this.container["dog" + j];
+                img.visible = true;
             }
+            //模拟假数据
+            let data:DogMergeDTOVo = asf.Global.createAny();
+            data.dogGradeId = asf.RandomUtils.randomBoolean ? 43 : 44;
+            this.SeparateDogMerge(data);
+            // if(evt.currentTarget == this.container.mergeBtn)
+            // {
+            //     let param:any = {};
+            //     for(let key in this.fiveMap.getContainer())
+            //     {
+            //         let key1 = Number(key);
+            //         if(param.strDogId)
+            //         {
+            //             //等级
+            //             param.strDogId  += "," + key;
+            //             //位置
+            //             param.strPosition  += "," + this.fiveMap.get(key1);
+            //         }
+            //         else
+            //         {
+            //             param.strDogId  = key;
+            //             param.strPosition  = this.fiveMap.get(key1);
+            //         }
+            //     }
+            //     param.toPositionId  = this.openParam;
+            //     //生成合成信息
+            //     HttpManager.postHttpByParam(NC.SeparateDogMerge,param,this.SeparateDogMerge,this);
+            // }
         }
 
         private SeparateDogMerge(data:DogMergeDTOVo):void
@@ -104,16 +117,100 @@ namespace game
             for(let j:number = 38; j <= 42; j++)
             {
                 let img:morn.Image = this.container["dog" + j];
+                // img.visible = false;
                 //特效和他们保持
                 let effect = new EgretMovieEffect();
                 effect.playOnce("effect/lvUp/lvUp");
-                effect.x = -110 + img.x;
-                effect.y = -110 + img.y;
+                effect.x = img.x + 50;
+                effect.y = img.y + 50;
                 this.container.addChild(effect);
             }
             //延迟多少秒
+            asf.App.timeMgr.doOnce(500,this.onLvup,this);
             //直接调用主界面的合成狗狗的方法，统一处理
             // Modules.mainModule.mainView.onMergeDog(data);
         }
+        private onLvup():void
+        {
+            for(let j:number = 38; j <= 42; j++)
+            {
+                let img:morn.Image = this.container["dog" + j];
+                img.visible = false;
+            }
+            //播放龙特效
+            let dragon = new EgretMovieEffect(30);
+            dragon.x = 220;
+            dragon.y = 450;
+            this.container.addChild(dragon);
+            dragon.playOnce("effect/fiveDog/fiveDog");
+            //
+            asf.App.timeMgr.doOnce(2000,this.effectNewDog,this);
+        }
+        //出现新的狗
+        private effectNewDog():void
+        {
+            //获得当前狗狗的等级
+            let url = this.db.dogsRes.get("pet" + this.data.dogGradeId);
+            //目前先显示1-5的狗狗吧
+            game.MovieMgr.getInstance().load("dog", Session.instance.config.assets + "pet/" + url, new asf.CallBack(this.onLoadMove,this));
+        }
+
+        private onLoadMove(mcData: egret.MovieClipData, name: string, url: string):void
+        {
+            this.dog = new egret.MovieClip(mcData);
+            this.dog.frameRate = 10;
+            this.dog.anchorOffsetX = 150;
+            this.dog.anchorOffsetY = 150;
+            this.dog.scaleX = this.dog.scaleY = 0.1;
+            this.dog.x = 50;
+            this.dog.y = 30;
+            // this.dog.x = 400;
+            // this.dog.y = 600;
+            
+            this.dog.frameRate = 10;
+            this.container.mergeBtn.addChild(this.dog);
+            //变大效果
+            egret.Tween.get(this.dog,{loop:false}).
+            to({scaleX:1.2,scaleY:1.2},1000,egret.Ease.sineOut);
+            // this.mc.addEventListener(egret.Event.LOOP_COMPLETE,this.mcOver,this);
+            this.dog.play(-1);
+
+            //播放烟花
+            asf.App.timeMgr.doOnce(500,this.playYanhua1,this);
+            asf.App.timeMgr.doOnce(600,this.playYanhua2,this);
+            asf.App.timeMgr.doOnce(700,this.playYanhua3,this);
+            asf.App.timeMgr.doOnce(800,this.playYanhua4,this);
+        }
+        private playYanhua1():void
+        {
+            this.playYanHua(120,420);
+        }
+        private playYanhua2():void
+        {
+            this.playYanHua(600,400);
+        }
+        private playYanhua3():void
+        {
+            this.playYanHua(140,800);
+        }
+        private playYanhua4():void
+        {
+            this.playYanHua(570,715);
+            //调用首页的操作狗的接口
+            Modules.mainModule.mainView.onMergeDog(this.data);
+            //1秒钟之后关闭
+            asf.App.timeMgr.doOnce(1000,this.close,this);
+        }
+
+        private playYanHua(x:number,y:number):void
+        {
+            let dragon = new EgretMovieEffect(10);
+            dragon.x = x - 100;
+            dragon.y = y;
+            this.container.addChild(dragon);
+            dragon.playOnce("effect/yanhua/yanhua");
+            SoundMgr.play("yanhua",false,true);
+        }
+
     }
 }

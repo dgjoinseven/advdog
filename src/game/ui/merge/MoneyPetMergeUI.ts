@@ -98,8 +98,8 @@ namespace ui
 			t.mergeBtn = new morn.Button
 			this.addChild(t.mergeBtn)
 			t.mergeBtn.skin = "main_json.btn_money"
-			t.mergeBtn.x = 316
-			t.mergeBtn.y = 549
+			t.mergeBtn.x = 313
+			t.mergeBtn.y = 547
 			t.mergeBtn.stateNum = 1
 			t.closeBtn = new morn.Button
 			this.addChild(t.closeBtn)

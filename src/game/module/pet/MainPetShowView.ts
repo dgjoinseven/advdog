@@ -31,6 +31,7 @@ namespace game
          * 是否有狗
          */
         hasDog:boolean;
+        private grayBg:egret.Shape;
         public constructor(index:number) 
         {
             super();
@@ -38,6 +39,15 @@ namespace game
             this.stars = [];
             this.createView();
             this.checkScope = new egret.Rectangle(0,0,160,180);
+
+            // this.grayBg = new egret.Shape();
+            // this.grayBg.graphics.beginFill( 0x000000, 1);
+            // // this.grayBg.graphics.drawRect( 0, 0, this.stage.stageWidth, this.stage.stageHeight);
+            // this.grayBg.graphics.drawRect( -65, -70, 150, 150);
+            // this.grayBg.graphics.endFill();
+            // this.grayBg.alpha = 5;
+            // //放在最底下
+            // this.addChildAt(this.grayBg,0);
         }
         /**
          * 是否为5福犬
@@ -55,6 +65,7 @@ namespace game
         private createView(): void 
         {
             this.bg = new ui.MainPetShowUI();
+            this.bg.bgBlankImg.alpha = 0;
             this.addChild(this.bg);
         }
         /**

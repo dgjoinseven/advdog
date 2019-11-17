@@ -96,7 +96,10 @@ namespace game
          */
         static play(url: string, isBg: boolean = false, isPlay: boolean = true): void
         {
-            if (isPlay == DB.ins.isSound)
+            //禁止播放音乐
+            if(DB.ins.isStopSound)
+                return;
+            if (isPlay)
             {
                 url = this.root + url + ".mp3";
                 let soundMap = this.soundMap;

@@ -163,7 +163,7 @@ namespace game
 
         private updateCount(count:string):void
         {
-            this.container.pecksLabel.text = "转盘卷 x " + count;
+            this.container.pecksLabel.text = "转盘劵 x " + count;
         }
 
         private currentAngle:number = 0;
@@ -212,7 +212,6 @@ namespace game
                 asf.App.timeMgr.clearTimer(this.timeKey);
                 this.showResult();
             }
-            
         }
     }
 }

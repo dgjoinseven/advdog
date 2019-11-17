@@ -23,7 +23,7 @@ namespace game
         /**
          * 是否播放音乐，默认关闭声音
          */
-        isSound:boolean = false;
+        isStopSound:boolean = true;
         /**
          * 加速设计模型
          */

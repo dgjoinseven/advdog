@@ -25,6 +25,11 @@ namespace game
          * 固定在那里的
          */
         private workingGen:GemItem;
+        /**
+         * 是否处于需要实名的状态
+         */
+        private isShiming:boolean;
+
         init():void
         {
             console.log("MainBackstageHelper初始化了");
@@ -201,6 +206,7 @@ namespace game
                 gemItem.gemItem.x = 287;
                 gemItem.gemItem.y = 169;
                 this.workingGen = gemItem;
+                this.isShiming = true;
                 return ;
             }
             else

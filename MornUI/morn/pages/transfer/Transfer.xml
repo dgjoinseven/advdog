@@ -1,7 +1,7 @@
-<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/transfer/Transfer.png" layers="3,1,2,0,第 3 层;2,1,2,1,第 2 层;1,1,2,0,bg" var="pecksLabel">
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/transfer/Transfer.png" layers="3,1,1,0,第 3 层;2,1,1,0,第 2 层;1,1,1,0,bg" var="pecksLabel">
   <Image skin="png.main.bg.tan_bg" x="101" y="318" layer="1"/>
   <Button skin="png.main.btn_close" x="598" y="292" layer="2" stateNum="1" var="closeBtn"/>
-  <Label text="转盘卷 x 5" styleSkin="png.comp.label" x="240" y="892" layer="2" width="266" height="56" size="50" color="0x331e00" var="pecksLabel"/>
+  <Label text="转盘劵 x 5" styleSkin="png.comp.label" x="240" y="892" layer="2" width="266" height="56" size="50" color="0x331e00" var="pecksLabel"/>
   <Label text="消耗完每天凌晨赠送5张转盘卷" styleSkin="png.comp.label" x="233" y="975" layer="2" width="289" height="22" size="20" color="0xffffff" var="tipLabel"/>
   <Button skin="png.main.btn_start" x="256" y="1099" layer="2" stateNum="1" var="startBtn"/>
   <Image skin="png.main.tan_pointer" x="372" y="590" layer="2" var="pointerImg" anchorX="0.5" anchorY="0.652" rotation="0"/>

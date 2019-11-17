@@ -59,6 +59,15 @@ namespace game
             mvc.openView(TipView);
             mvc.openView(CommonAlertView);
             mvc.openView(MainView);
+
+            //读取本地的音乐设置
+            let isStopSound:string  = egret.localStorage.getItem("jia.pet.sound");
+            if(!isStopSound)
+                DB.ins.isStopSound = true;
+            else
+            {
+                DB.ins.isStopSound = Boolean(isStopSound);
+            }
         }
     }
 }

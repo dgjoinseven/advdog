@@ -1,7 +1,7 @@
 <View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/setup/SetupView.png" layers="2,1,0,0,第 2 层;1,0,0,1,第 1 层" var="closeBtn">
   <Image skin="png.main.alert_bg" x="65" y="356" layer="1"/>
-  <UIView source="common/SliderCom.xml" x="445" y="559" layer="2"/>
-  <Label text="音效" styleSkin="png.main.label" x="176" y="552" layer="2" width="106" height="49" size="50"/>
+  <Label text="音效" styleSkin="png.main.label" x="173" y="549" layer="2" width="106" height="49" size="50" bold="true"/>
   <Button skin="png.main.btn_close" x="645" y="281" layer="2" stateNum="1" var="closeBtn"/>
   <Image skin="png.main.title_setup" x="153" y="314" layer="2"/>
+  <Button skin="png.main.btn_sound" x="444" y="546" layer="2" stateNum="2" var="soundBtn" selected="false" toggle="false"/>
 </View>

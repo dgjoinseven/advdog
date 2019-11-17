@@ -160,6 +160,10 @@ namespace game
         */
        static Main_Pet_Pos:number = 500;
        /**
+        * 首页宠物的Y偏移量
+        */
+       static Main_Pet_OffY:number = 0;
+       /**
         * 游戏动画的帧频
         */
        static Movie_Rate = 12;

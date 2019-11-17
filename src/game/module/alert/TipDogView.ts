@@ -76,11 +76,11 @@ namespace game
             //根据视频类型去请求服务器，看能不能看视频
             if(videoType == NC.Water_Video)
             {
-                this.container.tipLabel.text = "您没水，请观看视频获得";
+                this.container.tipLabel.text = "没水啦，请观看视频获得";
             }
             else
             {
-                this.container.tipLabel.text = "您没狗粮，请观看视频获得";
+                this.container.tipLabel.text = "没狗粮啦，请观看视频获得";
                 //这里应该查看是否还有看视频的次数的
                 HttpManager.postHttpByParam(NC.LookVideoCount_Url,{lookType:videoType},this.LookVideoCount_Url,this);
             }       

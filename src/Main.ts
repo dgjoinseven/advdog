@@ -278,6 +278,9 @@ class Main extends egret.DisplayObjectContainer {
                 console.log(e);
             })
         }
+
+        
+        
     }
     private onUpdateToken(token:string):void
     {

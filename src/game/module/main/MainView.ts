@@ -98,13 +98,13 @@ namespace game
             this.container.goldLabel.anchorOffsetY = this.container.goldLabel.height / 2;
 
             this.speedControl = new SpeedControl(this);
-            
-
-            this.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
-            this.onResize(null); 
             this.petContainer = new egret.Sprite();
             this.container.addChild(this.petContainer);
             this.container.addChild(this.container.bottomBox);
+
+            this.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
+            this.onResize(null); 
+            
         }
 
         protected onResize(e: egret.Event): void 
@@ -113,6 +113,9 @@ namespace game
             //子类重写
             this.container.bottomBox.y = this.stage.stageHeight - 145 - this.session.config.mainBottomY;
             this.restCheckScope.y = this.stage.stageHeight - 100 - this.session.config.mainBottomY;
+            NC.Main_Pet_OffY = this.stage.stageHeight / 2 - NC.Main_Pet_Pos - 174 + 20;
+            //动态计算狗狗的位置
+            this.petContainer.y = NC.Main_Pet_OffY;
         }
         /**
          * 更新狗狗每秒产出的金币
@@ -198,6 +201,7 @@ namespace game
                     continue;
                 let showUI:MainPetShowView = this.dogList[i];
                 var rect2:egret.Rectangle = showUI.checkScope;
+                // rect2.y = -NC.Main_Pet_OffY;
                 //看下鼠标在不在这个范围
                 //判断是否这个点是否在这个范围内
                 if(rect2.contains(dragDog.x,dragDog.y))
@@ -327,8 +331,9 @@ namespace game
                     showUI.y = NC.Main_Pet_Pos + 174 + i * 190;//674  200
                     //生成全局检测域
                     showUI.checkScope.x = 30 + j * 170;
-                    showUI.checkScope.y = NC.Main_Pet_Pos + 55 + i * 190;  //180
-                    let lv = this.db.mainInfoVo["position" + index]
+                    //需要减去父容器的偏移量
+                    showUI.checkScope.y = NC.Main_Pet_Pos + 55 + i * 190 + NC.Main_Pet_OffY;  //180
+                    let lv = this.db.mainInfoVo["position" + index];
                     if(lv != 0)
                     {
                         showUI.update(lv);
@@ -423,7 +428,7 @@ namespace game
             else if(evt.currentTarget == this.container.myDogBtn)
             {
                 //我的狗狗面板
-                mvc.open(MyDogView);
+                // mvc.open(MyDogView);
             }
             else if(evt.currentTarget == this.container.jiaSuBtn)
             {

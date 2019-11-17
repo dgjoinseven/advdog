@@ -208,8 +208,11 @@ namespace game
             if(this.selectButton)
             {
                 let petVo:ShopPetVo = this.selectButton.tag;
-                petVo.currentPrice = data.currentPrice;
-                this.selectButton.label = data.currentPrice;
+                if(data.currentPrice && data.currentPrice != "")
+                {
+                    petVo.currentPrice = data.currentPrice;
+                    this.selectButton.label = data.currentPrice;
+                }
             }
             //播放特效
             EffectUtls.playGoldEffect(this.mouseX,this.mouseY);

@@ -33,7 +33,7 @@ namespace game
 
         init() 
         {
-            console.info("InviteView初始化完成");
+            console.info("MoneyPetMergeView初始化完成");
             for(let j:number = 38; j <= 42; j++)
             {
                 let img:morn.Image = this.container["dog" + j];
@@ -62,8 +62,8 @@ namespace game
             if(this.fiveMap.size() >= 5)
             {
                 this.container.mergeBtn.gray = false;
-                this.addButtonEvent(this.container.mergeBtn,this.onClick,this);
             }
+            this.addButtonEvent(this.container.mergeBtn,this.onClick,this);
             this.showGrayBg();
             this.autoEffect = new AutoRotationEffect(this.container.imgBg);
             this.autoEffect.play();
@@ -85,7 +85,12 @@ namespace game
             // let data:DogMergeDTOVo = asf.Global.createAny();
             // data.dogGradeId = asf.RandomUtils.randomBoolean ? 43 : 44;
             // this.SeparateDogMerge(data);
-            if(evt.currentTarget == this.container.mergeBtn && this.fiveMap.size() >= 5)
+            if(this.fiveMap.size() < 5)
+            {
+                TipView.showTip(TipConst.Five_Dog_Tip);
+                return ;
+            }
+            if(evt.currentTarget == this.container.mergeBtn)
             {
                 let param:any = {};
                 for(let key in this.fiveMap.getContainer())
@@ -150,7 +155,7 @@ namespace game
         private effectNewDog():void
         {
             //获得当前狗狗的等级
-            let url = this.db.dogsRes.get("pet" + this.data.dogGradeId);
+            let url = this.db.dogsRes.get("pet" + this.data.mergeLevel);
             //目前先显示1-5的狗狗吧
             game.MovieMgr.getInstance().load("dog", Session.instance.config.assets + "pet/" + url, new asf.CallBack(this.onLoadMove,this));
         }

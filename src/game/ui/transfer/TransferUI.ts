@@ -37,7 +37,7 @@ namespace ui
 			t.closeBtn.stateNum = 1
 			t.pecksLabel = new morn.Label
 			t.addChild(t.pecksLabel)
-			t.pecksLabel.text = "转盘卷 x 5"
+			t.pecksLabel.text = "转盘劵 x 5"
 			t.pecksLabel.x = 240
 			t.pecksLabel.y = 892
 			t.pecksLabel.width = 266
@@ -46,7 +46,7 @@ namespace ui
 			t.pecksLabel.color = 0x331e00
 			t.tipLabel = new morn.Label
 			t.addChild(t.tipLabel)
-			t.tipLabel.text = "消耗完每天凌晨赠送5张转盘卷"
+			t.tipLabel.text = "消耗完每天凌晨赠送5张转盘劵"
 			t.tipLabel.x = 233
 			t.tipLabel.y = 975
 			t.tipLabel.width = 289

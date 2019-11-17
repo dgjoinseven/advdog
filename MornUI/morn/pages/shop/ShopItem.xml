@@ -4,6 +4,6 @@
   <Image skin="png.main.shop_point" x="-27" y="61" layer="4" width="56" height="56"/>
   <Button skin="png.main.btn_shop_close" x="243" y="97" layer="4" stateNum="1" var="bugBtn" pointX="0" pointY="0" labelSize="30" labelColors="0x000000"/>
   <Label text="小土狗" styleSkin="png.comp.label" x="162" y="31" layer="3" width="271" height="44" align="left" size="40" var="nameLabel" mouseEnabled="false" selectable="false"/>
-  <Label text="1星" styleSkin="png.comp.label" x="168" y="96" layer="3" width="56" height="44" align="left" size="35" var="starLabel" mouseEnabled="false" selectable="false"/>
+  <Label text="1星" styleSkin="png.comp.label" x="168" y="96" layer="3" width="72" height="44" align="left" size="35" var="starLabel" mouseEnabled="false" selectable="false"/>
   <Label text="1" styleSkin="png.comp.label" x="-18" y="71" layer="3" width="40" height="37" align="center" size="32" var="indexLabel" mouseEnabled="false" selectable="false"/>
 </View>

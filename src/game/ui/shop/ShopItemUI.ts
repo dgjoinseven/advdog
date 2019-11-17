@@ -64,7 +64,7 @@ namespace ui
 			t.starLabel.text = "1星"
 			t.starLabel.x = 168
 			t.starLabel.y = 96
-			t.starLabel.width = 56
+			t.starLabel.width = 72
 			t.starLabel.height = 44
 			t.starLabel.align = "left"
 			t.starLabel.size = 35

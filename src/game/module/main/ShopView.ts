@@ -88,12 +88,19 @@ namespace game
                 // (4)  等级大于等于38级的时候，根据属性判断红包，分红，碎片犬
 
                 //todo 高级狗需要改算法
-                let star = PetUtls.getDogStar(petVo.dogGradeId);
-                
+                if(petVo.dogGradeId <= 30)
+                {
+                    let star = PetUtls.getDogStar(petVo.dogGradeId);
+                    item.starLabel.text = star + "星";
+                }
+                else
+                {
+                    item.starLabel.text = "";
+                }
                 item.dogImg.skin = "main_json." + this.db.dogsRes.get("shop" + petVo.dogGradeId);
-                item.starLabel.text = star + "星";
-                item.indexLabel.text = String(i + 1);
                 item.nameLabel.text = petVo.dogLevelName;
+                item.indexLabel.text = String(i + 1);
+                
 
                 ImageUtils.tryDogColor(item.dogImg,petVo.dogGradeId);
         

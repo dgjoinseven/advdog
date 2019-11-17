@@ -11,7 +11,7 @@ package game.ui.main {
 			  <Image skin="png.main.alert_bg" x="63" y="202" sizeGrid="200,200,200,200" width="599" height="694"/>
 			  <Image skin="png.main.my_dog_bg" x="124" y="295"/>
 			  <Panel x="103" y="667" height="142" width="505" hScrollBarSkin="null" var="dogPanel"/>
-			  <Image x="375" y="538" var="dogContainer"/>
+			  <Image x="351" y="511" var="dogContainer" width="81" height="21"/>
 			  <Button skin="png.main.btn_close" x="644" y="123" stateNum="1" var="closeBtn"/>
 			  <Image skin="png.main.title_myDog" x="154" y="156"/>
 			</View>;

@@ -76,38 +76,38 @@ namespace game
 
         private onClick(evt:egret.TouchEvent):void
         {
-            for(let j:number = 38; j <= 42; j++)
-            {
-                let img:morn.Image = this.container["dog" + j];
-                img.visible = true;
-            }
-            //模拟假数据
-            let data:DogMergeDTOVo = asf.Global.createAny();
-            data.dogGradeId = asf.RandomUtils.randomBoolean ? 43 : 44;
-            this.SeparateDogMerge(data);
-            // if(evt.currentTarget == this.container.mergeBtn)
+            // for(let j:number = 38; j <= 42; j++)
             // {
-            //     let param:any = {};
-            //     for(let key in this.fiveMap.getContainer())
-            //     {
-            //         let key1 = Number(key);
-            //         if(param.strDogId)
-            //         {
-            //             //等级
-            //             param.strDogId  += "," + key;
-            //             //位置
-            //             param.strPosition  += "," + this.fiveMap.get(key1);
-            //         }
-            //         else
-            //         {
-            //             param.strDogId  = key;
-            //             param.strPosition  = this.fiveMap.get(key1);
-            //         }
-            //     }
-            //     param.toPositionId  = this.openParam;
-            //     //生成合成信息
-            //     HttpManager.postHttpByParam(NC.SeparateDogMerge,param,this.SeparateDogMerge,this);
+            //     let img:morn.Image = this.container["dog" + j];
+            //     img.visible = true;
             // }
+            // //模拟假数据
+            // let data:DogMergeDTOVo = asf.Global.createAny();
+            // data.dogGradeId = asf.RandomUtils.randomBoolean ? 43 : 44;
+            // this.SeparateDogMerge(data);
+            if(evt.currentTarget == this.container.mergeBtn && this.fiveMap.size() >= 5)
+            {
+                let param:any = {};
+                for(let key in this.fiveMap.getContainer())
+                {
+                    let key1 = Number(key);
+                    if(param.strDogId)
+                    {
+                        //等级
+                        param.strDogId  += "," + key;
+                        //位置
+                        param.strPosition  += "," + this.fiveMap.get(key1);
+                    }
+                    else
+                    {
+                        param.strDogId  = key;
+                        param.strPosition  = this.fiveMap.get(key1);
+                    }
+                }
+                param.toPositionId  = this.openParam;
+                //生成合成信息
+                HttpManager.postHttpByParam(NC.SeparateDogMerge,param,this.SeparateDogMerge,this);
+            }
         }
 
         private SeparateDogMerge(data:DogMergeDTOVo):void

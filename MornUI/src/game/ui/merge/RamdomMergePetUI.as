@@ -32,8 +32,8 @@ package game.ui.merge {
 			  <Image skin="png.main.perfect_effect" x="138" y="502" var="fuEffect"/>
 			  <Image skin="png.main.perfect_effect" x="505" y="500" var="zhiEffect"/>
 			  <Image skin="png.main.perfect_effect" x="483" y="624" var="yongEffect"/>
-			  <Image skin="png.main.head_hongbao" x="274" y="717" scale="0.85" guide="hongbaoImg" var="img43"/>
-			  <Image skin="png.main.hean_fenhong" x="331" y="356" scale="0.85" var="img44"/>
+			  <Image skin="png.main.dog43" x="274" y="717" scale="0.85" var="img43"/>
+			  <Image skin="png.main.dog44" x="331" y="356" scale="0.85" var="img44"/>
 			  <Image skin="png.main.title_perfect" x="152" y="224"/>
 			</View>;
 		public function RamdomMergePetUI(){}

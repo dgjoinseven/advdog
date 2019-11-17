@@ -21,6 +21,10 @@ namespace game
          * 5秒狗加金币事件
          */
         private fiveDogGoldKey:number = 0;
+        /**
+         * 固定在那里的
+         */
+        private workingGen:GemItem;
         init():void
         {
             console.log("MainBackstageHelper初始化了");
@@ -34,7 +38,7 @@ namespace game
             // mvc.on(NC.End_Add_Speed_Gold,this.End_Add_Speed_Gold,this);
             //监听app那边回调过来
             mvc.on(NC.App_Update_Gold,this.App_Update_Gold,this);
-            this.goldList = [];
+            this.goldList = []; 
         }
         private App_Update_Gold(data:string):void
         {
@@ -158,17 +162,18 @@ namespace game
                 this.createGem(value);
             }
         }
-        private createGem(value:any,isEvent:boolean = true,isAdd:boolean = true):ui.GemItemUI
+        private createGem(value:any,isEvent:boolean = true,isAdd:boolean = true):GemItem
         {
             //如果最后一个
             let gemItem:ui.GemItemUI = new ui.GemItemUI();
             gemItem.numLabel.text = String(value);
+            let item:GemItem = new GemItem(gemItem);
             if(isAdd)
-                this.gemList.push(new GemItem(gemItem));
+                this.gemList.push(item);
             this.view.container.addChild(gemItem);
             if(isEvent)
                 gemItem.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
-            return gemItem;
+            return item;
         }
         /**
          * 创建水晶列表
@@ -186,31 +191,54 @@ namespace game
             
             
             this.gemList = [];
-            let gemItem:ui.GemItemUI;
+            let gemItem:GemItem;
+            let tile:string;
             if(tlbcDTO.progress == -1)
             {
-                gemItem = this.createGem("请实名");
-                gemItem.x = 287;
-                gemItem.y = 169;
-                gemItem.tag = 0;
+                gemItem = this.createGem("请实名",true,false);
+                //实名是9999
+                gemItem.gemItem.tag = 9999;
+                gemItem.gemItem.x = 287;
+                gemItem.gemItem.y = 169;
+                this.workingGen = gemItem;
                 return ;
             }
-            //第一个永远都是采集中
-            let i:number = 1;
-            while(tlbcDTO.tlbcList.length > 0)
+            else
             {
-                gemItem = this.createGem(tlbcDTO.tlbcList.shift());
-                gemItem.x = 287 + i * 72;
-                gemItem.y = 169;
-                gemItem.tag = i;
-                i++;
-                if(i >= 5)
-                    break;
+                //创建挖矿中
+                gemItem = this.createGem(this.getWorkTitle(),false,false);
+                gemItem.gemItem.x = 287;
+                gemItem.gemItem.y = 169;
             }
-            this.working();
+            this.workingGen = gemItem;
+            
+            // //第一个永远都是采集中
+            // let i:number = 1;
+            // while(tlbcDTO.tlbcList.length > 0)
+            // {
+            //     gemItem = this.createGem(tlbcDTO.tlbcList.shift());
+            //     gemItem.gemItem.x = 287 + i * 72;
+            //     gemItem.gemItem.y = 169;
+            //     gemItem.gemItem.tag = i - 1;
+            //     i++;
+            //     //只能放个了
+            //     if(i >= 5)
+            //         break;
+            // }
+            // this.working();
+            //更新钻石列表
+            this.updateGemList();
             //初始化矿工
             game.MovieMgr.getInstance().load("miner", Session.instance.config.assets + "effect/miner/miner", new asf.CallBack(this.onLoadMove,this));
         }
+        /**
+         * 获得正在挖矿的标题
+         */
+        private getWorkTitle():string
+        {
+            return "采挖" + this.tlbcDTO.progress * 100 + "%";
+        }
+        //挖矿工人初始化
         private onLoadMove(mcData: egret.MovieClipData, name: string, url: string):void
         {
             this.miner = new egret.MovieClip(mcData);
@@ -256,23 +284,50 @@ namespace game
             this.view.container.gemLabel.text = String(data);
             //删除掉，其他几个往前挪动
             let gemItem:GemItem = this.gemList[this.delIndex];
+            //数组也要删除掉一个，随便删除一个
+            this.tlbcDTO.tlbcList.shift();
             //从列表中删除
             this.gemList.splice(this.delIndex,1);
             gemItem.gemItem.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
             gemItem.clear();
-            if(this.tlbcDTO.tlbcList.length > 0)
-                this.createGem(this.tlbcDTO.tlbcList.shift());
-            //因为删除和添加过，重新绑定索引
-            for(let i:number = 0; i < this.gemList.length; i++)
+            // if(this.tlbcDTO.tlbcList.length > 0)
+            //     this.createGem(this.tlbcDTO.tlbcList.shift());
+            // //因为删除和添加过，重新绑定索引
+            // for(let i:number = 0; i < this.gemList.length; i++)
+            // {
+            //     gemItem = this.gemList[i];
+            //     gemItem.gemItem.tag = i;
+            //     // gemItem.gemItem.x = 353 + i * 72;
+            //     // gemItem.gemItem.y = 170;
+            //     gemItem.gemItem.x = 287 + (i + 1)  * 72;
+            //     gemItem.gemItem.y = 169;
+            // }
+            // this.working();
+            this.updateGemList();
+        }
+        /**
+         * 全部重新初始化一次
+         */
+        private updateGemList():void
+        {
+            let tlbcDTO = this.tlbcDTO;
+            if(!tlbcDTO.tlbcList || tlbcDTO.tlbcList.length == 0)
+                return;
+            let i:number = 0;
+            let gemItem;
+            for(let i:number = 0; i < tlbcDTO.tlbcList.length; i++)
             {
                 gemItem = this.gemList[i];
-                gemItem.gemItem.tag = i;
-                // gemItem.gemItem.x = 353 + i * 72;
-                // gemItem.gemItem.y = 170;
-                gemItem.gemItem.x = 287 + i * 72;
+                if(!gemItem)
+                    gemItem = this.createGem(tlbcDTO.tlbcList[i]);
+                //重新排一下位置
+                gemItem.gemItem.x = 287 + 72 + i * 72;
                 gemItem.gemItem.y = 169;
+                gemItem.gemItem.tag = i;
+                //只能放个了
+                if(i >= 4)
+                    break;
             }
-            this.working();
         }
         /**
          * 显示正在挖矿中
@@ -296,15 +351,15 @@ namespace game
             //     }
             // }
             //不满足5个，始终都要显示一个挖矿中
-            if(this.gemList.length == 0 && this.tlbcDTO.progress != -1)
-            {
-                //一个都没有，显示正在挖矿中的
-                let gemItem = this.createGem("采挖" + this.tlbcDTO.progress * 100 + "%");
-                gemItem.x = 287 + (this.gemList.length - 1) * 72;
-                gemItem.y = 169;
-                //目前定义1w
-                gemItem.tag = 10000;
-            }
+            // if(this.gemList.length == 0 && this.tlbcDTO.progress != -1)
+            // {
+            //     //一个都没有，显示正在挖矿中的
+            //     let gemItem = this.createGem("采挖" + this.tlbcDTO.progress * 100 + "%");
+            //     gemItem.x = 287 + (this.gemList.length - 1) * 72;
+            //     gemItem.y = 169;
+            //     //目前定义1w
+            //     gemItem.tag = 10000;
+            // }
         }
         /**
          * 目前2分钟自动同步一次服务器的相关数据
@@ -321,48 +376,33 @@ namespace game
         {
             this.view.updateGold(data.goldCoin);
             this.db.mainInfoVo.goldCoinValue = data.goldCoinValue;
-            if(this.gemList.length == 1 && this.tlbcDTO.progress != -1)
+            this.tlbcDTO = data.tlbcDTO;
+            if(this.tlbcDTO.progress != -1)
             {
-                let last:GemItem = this.gemList[0];
-                if(last != null)
-                {
-                    //更新挖矿进度
-                    last.gemItem.numLabel.text = "采挖" + this.tlbcDTO.progress * 100 + "%";
-                }
+                //更新挖矿进度
+                this.workingGen.gemItem.numLabel.text = this.getWorkTitle();
             }
-            this.tlbcDTO.progress = data.tlbcDTO.progress;
-            //更新挖矿进度
-            // this.tlbcDTO = data.tlbcDTO;
             //检测一下钻石的数量
-            if(data.tlbcDTO.tlbcList && data.tlbcDTO.tlbcList.length > 0)
-            {
-                if((this.gemList.length != data.tlbcDTO.tlbcList.length) || 
-                ((this.gemList.length == data.tlbcDTO.tlbcList.length) && this.gemList.length == 1))
-                {
-                    //肯定多加一个啦
-                    this.createGem(data.tlbcDTO.tlbcList[data.tlbcDTO.tlbcList.length - 1]);
-                    //因为删除和添加过，重新绑定索引
-                    for(let i:number = 0; i < this.gemList.length; i++)
-                    {
-                        let gemItem = this.gemList[i];
-                        gemItem.gemItem.tag = i;
-                        gemItem.gemItem.x = 287 + i * 72;
-                        gemItem.gemItem.y = 169;
-                    }
-                }
-                // //不相等，重新刷新钻石.本地钻石多一个挖矿钻石
-                // if(this.gemList.length != (this.tlbcDTO.tlbcList.length + 1))
-                // {
-                //     //先删掉最后一个，如果是挖矿工作人
-                //     let last:GemItem = this.gemList[this.gemList.length - 1];
-                //     //干掉他
-                //     if(last.gemItem.tag == 10000)
-                //         asf.ArrayUtils.removeItem(this.gemList,last);
-                //     //添加一个新的
-                //     //当前工人有加回去
-                // }
-            }
-            this.working();
+            this.updateGemList();
+            // if(data.tlbcDTO.tlbcList && data.tlbcDTO.tlbcList.length > 0)
+            // {
+            //     if((this.gemList.length != data.tlbcDTO.tlbcList.length) || 
+            //     ((this.gemList.length == data.tlbcDTO.tlbcList.length) && this.gemList.length == 1))
+            //     {
+            //         //肯定多加一个啦
+            //         this.createGem(data.tlbcDTO.tlbcList[data.tlbcDTO.tlbcList.length - 1]);
+            //         //因为删除和添加过，重新绑定索引
+            //         for(let i:number = 0; i < this.gemList.length; i++)
+            //         {
+            //             let gemItem = this.gemList[i];
+            //             gemItem.gemItem.tag = i;
+            //             gemItem.gemItem.x = 287 + i * 72;
+            //             gemItem.gemItem.y = 169;
+            //         }
+            //     }
+
+            // }
+            // this.working();
             //这里先做放大缩小的动画效果
             ////播放金币变化音效
             // SoundMgr.play("money.wav");

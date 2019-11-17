@@ -20,28 +20,36 @@ namespace ui
 			this.height = 230
 			var n1:morn.Image = new morn.Image
 			this.addChild(n1)
-			n1.skin = "main_json.deam_line"
-			n1.x = 43
-			n1.y = 225
+			n1.skin = "main_json.deam_samll_bg"
+			n1.x = 0
+			n1.y = 0
+			n1.width = 599
+			n1.height = 230
+			n1.alpha = 0
+			var n2:morn.Image = new morn.Image
+			this.addChild(n2)
+			n2.skin = "main_json.deam_line"
+			n2.x = 43
+			n2.y = 225
 			t.dogImg = new morn.Image
 			this.addChild(t.dogImg)
 			t.dogImg.x = 18
 			t.dogImg.y = -10
 			t.dogImg.mouseEnabled = false
 			t.dogImg.scale = 0.75
-			var n2:morn.Label = new morn.Label
-			this.addChild(n2)
-			n2.text = "技能"
-			n2.x = 214
-			n2.y = 20
-			n2.width = 59
-			n2.height = 32
-			n2.size = 22
-			n2.mouseEnabled = false
-			n2.selectable = false
-			n2.backgroundColor = 0xbc9520
-			n2.bold = true
-			n2.color = 0x532007
+			var n3:morn.Label = new morn.Label
+			this.addChild(n3)
+			n3.text = "技能"
+			n3.x = 214
+			n3.y = 20
+			n3.width = 59
+			n3.height = 32
+			n3.size = 22
+			n3.mouseEnabled = false
+			n3.selectable = false
+			n3.backgroundColor = 0xbc9520
+			n3.bold = true
+			n3.color = 0x532007
 			t.skillLabel = new morn.Label
 			this.addChild(t.skillLabel)
 			t.skillLabel.x = 215
@@ -54,18 +62,18 @@ namespace ui
 			t.skillLabel.mouseEnabled = false
 			t.skillLabel.selectable = false
 			t.skillLabel.backgroundColor = 0x0
-			var n3:morn.Label = new morn.Label
-			this.addChild(n3)
-			n3.text = "获取途径"
-			n3.x = 214
-			n3.y = 91
-			n3.width = 105
-			n3.height = 29
-			n3.size = 22
-			n3.selectable = false
-			n3.mouseEnabled = false
-			n3.bold = true
-			n3.color = 0x532007
+			var n4:morn.Label = new morn.Label
+			this.addChild(n4)
+			n4.text = "获取途径"
+			n4.x = 214
+			n4.y = 91
+			n4.width = 105
+			n4.height = 29
+			n4.size = 22
+			n4.selectable = false
+			n4.mouseEnabled = false
+			n4.bold = true
+			n4.color = 0x532007
 			t.desLabel = new morn.Label
 			this.addChild(t.desLabel)
 			t.desLabel.x = 215

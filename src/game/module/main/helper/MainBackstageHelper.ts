@@ -331,7 +331,7 @@ namespace game
                 gemItem.gemItem.y = 169;
                 gemItem.gemItem.tag = i;
                 //只能放个了
-                if(i >= 4)
+                if(i >= 3)
                     break;
             }
         }

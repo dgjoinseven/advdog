@@ -316,8 +316,10 @@ namespace game
             //尝试关闭错误操作的狗狗
             this.closeDragDog();
         }
-
-        private showMainPet():void
+        /**
+         * 更新显示首页的狗狗
+         */
+        showMainPet():void
         {
             let index:number = 0;
             for(let i:number = 0; i < 3; i++)
@@ -325,21 +327,28 @@ namespace game
                 for(let j:number = 0; j < 4; j++)
                 {
                     index++;
-                    let showUI:MainPetShowView = new MainPetShowView(index);
-                    this.dogList[index] = showUI;
-                    showUI.x = 116 + j * 170;//116
-                    showUI.y = NC.Main_Pet_Pos + 174 + i * 190;//674  200
-                    //生成全局检测域
-                    showUI.checkScope.x = 30 + j * 170;
-                    //需要减去父容器的偏移量
-                    showUI.checkScope.y = NC.Main_Pet_Pos + 55 + i * 190 + NC.Main_Pet_OffY;  //180
+                    // let showUI:MainPetShowView = new MainPetShowView(index);
+                    let showUI:MainPetShowView = this.dogList[index];
+                    if(!showUI)
+                    {
+                        showUI = new MainPetShowView(index);
+                        this.dogList[index] = showUI;
+                        showUI.x = 116 + j * 170;//116
+                        showUI.y = NC.Main_Pet_Pos + 174 + i * 190;//674  200
+                        //生成全局检测域
+                        showUI.checkScope.x = 30 + j * 170;
+                        //需要减去父容器的偏移量
+                        showUI.checkScope.y = NC.Main_Pet_Pos + 55 + i * 190 + NC.Main_Pet_OffY;  //180
+                        this.petContainer.addChild(showUI);
+                    }
+                    
                     let lv = this.db.mainInfoVo["position" + index];
-                    if(lv != 0)
+                    //首页的狗不为0，并且的和已经存在狗不相等（相等就排除掉）
+                    if(lv != 0 && showUI.dogLv != lv)
                     {
                         showUI.update(lv);
                     }
-                    this.petContainer.addChild(showUI);
-                    // this.container.addChild(showUI);
+
                 }
             }
         }

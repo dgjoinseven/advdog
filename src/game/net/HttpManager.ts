@@ -145,6 +145,10 @@ namespace game
             console.log(http._request.url + "返回结果:",result);
              if(callBack)
              {
+                //  if(http._request.url.indexOf(NC.Shop_Url) != -1)
+                //     {
+                //         Modules.mainModule.upMainInfo();
+                //     }
                  if(result.code == 0)
                  {
                     callBack.execute(result.data);
@@ -163,7 +167,7 @@ namespace game
                     if(result.code == 1101)
                     {
                         //拖动或者交换出现位置错误。进行数据纠正
-                        
+                        Modules.mainModule.upMainInfo();
                     }
                     else
                     {

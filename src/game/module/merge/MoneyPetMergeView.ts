@@ -65,8 +65,6 @@ namespace game
             }
             this.addButtonEvent(this.container.mergeBtn,this.onClick,this);
             this.showGrayBg();
-            this.autoEffect = new AutoRotationEffect(this.container.imgBg);
-            this.autoEffect.play();
         }
 
         onClose():void
@@ -117,6 +115,10 @@ namespace game
 
         private SeparateDogMerge(data:DogMergeDTOVo):void
         {
+            //开始转动背景
+            this.autoEffect = new AutoRotationEffect(this.container.imgBg);
+            this.autoEffect.play();
+
             this.data = data;
             this.effectList = [];
             for(let j:number = 38; j <= 42; j++)

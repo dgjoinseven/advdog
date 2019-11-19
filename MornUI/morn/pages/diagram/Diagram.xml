@@ -1,6 +1,6 @@
 <View width="750" height="1400" sceneColor="0xffffff" layers="4,1,1,0,第 4 层;1,1,1,0,第 1 层;2,1,1,0,第 2 层;3,1,1,1,view">
   <Image skin="png.main.bg.0_狗狗图鉴" x="0" y="0" layer="3"/>
-  <Image skin="png.main.bg.deam_bg" x="63" y="203" layer="2" width="600" height="992" sizeGrid="200,200,200,200"/>
+  <Image skin="png.main.alert_bg" x="63" y="203" layer="2" width="600" height="992" sizeGrid="200,200,200,200"/>
   <Panel layers="1,1,0,0,第 1 层" layer="1" vScrollBarSkin="null" width="599" height="853" var="panel" x="74" y="269"/>
   <Button skin="png.main.btn_close" x="645" y="125" layer="4" stateNum="1" var="closeBtn"/>
   <Image skin="png.main.title_dog_img" x="155" y="157" layer="4"/>

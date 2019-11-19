@@ -65,7 +65,7 @@ namespace game
             this.container.goldLabel.text = data.goldCoin;
             //狗锁住的最小等级
             let lockMin:number = 2;
-            let selectIndex:number = 0;;
+            let selectIndex:number = 0;
             //生成狗的列表
             for(let i:number = 0; i < dataList.length; i++)
             {
@@ -74,8 +74,10 @@ namespace game
                 // item.x = 143;
                 // item.y = 388 + i * (20 + 160);
                 // this.container.addChild(item);
-                item.x = 5 + 33;
-                item.y = 5 + i * (20 + 160);
+                // item.x = 5 + 33;
+                // item.y = 5 + i * (20 + 160);
+                item.x = 30;
+                item.y = 10 + i * (20 + 156);
                 this.container.panel.addChild(item);
                 
                 let petVo = dataList[i];

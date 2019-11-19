@@ -105,6 +105,9 @@ namespace game
                 game.MovieMgr.getInstance().load(res, this.config.assets + "pet/" + res, new asf.CallBack(this.onLoadMove,this));
             }
         }
+        /**
+         * 关闭掉拖动的狗
+         */
         closeDragDog():void
         {
             if(this.dragDog)

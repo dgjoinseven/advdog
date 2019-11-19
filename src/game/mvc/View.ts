@@ -81,11 +81,11 @@ namespace game {
             if(!this.grayBg)
             {
                 this.grayBg = new egret.Shape();
-                this.grayBg.graphics.beginFill( 0x000000, 1);
+                this.grayBg.graphics.beginFill( 0x000000, 0.8);
                 // this.grayBg.graphics.drawRect( 0, 0, this.stage.stageWidth, this.stage.stageHeight);
                 this.grayBg.graphics.drawRect( 0, 0, 750, 1600);
                 this.grayBg.graphics.endFill();
-                this.grayBg.alpha = 0.5;
+                // this.grayBg.alpha = 0.5;
                 //放在最底下
                 this.container.addChildAt(this.grayBg,0);
             }

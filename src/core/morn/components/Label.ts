@@ -34,8 +34,8 @@ namespace morn {
 		}
 
 		protected updateSizeY(): void {
-			
-			return ;
+			this._textField.y = 2;
+			// return ;
 			// let num = this.size - 12;
 			// if (num >= 0) {
 			// 	if(num>Label.SizeY.length)
@@ -44,7 +44,7 @@ namespace morn {
 			// }
 			// else
 			//  {
-			// 	// this._textField.y = 3;//因为label的morn跟白鹭会相差2个像素
+			// 	// this._textField.y = 1;//因为label的morn跟白鹭会相差2个像素
 			// 	//todo egret好像修复这个bug，先停止掉
 			// }
 

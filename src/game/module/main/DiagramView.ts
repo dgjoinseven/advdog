@@ -40,7 +40,8 @@ namespace game
                 let item = new ui.DiagramItemUI();
                 let data = datas[i];
                 // item.y = 70 + i * 300;
-                item.y = 70 + i * 230;
+                // item.y = 70 + i * 230;
+                item.y = 40 + i * 255;
                 item.nameLabel.text = data.plateName;
                 // item.dogImg.width = 120;
                 // item.dogImg.height = 120;

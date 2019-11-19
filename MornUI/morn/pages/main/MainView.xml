@@ -15,7 +15,7 @@
   <Button skin="png.main.btn_water" x="516" y="422" layer="3" stateNum="1" var="waterDogBtn"/>
   <Button skin="png.main.btn_dog1_5" x="604" y="43" layer="3" stateNum="1" var="myDogBtn"/>
   <Label text="13233333.5t/秒" styleSkin="png.comp.label" x="105" y="479" layer="5" width="161" height="28" size="22" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="timeGoldLabel"/>
-  <Label styleSkin="png.comp.label" x="90" y="436" layer="5" width="187" height="36" size="32" align="center" color="0x0" bold="true" text="9881235.55t" selectable="false" mouseEnabled="false" var="goldLabel"/>
+  <Label styleSkin="png.comp.label" x="90" y="435" layer="5" width="187" height="36" size="32" align="center" color="0x0" bold="true" text="9881235.55t" selectable="false" mouseEnabled="false" var="goldLabel"/>
   <Label text="40%" styleSkin="png.comp.label" x="503" y="76" layer="5" width="43" height="28" size="25" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="rateLabel"/>
   <Label text="13.5t/秒" styleSkin="png.comp.label" x="133" y="109" layer="5" width="148" height="28" size="25" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="gainMoneyLabel"/>
   <Label text="100.309" styleSkin="png.comp.label" x="98" y="196" layer="5" width="196" height="38" size="40" align="left" color="0xffffff" selectable="false" mouseEnabled="false" var="gemLabel" bold="true"/>

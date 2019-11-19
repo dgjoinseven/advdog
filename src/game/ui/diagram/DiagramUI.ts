@@ -25,7 +25,7 @@ namespace ui
 			n1.y = 0
 			var n2:morn.Image = new morn.Image
 			this.addChild(n2)
-			n2.skin = morn.Morn.ResUrl + "main/bg/deam_bg.png"
+			n2.skin = "main_json.alert_bg"
 			n2.x = 63
 			n2.y = 203
 			n2.width = 600

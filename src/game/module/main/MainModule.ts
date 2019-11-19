@@ -19,6 +19,20 @@ namespace game
             mvc.on(NC.Update_Gold,this.onRequestCurrentGold,this);
         }
         /**
+         * 重新刷新下主页的信息，主要是因为有拖动狗错误了
+         */
+        upMainInfo():void
+        {
+            this.session.closeDragDog();
+            HttpManager.postHttp("api/getHomePage",this.onMainResult,this);
+        }
+        private onMainResult(result:MainInfoVo)
+        {
+            this.db.mainInfoVo = result;
+            //主要是匹配下狗信息
+            this.mainView.showMainPet();
+        }
+        /**
          * 添加一只狗
          */
         addDog(dogLv:number,position:number):void

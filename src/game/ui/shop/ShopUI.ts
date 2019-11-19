@@ -2,7 +2,7 @@ namespace ui
 {
 	export class ShopUI extends morn.View
 	{
-		public goldLabel:morn.Label;		public closeBtn:morn.Button;		public panel:morn.Panel;		
+		public goldLabel:morn.Label;		public panel:morn.Panel;		public closeBtn:morn.Button;		
 		public constructor()
 		{
 			super();
@@ -47,6 +47,14 @@ namespace ui
 			t.goldLabel.size = 40
 			t.goldLabel.bold = true
 			t.goldLabel.align = "center"
+			t.goldLabel.color = 0x301900
+			t.panel = new morn.Panel
+			this.addChild(t.panel)
+			t.panel.x = 90
+			t.panel.y = 384
+			t.panel.width = 551
+			t.panel.height = 712
+			t.panel.vScrollBarSkin = "null_json.null"
 			var n4:morn.Image = new morn.Image
 			this.addChild(n4)
 			n4.skin = "main_json.shop_title"
@@ -58,13 +66,6 @@ namespace ui
 			t.closeBtn.x = 644
 			t.closeBtn.y = 127
 			t.closeBtn.stateNum = 1
-			t.panel = new morn.Panel
-			this.addChild(t.panel)
-			t.panel.x = 112
-			t.panel.y = 384
-			t.panel.width = 486
-			t.panel.height = 712
-			t.panel.vScrollBarSkin = "null_json.null"
 			
 			
 			

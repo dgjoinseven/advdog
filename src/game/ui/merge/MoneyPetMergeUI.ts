@@ -2,7 +2,7 @@ namespace ui
 {
 	export class MoneyPetMergeUI extends morn.View
 	{
-		public imgBg:morn.Image;		public dog38:morn.Image;		public dog41:morn.Image;		public dog42:morn.Image;		public dog39:morn.Image;		public dog40:morn.Image;		public img41:morn.Image;		public mergeBtn:morn.Button;		public closeBtn:morn.Button;		
+		public imgBg:morn.Image;		public dog38:morn.Image;		public dog41:morn.Image;		public dog42:morn.Image;		public dog39:morn.Image;		public dog40:morn.Image;		public zi39:morn.Image;		public zi41:morn.Image;		public zi38:morn.Image;		public zi40:morn.Image;		public zi42:morn.Image;		public mergeBtn:morn.Button;		public closeBtn:morn.Button;		
 		public constructor()
 		{
 			super();
@@ -32,6 +32,7 @@ namespace ui
 			t.dog38.y = 349
 			t.dog38.width = 323
 			t.dog38.height = 323
+			t.dog38.mouseEnabled = false
 			t.dog41 = new morn.Image
 			this.addChild(t.dog41)
 			t.dog41.skin = "main_json.shop41"
@@ -39,6 +40,7 @@ namespace ui
 			t.dog41.y = 576
 			t.dog41.width = 323
 			t.dog41.height = 323
+			t.dog41.mouseEnabled = false
 			t.dog42 = new morn.Image
 			this.addChild(t.dog42)
 			t.dog42.skin = "main_json.shop42"
@@ -46,6 +48,7 @@ namespace ui
 			t.dog42.y = 602
 			t.dog42.width = 323
 			t.dog42.height = 323
+			t.dog42.mouseEnabled = false
 			t.dog39 = new morn.Image
 			this.addChild(t.dog39)
 			t.dog39.skin = "main_json.shop39"
@@ -53,6 +56,7 @@ namespace ui
 			t.dog39.y = 336
 			t.dog39.width = 323
 			t.dog39.height = 323
+			t.dog39.mouseEnabled = false
 			t.dog40 = new morn.Image
 			this.addChild(t.dog40)
 			t.dog40.skin = "main_json.shop40"
@@ -60,41 +64,42 @@ namespace ui
 			t.dog40.y = 216
 			t.dog40.width = 323
 			t.dog40.height = 323
-			var n1:morn.Image = new morn.Image
-			this.addChild(n1)
-			n1.skin = "main_json.money_zhong"
-			n1.x = 213
-			n1.y = 503
-			n1.width = 92
-			n1.height = 95
-			t.img41 = new morn.Image
-			this.addChild(t.img41)
-			t.img41.skin = "main_json.money_yong"
-			t.img41.x = 250
-			t.img41.y = 651
-			t.img41.width = 88
-			t.img41.height = 88
-			var n2:morn.Image = new morn.Image
-			this.addChild(n2)
-			n2.skin = "main_json.money_zhi"
-			n2.x = 446
-			n2.y = 506
-			n2.width = 91
-			n2.height = 94
-			var n3:morn.Image = new morn.Image
-			this.addChild(n3)
-			n3.skin = "main_json.money_meng"
-			n3.x = 324
-			n3.y = 428
-			n3.width = 90
-			n3.height = 89
-			var n4:morn.Image = new morn.Image
-			this.addChild(n4)
-			n4.skin = "main_json.money_fu"
-			n4.x = 400
-			n4.y = 650
-			n4.width = 97
-			n4.height = 92
+			t.dog40.mouseEnabled = false
+			t.zi39 = new morn.Image
+			this.addChild(t.zi39)
+			t.zi39.skin = "main_json.money_zhong"
+			t.zi39.x = 213
+			t.zi39.y = 503
+			t.zi39.width = 92
+			t.zi39.height = 95
+			t.zi41 = new morn.Image
+			this.addChild(t.zi41)
+			t.zi41.skin = "main_json.money_yong"
+			t.zi41.x = 250
+			t.zi41.y = 651
+			t.zi41.width = 88
+			t.zi41.height = 88
+			t.zi38 = new morn.Image
+			this.addChild(t.zi38)
+			t.zi38.skin = "main_json.money_zhi"
+			t.zi38.x = 446
+			t.zi38.y = 506
+			t.zi38.width = 91
+			t.zi38.height = 94
+			t.zi40 = new morn.Image
+			this.addChild(t.zi40)
+			t.zi40.skin = "main_json.money_meng"
+			t.zi40.x = 324
+			t.zi40.y = 428
+			t.zi40.width = 90
+			t.zi40.height = 89
+			t.zi42 = new morn.Image
+			this.addChild(t.zi42)
+			t.zi42.skin = "main_json.money_fu"
+			t.zi42.x = 400
+			t.zi42.y = 650
+			t.zi42.width = 97
+			t.zi42.height = 92
 			t.mergeBtn = new morn.Button
 			this.addChild(t.mergeBtn)
 			t.mergeBtn.skin = "main_json.btn_money"
@@ -107,11 +112,11 @@ namespace ui
 			t.closeBtn.x = 600
 			t.closeBtn.y = 289
 			t.closeBtn.stateNum = 1
-			var n5:morn.Image = new morn.Image
-			this.addChild(n5)
-			n5.skin = "main_json.title_money"
-			n5.x = 155
-			n5.y = 223
+			var n1:morn.Image = new morn.Image
+			this.addChild(n1)
+			n1.skin = "main_json.title_money"
+			n1.x = 155
+			n1.y = 223
 			
 			
 			

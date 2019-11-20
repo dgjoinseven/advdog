@@ -34,6 +34,13 @@ namespace game
             this.autoEffect.clear();
             this.showGrayBg();
         }
+        // /**
+        //  * 弹出提示购买红包券
+        //  */
+        // static showHBDog():void
+        // {
+
+        // }
         /**
          * 获得金币
          */

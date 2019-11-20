@@ -187,8 +187,16 @@ namespace game
             if(this.restCheckScope.contains(dragDog.x,dragDog.y))
             {
                 console.log("触发回收狗狗");
-                //弹出回收狗的界面
-                mvc.open(RecoverDogView,{dogGrade:this.session.selectDogUI.dogLv,positionId:this.session.selectDogUI.index});
+                if(this.session.selectDogUI.dogLv == NC.Feng_Hong_Dog)
+                {
+                    TipView.showTip("分红犬无法回收");
+                }
+                else
+                {
+                    //弹出回收狗的界面
+                    mvc.open(RecoverDogView,{dogGrade:this.session.selectDogUI.dogLv,positionId:this.session.selectDogUI.index});
+                }
+                
 
                 this.session.closeDragDog();
                 return ;
@@ -213,7 +221,6 @@ namespace game
                     //进行狗的合成
                     if(showUI.hasDog)
                     {
-                        //如果是
                         if(dragDogUI.isFiveCerealsDog() && showUI.isFiveCerealsDog())
                         {
                             //都是5福犬，判断是否满足5福犬的合成条件

@@ -25,11 +25,11 @@ namespace ui
 			n1.y = 356
 			t.effectImg = new morn.Image
 			this.addChild(t.effectImg)
-			t.effectImg.skin = morn.Morn.ResUrl + "main/bg/gold_effect_bg.png"
 			t.effectImg.x = 367
 			t.effectImg.y = 582
 			t.effectImg.anchorX = 0.5
 			t.effectImg.anchorY = 0.5
+			t.effectImg.skin = morn.Morn.ResUrl + "main/bg/gold_effect_bg.png"
 			var n2:morn.Label = new morn.Label
 			this.addChild(n2)
 			n2.text = "恭喜获得"
@@ -57,9 +57,11 @@ namespace ui
 			n3.y = 692
 			t.videoImg = new morn.Image
 			this.addChild(t.videoImg)
-			t.videoImg.skin = "main_json.logo_apcc"
-			t.videoImg.x = 347
-			t.videoImg.y = 538
+			t.videoImg.skin = "main_json.gem_big"
+			t.videoImg.x = 363
+			t.videoImg.y = 564
+			t.videoImg.anchorX = 0.5
+			t.videoImg.anchorY = 0.5
 			t.videoBtn = new morn.Button
 			this.addChild(t.videoBtn)
 			t.videoBtn.label = "确定"

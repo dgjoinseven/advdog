@@ -1,15 +1,15 @@
-<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/merge/MoneyPetMerge.png" layers="3,1,0,0,第 3 层;2,1,0,1,第 2 层;5,1,0,1,dog;1,1,0,1,第 1 层">
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/merge/MoneyPetMerge.png" layers="3,1,2,0,第 3 层;2,1,2,0,第 2 层;5,1,2,0,dog;1,1,2,1,第 1 层">
   <Image skin="png.main.bg.money_bg" x="370" y="604" layer="1" anchorX="0.5" anchorY="0.5" var="imgBg"/>
-  <Image skin="png.main.shop38" x="415" y="349" layer="5" width="323" height="323" var="dog38"/>
-  <Image skin="png.main.shop41" x="48" y="576" layer="5" width="323" height="323" var="dog41"/>
-  <Image skin="png.main.shop42" x="327" y="602" layer="5" width="323" height="323" var="dog42"/>
-  <Image skin="png.main.shop39" x="-4" y="336" layer="5" width="323" height="323" var="dog39"/>
-  <Image skin="png.main.shop40" x="212" y="216" layer="5" width="323" height="323" var="dog40"/>
-  <Image skin="png.main.money_zhong" x="213" y="503" layer="2" width="92" height="95"/>
-  <Image skin="png.main.money_yong" x="250" y="651" layer="2" var="img41" width="88" height="88"/>
-  <Image skin="png.main.money_zhi" x="446" y="506" layer="2" width="91" height="94"/>
-  <Image skin="png.main.money_meng" x="324" y="428" layer="2" width="90" height="89"/>
-  <Image skin="png.main.money_fu" x="400" y="650" layer="2" width="97" height="92"/>
+  <Image skin="png.main.shop38" x="415" y="349" layer="5" width="323" height="323" var="dog38" mouseEnabled="false"/>
+  <Image skin="png.main.shop41" x="48" y="576" layer="5" width="323" height="323" var="dog41" mouseEnabled="false"/>
+  <Image skin="png.main.shop42" x="327" y="602" layer="5" width="323" height="323" var="dog42" mouseEnabled="false"/>
+  <Image skin="png.main.shop39" x="-4" y="336" layer="5" width="323" height="323" var="dog39" mouseEnabled="false"/>
+  <Image skin="png.main.shop40" x="212" y="216" layer="5" width="323" height="323" var="dog40" mouseEnabled="false"/>
+  <Image skin="png.main.money_zhong" x="213" y="503" layer="2" width="92" height="95" var="zi39"/>
+  <Image skin="png.main.money_yong" x="250" y="651" layer="2" var="zi41" width="88" height="88"/>
+  <Image skin="png.main.money_zhi" x="446" y="506" layer="2" width="91" height="94" var="zi38"/>
+  <Image skin="png.main.money_meng" x="324" y="428" layer="2" width="90" height="89" var="zi40"/>
+  <Image skin="png.main.money_fu" x="400" y="650" layer="2" width="97" height="92" var="zi42"/>
   <Button skin="png.main.btn_money" x="313" y="547" layer="3" stateNum="1" var="mergeBtn"/>
   <Button skin="png.main.btn_close" x="600" y="289" layer="3" stateNum="1" var="closeBtn"/>
   <Image skin="png.main.title_money" x="155" y="223" layer="3"/>

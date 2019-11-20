@@ -11,7 +11,7 @@ namespace game
         //  * 回收的狗等级
         //  */
         // private dogLv:number;
-        
+        private autoEffect:AutoRotationEffect;
         public constructor()
         {
             super();
@@ -31,6 +31,8 @@ namespace game
             this.showGrayBg();
             this.container.sureBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
             this.setCloseBtn(this.container.cancelBtn);
+            this.autoEffect = new AutoRotationEffect(this.container.effectImg);
+            this.autoEffect.play();
             // this.container.cancelBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
         }
 
@@ -110,7 +112,17 @@ namespace game
             if(dogConfig)
             {
                 this.container.tipLabel.text = "您当前回收" + dogConfig.gradeName + "，可获取：";
-                this.container.gainLabel.text = dogConfig.recoveryStrValue;
+                if(dogConfig.gradeId == NC.Hong_Bao_Dog)
+                {
+                    this.container.gainLabel.text = "随机红包";
+                    this.container.goldImg.skin = "main_json.hb";
+                }
+                else
+                {
+                    this.container.gainLabel.text = dogConfig.recoveryStrValue;
+                    this.container.goldImg.skin = "main_json.gold_1";
+                }
+                
             }
             else
             {
@@ -133,6 +145,11 @@ namespace game
         // {
             
         // }
+        }
+        onClose()
+        {  
+            if(this.autoEffect)
+                this.autoEffect.clear();
         }
     }
 }

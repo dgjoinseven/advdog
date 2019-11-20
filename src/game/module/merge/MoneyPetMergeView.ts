@@ -69,7 +69,8 @@ namespace game
 
         onClose():void
         {
-            this.autoEffect.clear();
+            if(this.autoEffect)
+                this.autoEffect.clear();
         }
 
         private onClick(evt:egret.TouchEvent):void

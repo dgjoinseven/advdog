@@ -167,6 +167,14 @@ namespace game
         * 游戏动画的帧频
         */
        static Movie_Rate = 12;
+       /**
+        * 红包狗的ID
+        */
+       static Hong_Bao_Dog = 43;
+       /**
+        * 分红狗的ID
+        */
+       static Feng_Hong_Dog = 44;
 
        
     }

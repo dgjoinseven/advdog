@@ -25,9 +25,9 @@ namespace ui
 			n1.y = 356
 			t.effectImg = new morn.Image
 			this.addChild(t.effectImg)
-			t.effectImg.skin = "main_json.gold_effect_bg"
+			t.effectImg.skin = morn.Morn.ResUrl + "main/bg/gold_effect_bg.png"
 			t.effectImg.x = 371
-			t.effectImg.y = 598
+			t.effectImg.y = 600
 			t.effectImg.anchorX = 0.5
 			t.effectImg.anchorY = 0.5
 			var n2:morn.Image = new morn.Image
@@ -37,18 +37,20 @@ namespace ui
 			n2.y = 701
 			t.gainLabel = new morn.Label
 			this.addChild(t.gainLabel)
-			t.gainLabel.x = 238
-			t.gainLabel.y = 713
-			t.gainLabel.width = 299
+			t.gainLabel.x = 198
+			t.gainLabel.y = 716
+			t.gainLabel.width = 353
 			t.gainLabel.height = 40
 			t.gainLabel.bold = true
-			t.gainLabel.size = 40
+			t.gainLabel.size = 35
 			t.gainLabel.align = "center"
 			t.goldImg = new morn.Image
 			this.addChild(t.goldImg)
 			t.goldImg.skin = "main_json.gold_1"
-			t.goldImg.x = 262
-			t.goldImg.y = 485
+			t.goldImg.x = 363
+			t.goldImg.y = 582
+			t.goldImg.anchorX = 0.5
+			t.goldImg.anchorY = 0.5
 			var n3:morn.Image = new morn.Image
 			this.addChild(n3)
 			n3.skin = "main_json.title_recover"
@@ -66,7 +68,7 @@ namespace ui
 			t.tipLabel.x = 110
 			t.tipLabel.y = 426
 			t.tipLabel.width = 522
-			t.tipLabel.height = 40
+			t.tipLabel.height = 43
 			t.tipLabel.align = "center"
 			t.tipLabel.size = 30
 			t.cancelBtn = new morn.Button

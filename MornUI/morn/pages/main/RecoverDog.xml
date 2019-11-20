@@ -1,12 +1,12 @@
-<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/main/RecoverDog.png" layers="2,1,2,1,第 2 层;4,1,2,1,第 4 层;5,1,2,1,第 5 层;3,1,2,0,第 3 层;1,0,2,0,第 1 层">
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/main/RecoverDog.png" layers="2,1,2,1,第 2 层;4,1,2,0,第 4 层;5,1,2,0,第 5 层;3,1,2,1,第 3 层;1,0,2,0,第 1 层">
   <Image skin="png.main.alert_bg" x="65" y="356" layer="1"/>
-  <Image skin="png.main.gold_effect_bg" x="371" y="598" layer="3" var="effectImg" anchorX="0.5" anchorY="0.5"/>
+  <Image skin="png.main.bg.gold_effect_bg" x="371" y="600" layer="3" var="effectImg" anchorX="0.5" anchorY="0.5"/>
   <Image skin="png.main.window_gold_bg" x="240" y="701" layer="5"/>
-  <Label styleSkin="png.comp.label" x="238" y="713" layer="5" width="299" height="40" bold="true" size="40" var="gainLabel" align="center"/>
-  <Image skin="png.main.gold_1" x="262" y="485" layer="4" var="goldImg"/>
+  <Label styleSkin="png.comp.label" x="198" y="716" layer="5" width="353" height="40" bold="true" size="35" var="gainLabel" align="center"/>
+  <Image skin="png.main.gold_1" x="363" y="582" layer="4" var="goldImg" anchorX="0.5" anchorY="0.5"/>
   <Image skin="png.main.title_recover" x="154" y="311" layer="2"/>
   <Button skin="png.main.btn_close" x="643" y="283" layer="2" stateNum="1" var="closeBtn"/>
-  <Label text="您当前回收二哈犬，可获取：" styleSkin="png.main.label" x="110" y="426" layer="2" width="522" height="40" align="center" size="30" var="tipLabel"/>
+  <Label text="您当前回收二哈犬，可获取：" styleSkin="png.main.label" x="110" y="426" layer="2" width="522" height="43" align="center" size="30" var="tipLabel"/>
   <Button label="取消" skin="png.main.btn_blue" x="183" y="776" layer="2" stateNum="1" var="cancelBtn" labelBold="true" labelSize="30"/>
   <Button label="确定" skin="png.main.btn_yellow" x="396" y="775" layer="2" stateNum="1" var="sureBtn" labelBold="true" labelSize="30"/>
 </View>

@@ -107,7 +107,7 @@ namespace game
                 ImageUtils.tryDogColor(item.dogImg,petVo.dogGradeId);
         
                 item.bugBtn.mouseEnabled = true;
-                item.bugBtn.labelMargin = "20,0,0,0";
+                item.bugBtn.labelMargin = "30,0,0,0";
                 // item.bugBtn.getLabel().align = "right";
                 
                 //判断是使用金币还是使用
@@ -133,6 +133,7 @@ namespace game
                     item.bugBtn.skin = "main_json.btn_shop_close";
                     item.bugBtn.mouseEnabled = false;
                     item.bugBtn.label = "";
+                    item.dogImg.gray = true;
                 }
                 item.bugBtn.tag = petVo; 
                 //弹起的时候就买

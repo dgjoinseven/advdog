@@ -185,9 +185,9 @@ namespace game
 
             //播放烟花
             asf.App.timeMgr.doOnce(500,this.playYanhua1,this);
-            asf.App.timeMgr.doOnce(600,this.playYanhua2,this);
-            asf.App.timeMgr.doOnce(700,this.playYanhua3,this);
-            asf.App.timeMgr.doOnce(800,this.playYanhua4,this);
+            asf.App.timeMgr.doOnce(800,this.playYanhua2,this);
+            asf.App.timeMgr.doOnce(1200,this.playYanhua3,this);
+            asf.App.timeMgr.doOnce(1600,this.playYanhua4,this);
         }
         private playYanhua1():void
         {

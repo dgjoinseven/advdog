@@ -65,21 +65,26 @@ namespace game
 
         private RecoveryRedPacketDog_Url(data:DogBuySellDTOVo):void
         {
-            CommonAlertView.showGem(data.tlbcValue.toString());
-            if(data.tlbcValue)
-                this.db.mainInfoVo.tlbc += data.tlbcValue;
-            Modules.mainModule.mainView.updateGem(this.db.mainInfoVo.tlbc);
+            CommonAlertView.showHBDog(data.tlbcValue + "元");
+            // if(data.tlbcValue)
+            // {
+            //     this.db.mainInfoVo.tlbc += data.tlbcValue;
+            //     Modules.mainModule.mainView.updateGem(this.db.mainInfoVo.tlbc);
+            // }
+                
 
             this.db.updateDogGold(data.dogGradeId,false);
             Modules.mainModule.mainView.updateTimeDogGold();
             //删除掉回收的狗
             Modules.mainModule.mainView.removeDog(data.positionId);
+            this.close();
         }
         private RecoveryDog_Url(data:DogBuySellDTOVo):void
         {
             console.log("回收狗成功");
             AlertView.showGainGold(data.recoveryGoldCoin);
             Modules.mainModule.mainView.updateGold(data.goldCoin);
+            
             this.db.updateDogGold(data.dogGradeId,false);
             Modules.mainModule.mainView.updateTimeDogGold();
             //对应位置的狗进行清除

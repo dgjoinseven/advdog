@@ -8,5 +8,5 @@
   <Image skin="png.main.gem_big" x="363" y="564" layer="3" var="videoImg" anchorX="0.5" anchorY="0.5"/>
   <Button label="确定" skin="png.main.btn_yellow" x="169" y="766" layer="3" stateNum="1" sizeGrid="20,20,20,20" width="394" height="77" labelSize="40" var="videoBtn" visible="false"/>
   <Label text="每天晚上20点重置视频次数(剩余14次)" styleSkin="png.comp.label" x="186" y="847" layer="3" width="397" height="24" size="20" color="0xffffff" align="center" var="tipLabel" visible="false"/>
-  <Label text="1700、0t" styleSkin="png.comp.label" x="219" y="707" layer="2" width="299" height="40" bold="true" size="40" var="gainLabel" align="center"/>
+  <Label text="1700、0t" styleSkin="png.comp.label" x="219" y="707" layer="2" width="284" height="40" bold="true" size="40" var="gainLabel" align="center"/>
 </View>

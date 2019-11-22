@@ -7,6 +7,18 @@ namespace game
     {
         static NAME         :string = "RandomMergeView";
 
+        private data:DogMergeDTOVo;
+        private autoEffect:AutoRotationEffect;
+        /**
+         * 随机显示的狗狗
+         */
+        private randomDog:number;
+        /**
+         * 随机key
+         */
+        private randomKey:number;
+        private time:number;
+        private upImage:morn.Image;
         public constructor()
         {
             super();
@@ -26,8 +38,10 @@ namespace game
             console.info("RandomMergeView初始化完成");
             //调用合成接口
             // HttpManager.postHttpByParam(NC.AddSpeedGoldCoin_Url,param,this.AddSpeedGoldCoin_Url,this);
-            this.container.startBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
+            this.addButtonEvent(this.container.startBtn,this.onClick,this);
             this.showGrayBg();
+            this.autoEffect = new AutoRotationEffect();
+            this.autoEffect.speed = 5;
         }
         private onClick(evt:egret.TouchEvent):void
         {
@@ -35,18 +49,83 @@ namespace game
             {
                 //合成
                 HttpManager.postHttpByParam(NC.Merge_Dog_Url,this.openParam,this.onMergeDog,this);
+                //自己做点模拟数据
+                // let mock:DogMergeDTOVo = asf.Global.createAny();
+                // mock.dogGradeId = asf.RandomUtils.randomInt(38,42);
+                // console.log("随机狗:" + mock.dogGradeId);
+                // this.onMergeDog(mock);
             }
             else
-            {
+            {     
                 this.close();
             }
         }
         private onMergeDog(data:DogMergeDTOVo):void
         {
             console.info("37狗合成成功");
-            this.close();
+            this.data = data;
+            //随机几次显示效果
+            //this.close();
             //根据结构显示
-            Modules.mainModule.mainView.onMergeDog(data);
+            //Modules.mainModule.mainView.onMergeDog(data);
+            this.randomEffectDog();
+            this.time = 6;
+            //开启计时器
+            this.randomKey = asf.App.timeMgr.doLoop(1000,this.onLoop,this,this.randomKey)
+        }
+        onClose():void
+        {
+            if(this.container)
+                this.container.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
+        }
+        private onLoop():void
+        {
+            this.time--;
+            if(this.time <= 0)
+            {
+                // this.container.startBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
+                // //显示最终结果
+                // Modules.mainModule.mainView.onMergeDog(this.data);
+                // this.randomEffectDog(this.data.dogGradeId);
+                asf.App.timeMgr.clearTimer(this.randomKey);
+                //弹出恭喜获得
+                CommonAlertView.showGainDog(this.data.dogGradeId);
+                this.close();
+            }
+            else
+            {
+                this.randomEffectDog();
+            }
+        }
+        private randomEffectDog(dog?:number):void
+        {
+            if(dog)
+            {
+                this.randomDog = dog;
+            }
+            else
+            {
+                this.randomDog = asf.RandomUtils.randomInt(38,44);
+                //修正
+                if(this.randomDog < 38 || this.randomDog > 44)
+                    this.randomDog = 38;
+            }
+            let key:string = "effect" + this.randomDog;
+            //38 39有2只
+            if(this.randomDog == 38 || this.randomDog == 39)
+            {
+                key = key + asf.RandomUtils.randomInt(1,2);
+            }
+            if(this.upImage)
+            {
+                this.upImage.visible = false;
+            }
+            this.upImage = this.container[key];
+            this.upImage.visible = true;
+            this.upImage.skin = "main_json.perfect_effect";
+            //对应的image亮起来
+            this.autoEffect.changeImage(this.upImage);
+            this.autoEffect.play();
         }
         // onOpen(param:number): void 
         // {

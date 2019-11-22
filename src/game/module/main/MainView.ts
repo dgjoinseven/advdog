@@ -242,6 +242,7 @@ namespace game
                             {
                                 //合成
                                 HttpManager.postHttpByParam(NC.Merge_Dog_Url,param,this.onMergeDog,this);
+                                // mvc.open(RandomMergeView,param);
                             }
                             
                         }

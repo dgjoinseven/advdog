@@ -34,20 +34,31 @@ namespace game
             this.autoEffect.clear();
             this.showGrayBg();
         }
-        // /**
-        //  * 弹出提示购买红包券
-        //  */
-        // static showHBDog():void
-        // {
-
-        // }
+        /**
+         * 弹出提示购买红包券
+         */
+        static showHBDog(num:string):void
+        {
+            this.instance.showTile("main_json.title_gain",num);
+            this.instance.container.videoImg.skin = "main_json.hb";
+        }
         /**
          * 获得金币
          */
         public static showGainGold(num:string):void
         {
             this.instance.showTile("main_json.title_gain_gold",num);
-            this.instance.container.videoImg.visible = true;
+            this.instance.container.videoImg.skin = "main_json.gold_2";
+            // this.instance.container.videoImg.visible = true;
+        }
+        public static showGainDog(dogLv:number):void
+        {
+            let dogConfig:DogConfigureVo = DB.ins.getDogConfig(dogLv);
+            // this.instance.showTile("main_json.title_gain","一只" + dogConfig.gradeName + "犬");
+            this.instance.showTile("main_json.title_gain", dogConfig.gradeName);
+            // let key = DB.ins.dogsRes.get("shop" + dogLv)
+            this.instance.container.videoImg.skin = "main_json.shop" + dogLv;
+            // this.instance.container.videoImg.visible = true;
         }
         /**
          * 恭喜获得钻石
@@ -63,6 +74,7 @@ namespace game
             mvc.open(CommonAlertView);
             this.container.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
             this.container.visible = true;
+            this.container.videoImg.visible = true;
             this.container.titleImg.skin = title;
             this.container.gainLabel.text = num;
             this.container.videoBtn.visible = true;

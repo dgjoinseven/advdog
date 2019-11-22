@@ -1,22 +1,24 @@
-<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/merge/RamdomMergePet.png" layers="3,1,0,0,第 3 层;2,1,0,1,第 2 层;1,0,0,1,第 1 层">
+<View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/merge/RamdomMergePet.png" layers="4,1,0,0,第 4 层;3,1,0,1,第 3 层;2,1,0,1,第 2 层;1,1,0,1,第 1 层" visible="true">
   <Image skin="png.main.bg.radomMergeBg" x="64" y="277" layer="1"/>
-  <Image skin="png.main.perfect_fuzi" x="155" y="517" layer="2"/>
-  <Image skin="png.main.perfect_meng" x="401" y="724" layer="2"/>
-  <Image skin="png.main.perfect_meng" x="220" y="410" layer="2"/>
-  <Image skin="png.main.perfect_zhong" x="174" y="646" layer="2"/>
-  <Image skin="png.main.perfect_zhong" x="451" y="412" layer="2"/>
-  <Image skin="png.main.perfect_yong" x="498" y="644" layer="2"/>
-  <Image skin="png.main.perfect_zhi" x="517" y="516" layer="2"/>
+  <Image skin="png.main.perfect_fuzi" x="201" y="525" layer="2"/>
+  <Image skin="png.main.perfect_meng" x="385" y="683" layer="2"/>
+  <Image skin="png.main.perfect_meng" x="244" y="439" layer="2"/>
+  <Image skin="png.main.perfect_zhong" x="219" y="621" layer="2"/>
+  <Image skin="png.main.perfect_zhong" x="432" y="432" layer="2"/>
+  <Image skin="png.main.perfect_yong" x="463" y="619" layer="2"/>
+  <Image skin="png.main.perfect_zhi" x="480" y="519" layer="2"/>
   <Button skin="png.main.btn_start" x="256" y="941" layer="3" stateNum="1" var="startBtn"/>
   <Button skin="png.main.btn_close" x="601" y="291" layer="3" stateNum="1" var="closeBtn"/>
-  <Image skin="png.main.perfect_effect" x="439" y="391" layer="3" var="zhong1Effect"/>
-  <Image skin="png.main.perfect_effect" x="164" y="628" layer="3" var="zhong2Effect"/>
-  <Image skin="png.main.perfect_effect" x="388" y="707" layer="3" var="meng1Effect"/>
-  <Image skin="png.main.perfect_effect" x="201" y="392" layer="3" var="meng2Effect"/>
-  <Image skin="png.main.perfect_effect" x="138" y="502" layer="3" var="fuEffect"/>
-  <Image skin="png.main.perfect_effect" x="505" y="500" layer="3" var="zhiEffect"/>
-  <Image skin="png.main.perfect_effect" x="483" y="624" layer="3" var="yongEffect"/>
+  <Image x="500" y="444" layer="3" var="effect392" anchorX="0.5" anchorY="0.5" visible="false"/>
+  <Image x="225" y="681" layer="3" var="effect391" anchorX="0.5" anchorY="0.5" visible="false"/>
+  <Image x="451" y="760" layer="3" var="effect382" visible="false" anchorX="0.5" anchorY="0.5"/>
+  <Image x="264" y="447" layer="3" var="effect381" anchorX="0.5" anchorY="0.5" visible="false"/>
+  <Image x="201" y="554" layer="3" var="effect42" anchorX="0.5" anchorY="0.5" visible="false"/>
+  <Image x="569" y="552" layer="3" var="effect40" anchorX="0.5" anchorY="0.5" visible="false"/>
+  <Image x="547" y="679" layer="3" var="effect41" anchorX="0.5" anchorY="0.5" visible="false"/>
   <Image skin="png.main.dog43" x="274" y="717" layer="3" scale="0.85" var="img43"/>
   <Image skin="png.main.dog44" x="331" y="356" layer="3" scale="0.85" var="img44"/>
   <Image skin="png.main.title_perfect" x="152" y="224" layer="3"/>
+  <Image x="381" y="401" layer="4" anchorX="0.5" anchorY="0.5" var="effect44" visible="false"/>
+  <Image x="322" y="763" layer="4" anchorX="0.5" anchorY="0.5" var="effect43" visible="false"/>
 </View>

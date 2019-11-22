@@ -90,7 +90,7 @@ namespace ui
 			t.gainLabel.text = "1700、0t"
 			t.gainLabel.x = 219
 			t.gainLabel.y = 707
-			t.gainLabel.width = 299
+			t.gainLabel.width = 284
 			t.gainLabel.height = 40
 			t.gainLabel.bold = true
 			t.gainLabel.size = 40

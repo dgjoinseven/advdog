@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "comp_json,main_json",
+			"keys": "comp_json,main_json,radomMergeBg2_png",
 			"name": "preload"
 		},
 		{
@@ -47,6 +47,11 @@
 			"url": "mornui/main/bg/bom.jpg",
 			"type": "image",
 			"name": "bom_jpg"
+		},
+		{
+			"name": "radomMergeBg2_png",
+			"type": "image",
+			"url": "mornui/main/bg/radomMergeBg2.png"
 		}
 	]
 }

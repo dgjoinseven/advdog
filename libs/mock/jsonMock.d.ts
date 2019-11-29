@@ -57,6 +57,10 @@ declare module game
          * tlbc开始时间
          */
         tlbcStartTime:string;
+        /**
+         * 是否为新手引导，0是新手引导
+         */
+        tagNum:string;
 
         /**
          * 排位1狗id

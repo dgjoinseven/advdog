@@ -408,8 +408,12 @@ namespace game
             //初始化相关的界面值
             this.container.goldLabel.text = result.goldCoin;
             this.container.gemLabel.text = result.tlbc.toString();
+            if(result.tagNum == "0")
+            {
+                TipView.showTip(this.session.config.lang["new1"]);
+            }
             //离线收益
-            if(result.offlineGoldCoin && result.offlineGoldCoin != "" && result.offlineGoldCoin != "0.0" && result.offlineGoldCoin != "0.00" && result.offlineGoldCoin != "0")
+            else if(result.offlineGoldCoin && result.offlineGoldCoin != "" && result.offlineGoldCoin != "0.0" && result.offlineGoldCoin != "0.00" && result.offlineGoldCoin != "0")
             {
                 //每天晚上20点重置视频次数(剩余14次)
                 // AlertView.showGooffLine(result.offlineGoldCoin);

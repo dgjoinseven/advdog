@@ -72,6 +72,10 @@ declare module game
          */
         isClientUpdateGold:boolean;
         /**
+         * 语言
+         */
+        lang:any;
+        /**
          * 实名的方法
          */
         shimingFun:string;

@@ -242,6 +242,7 @@
 		"bin-debug/game/module/main/control/SpeedControl.js",
 		"bin-debug/game/module/main/helper/MainBackstageHelper.js",
 		"bin-debug/game/module/main/helper/MainDogHelper.js",
+		"bin-debug/game/module/main/helper/NewHandHelper.js",
 		"bin-debug/game/module/merge/MoneyPetMergeView.js",
 		"bin-debug/game/module/merge/RandomMergeView.js",
 		"bin-debug/game/module/pet/MainPetShowView.js",

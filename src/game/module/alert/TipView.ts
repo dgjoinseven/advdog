@@ -13,6 +13,10 @@ namespace game
          * 查看视频的类型
          */
         private lookVideoType:string;
+        /**
+         * 关闭的回调函数
+         */
+        private callBack:asf.CallBack;
         public constructor()
         {
             super();
@@ -36,19 +40,24 @@ namespace game
             this.showGrayBg();
         }
 
-        static showTip(msg:string):void
+        static showTip(msg:string,callBack?:Function,that?:any):void
         {
             if(msg && msg != "")
             {
-                this.instance.show(msg);
+                this.instance.show(msg,callBack,that);
             }
         }
         
-        public show(msg:string):void
+        public show(msg:string,callBack?:Function,that?:any):void
         {
             mvc.open(TipView);
             this.container.visible = true;
             this.container.tipLabel.text = msg;
+            if(callBack)
+            {
+                this.callBack = new asf.CallBack(callBack,that);
+            }
+            
         }
         // private onClick(evt:egret.TouchEvent):void
         // {
@@ -67,6 +76,12 @@ namespace game
         {
             //  this.container.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
              this.container.visible = false;
+             if(this.callBack)
+             {
+                //  let temp = this.callBack;
+                this.callBack.execute();
+                this.callBack = null;
+             }
         }
     }
 }

@@ -1,4 +1,4 @@
-<View width="750" height="1500" sceneColor="0xffffff" sceneBg="morn/views/main.png" layers="5,1,4,0,text;3,1,4,0,button;2,1,4,0,smallBg;6,1,4,0,透明底板;4,0,4,0,bg">
+<View width="750" height="1500" sceneColor="0xffffff" sceneBg="morn/views/main.png" layers="5,1,0,0,text;3,1,0,0,button;2,1,0,0,smallBg;6,1,0,0,透明底板;4,0,0,0,bg">
   <Image skin="jpg.main.bg.bom" x="0" y="0" layer="4"/>
   <Box layers="2,1,0,0,第 2 层;1,0,0,1,bg" layer="2" x="17" y="160">
     <Image skin="png.main.apcc_bg" layer="1"/>
@@ -28,5 +28,6 @@
     <Button skin="png.main.btn_shop" x="372" y="43" layer="1" stateNum="1" var="shopBtn"/>
     <Button skin="png.main.btn_rest" x="580" y="36" layer="1" stateNum="1" var="restBtn"/>
     <Label text="200秒" styleSkin="png.loading.label" x="194" layer="1" width="157" height="40" size="30" color="0x333333" align="center" var="speedTimeLabel" visible="false" bold="true" y="9"/>
+    <Image skin="png.main.finger" x="457" y="-45" layer="1" rotation="180" anchorX="0.5" anchorY="0.5"/>
   </Box>
 </View>

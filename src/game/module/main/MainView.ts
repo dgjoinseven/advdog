@@ -410,7 +410,7 @@ namespace game
             this.container.gemLabel.text = result.tlbc.toString();
             if(result.tagNum == "0")
             {
-                TipView.showTip(this.session.config.lang["new1"]);
+                TipView.showTip(this.session.config.lang["new1"],this.onNew1Back,this);
             }
             //离线收益
             else if(result.offlineGoldCoin && result.offlineGoldCoin != "" && result.offlineGoldCoin != "0.0" && result.offlineGoldCoin != "0.00" && result.offlineGoldCoin != "0")
@@ -425,6 +425,12 @@ namespace game
             this.container.rateLabel.text = Math.floor(Number(result.fhdogProcess) * 100) + "%";
             //更新当前狗狗头像
             this.container.myDogBtn.skin = "main_json.btn_" + this.db.dogsRes.get("dog" + result.maxLevel);
+        }
+
+        private onNew1Back():void
+        {
+            //新手引导，点击了确定和关闭按钮，弹出手指到商店那里
+            NewHandHelper.showShopHand(this.container.shopBtn);
         }
 
         private onClick(evt:egret.TouchEvent):void

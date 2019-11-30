@@ -69,6 +69,20 @@ namespace morn {
 			this.ansTime = 500;
 		}
 
+		clone():morn.Button
+		{
+			let btn = new morn.Button();
+			btn.skin = this.skin;
+			btn.label = this.label;
+			btn.stateNum = this.stateNum;
+			btn.btnLabel.size = this.btnLabel.size;
+			btn.btnLabel.bold = this.btnLabel.bold;
+			btn.btnLabel.align = this.btnLabel.align;
+			btn.btnLabel.color = this.btnLabel.color;
+			btn.labelMargin = this.labelMargin;
+			return btn;
+		}
+
 		protected createChildren(): void {
 			if (Button.isOpenScaleMode) {
 				this.addChild(this.container = new morn.Box);

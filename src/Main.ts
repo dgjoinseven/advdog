@@ -119,6 +119,7 @@ class Main extends egret.DisplayObjectContainer {
          //初始化游戏的正式内容
         this.gameMain = new game.GameMain(this.configBean,this);
         this.gameMain.init();
+        game.Session.instance.main = this;
 
         egret.lifecycle.onPause = () =>
          {

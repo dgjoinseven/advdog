@@ -2,6 +2,7 @@ namespace game
 {
     /**
      * 狗粮提示界面(需要金币看视频的也可以用这个)
+     * 新手引导的时候无法看视频
      */
     export class TipDogView extends View<ui.TipDogUI, any,any>
     {
@@ -50,25 +51,20 @@ namespace game
         {
             if(evt.currentTarget == this.container.videoBtn)
             {
-                // if(this.data)
-                // {
-                //     if(this.data.remainingTimes > 0)
-                //     {
-                //         //调用看狗粮的视频
-                //         JSBrigd.getInstance().openShowAd(this.openParam);
-                //     }
-                //     else
-                //     {
-                //         TipView.showTip("观看视频次数已满");
-                //     }
-                // }
-                // else
-                // {
+                if(this.db.mainInfoVo.tagNum != "0")
+                {
                     JSBrigd.getInstance().openShowAd(this.openParam);
-                // }
-                // JSBrigd.getInstance().openShowAd(NC.Dog_Food_Video);
+                }
             }
             this.close();
+        }
+
+        onClose():void
+        {
+            if(this.db.mainInfoVo.tagNum == "0")
+            {
+                NewHandHelper.mockMoenyDog();
+            }
         }
 
         onOpen(videoType:string):void

@@ -34,7 +34,7 @@ namespace ui
 			n3.x = 131
 			n3.y = 470
 			n3.width = 476
-			n3.height = 153
+			n3.height = 193
 			n3.sizeGrid = "20,20,20,20"
 			t.sureBtn = new morn.Button
 			this.addChild(t.sureBtn)
@@ -52,13 +52,14 @@ namespace ui
 			this.addChild(t.tipLabel)
 			t.tipLabel.text = "这个功能暂时没有开放，请稍微等，我们会继续做下去，会约略略好的，你真的好呀"
 			t.tipLabel.x = 134
-			t.tipLabel.y = 524
+			t.tipLabel.y = 495
 			t.tipLabel.width = 471
-			t.tipLabel.height = 93
+			t.tipLabel.height = 163
 			t.tipLabel.color = 0x0
 			t.tipLabel.size = 30
 			t.tipLabel.multiline = true
 			t.tipLabel.align = "center"
+			t.tipLabel.wordWrap = false
 			
 			
 			

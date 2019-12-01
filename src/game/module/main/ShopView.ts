@@ -238,6 +238,8 @@ namespace game
                     NewHandHelper.clearState();
                     //买了2只狗，关闭商店了
                     this.close();
+                    //出现拖动狗狗的新手引导
+                    NewHandHelper.newHandMerge(Modules.mainModule.mainView);
                 }
             }
         }

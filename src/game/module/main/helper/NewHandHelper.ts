@@ -5,6 +5,7 @@ namespace game
      */
     export class NewHandHelper //extends Helper<MainView,any>
     {
+        static isOpenNewHand:boolean = true;
         // static NAME:string = "NewHandHelper";
 
         // init():void
@@ -47,11 +48,17 @@ namespace game
          * 新手引导的步骤
          */
         private static step:number;
+        private static mainView:MainView;
         
         static getNewHand():morn.Image
         {
             if(this.newHandImg)
+            {
+                this.newHandImg.visible = true;
+                this.maskSprite.visible = true;
                 return this.newHandImg;
+            }
+            this.mainView = Modules.mainModule.mainView;
             this.newHandImg = new morn.Image();
             this.newHandImg.skin = "main_json.finger"
             this.newHandImg.anchorX = 0.5;
@@ -69,11 +76,10 @@ namespace game
             this.root = Session.instance.main;
             this.maskSprite.touchEnabled = false;
             this.maskSprite.touchChildren = false;
-
+            this.root.addChild(this.maskSprite);
             this.root.addChild(this.newHandImg);
 
-            // Session.instance.mvcRoot.getRootContainer().touchEnabled = false;
-            // Session.instance.mvcRoot.getRootContainer().touchChildren = false;
+            Session.instance.mvcRoot.touchEnabled = false;
             return this.newHandImg;
         }
         /**
@@ -81,6 +87,8 @@ namespace game
          */
         static showShopHand(target:morn.Button):void
         {
+            if(!this.isOpenNewHand)
+                return ;
             this.createYHand(1,target);
         }
         /**
@@ -91,15 +99,104 @@ namespace game
             this.createYHand(2,target);
         }
         /**
+         * 显示新手引导拖动
+         */
+        static newHandMerge(mainView:MainView):void
+        {
+            this.step = 3;
+            this.mainView = mainView;
+            let handImg = this.getNewHand();
+            handImg.rotation = 0;
+            //重新添加宠物容器集合
+            let dog = mainView.dogList[1];
+            //转成全局坐标
+            //转换成全局坐标
+            let gbobla = dog.localToGlobal();
+            handImg.x = gbobla.x + 50;
+            handImg.y = gbobla.y + 150;
+            this.handPoint1.x = gbobla.x + 20;
+            //第二只狗
+            dog = mainView.dogList[2];
+            gbobla = dog.localToGlobal();
+            this.handPoint2.x = gbobla.x + 20;
+
+            this.root.addChild(mainView.petContainer);
+            this.root.addChild(this.newHandImg);
+            this.tween = egret.Tween.get( this.newHandImg, { loop:true} );
+            this.tween.to({"x":this.handPoint2.x},1000).
+            to({"x":this.handPoint1.x},1000);
+            //重新添加遮罩
+        }
+        /**
+         * 显示狗粮的新手引导
+         */
+        static showDogFood():void
+        {
+            Session.instance.mvcRoot.touchEnabled = false;
+            this.createYHand(4,this.mainView.container.dogBtn);
+        }
+        static showRandogDog():void
+        {
+            mvc.open(RandomMergeView);
+            
+        }
+        static newHandOver():void
+        {
+            //提交新手引导完成的指令
+            HttpManager.postHttp(NC.UpdateGameGuide_Url,this.overNewHand,this);
+        }
+        private static overNewHand(data):void
+        {
+            this.mainView.db.mainInfoVo.tagNum = "1";
+        }
+        /**
+         * 显示模拟红包狗的合成
+         */
+        static mockMoenyDog():void
+        {
+            this.clearState();
+            Session.instance.mvcRoot.touchEnabled = true;
+            mvc.open(MoneyPetMergeView);
+        }
+        static showNewHandMergeTip():void
+        {
+            this.root.addChild(this.maskSprite);
+            this.root.addChild(this.newHandImg);
+            this.clearState();
+            //还原宠物容器
+            this.mainView.container.addChild(this.mainView.petContainer);
+            this.mainView.container.addChild(this.mainView.container.bottomBox);
+            this.newHandImg.visible = false;
+            Session.instance.mvcRoot.touchEnabled = true;
+            //合并狗提示文字之后，进入喂狗粮的引导
+            TipView.showTip(Session.instance.config.lang["new2"],this.showDogFood,this);
+        }
+        /**
+         * 喂狗粮的提示
+         */
+        static showMoenyDogTip():void
+        {
+            TipView.showTip(Session.instance.config.lang["new3"],this.showRandogDog,this);
+        }
+
+        
+        
+
+        /**
          * 清除当前新手引导的状态
          */
         static clearState():void
         {
             egret.Tween.removeAllTweens();
             this.tween = null;
-            this.button.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
-            this.root.removeChild(this.button);
-            this.button = null;
+            if(this.button)
+            {
+                this.button.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
+                this.root.removeChild(this.button);
+                this.button = null;
+            } 
+            this.maskSprite.visible = false;
+            this.newHandImg.visible = false;
         }
         /**
          * 关闭新手引导，同时发送请求给服务器，更改新手状态
@@ -113,7 +210,7 @@ namespace game
             this.step = step;
             this.createTarget(target,180);
             this.tween = egret.Tween.get( this.newHandImg, { loop:true} );
-            this.tween.to({"y":this.handPoint2.y},800).wait(800).
+            this.tween.to({"y":this.handPoint2.y},800).
             to({"y":this.handPoint1.y},800);
         }
         private static createTarget(target:morn.Button,rotation:number):void
@@ -152,6 +249,13 @@ namespace game
             {
                 //需要购买2只狗
                 mvc.send(NC.New_Hand_Buy_Dog,evt);
+            }
+            else if(this.step == 4)
+            {
+                this.clearState();
+                Session.instance.mvcRoot.touchEnabled = true;
+                //弹出提示信息
+                mvc.open(TipDogView,NC.Dog_Food_Video);
             }
         }
         

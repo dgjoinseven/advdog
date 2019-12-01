@@ -34,6 +34,17 @@ namespace game
         init() 
         {
             console.info("MoneyPetMergeView初始化完成");
+            this.showGrayBg();
+            if(this.db.mainInfoVo.tagNum == "0")
+            {
+                //立刻出现合成红包犬的动画
+                //模拟假数据
+                let data:DogMergeDTOVo = asf.Global.createAny();
+                data.dogGradeId = 44;
+                data.mergeLevel = 44;
+                this.SeparateDogMerge(data);
+                return ;
+            }
             for(let j:number = 38; j <= 42; j++)
             {
                 let img:morn.Image = this.container["dog" + j];
@@ -64,13 +75,18 @@ namespace game
                 this.container.mergeBtn.gray = false;
             }
             this.addButtonEvent(this.container.mergeBtn,this.onClick,this);
-            this.showGrayBg();
         }
 
         onClose():void
         {
             if(this.autoEffect)
                 this.autoEffect.clear();
+
+            if(this.db.mainInfoVo.tagNum == "0")
+            {
+                //下一步新手引导
+                NewHandHelper.showMoenyDogTip();
+            }
         }
 
         private onClick(evt:egret.TouchEvent):void
@@ -204,8 +220,12 @@ namespace game
         private playYanhua4():void
         {
             this.playYanHua(570,715);
-            //调用首页的操作狗的接口
-            Modules.mainModule.mainView.onMergeDog(this.data);
+            if(this.db.mainInfoVo.tagNum != "0")
+            {
+                //调用首页的操作狗的接口
+                Modules.mainModule.mainView.onMergeDog(this.data);
+            }
+            
             //1秒钟之后关闭
             asf.App.timeMgr.doOnce(1000,this.close,this);
         }

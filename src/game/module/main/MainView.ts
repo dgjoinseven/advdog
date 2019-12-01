@@ -323,6 +323,14 @@ namespace game
 
             //尝试关闭错误操作的狗狗
             this.closeDragDog();
+            
+            //如果是新手引导
+            //判断是否处于新手引导状态
+            if(this.db.mainInfoVo.tagNum == "0")
+            {
+                //第一次合成，关掉合成拖动，显示下一步新手引导
+                NewHandHelper.showNewHandMergeTip();
+            }
         }
         /**
          * 更新显示首页的狗狗
@@ -411,6 +419,8 @@ namespace game
             if(result.tagNum == "0")
             {
                 TipView.showTip(this.session.config.lang["new1"],this.onNew1Back,this);
+                // NewHandHelper.getNewHand();
+                // NewHandHelper.showDogFood();
             }
             //离线收益
             else if(result.offlineGoldCoin && result.offlineGoldCoin != "" && result.offlineGoldCoin != "0.0" && result.offlineGoldCoin != "0.00" && result.offlineGoldCoin != "0")

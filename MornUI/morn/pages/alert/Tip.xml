@@ -1,8 +1,8 @@
 <View width="750" height="1400" sceneColor="0xffffff" sceneBg="morn/views/alert/Tip.png" layers="2,1,1,0,第 2 层;3,1,1,0,第 3 层;1,1,1,1,第 1 层">
   <Image skin="png.main.alert_bg" x="63" y="356" layer="1"/>
   <Image skin="png.main.title_tip" x="153" y="313" layer="3"/>
-  <Image skin="png.main.bg.item_bg" x="131" y="470" layer="3" width="476" height="153" sizeGrid="20,20,20,20"/>
+  <Image skin="png.main.bg.item_bg" x="131" y="470" layer="3" width="476" height="193" sizeGrid="20,20,20,20"/>
   <Button skin="png.main.btn_sure" x="248" y="713" layer="3" stateNum="1" var="sureBtn"/>
   <Button skin="png.main.btn_close" x="649" y="280" layer="2" stateNum="1" var="closeBtn"/>
-  <Label text="这个功能暂时没有开放，请稍微等，我们会继续做下去，会约略略好的，你真的好呀" styleSkin="png.main.label" x="134" y="524" layer="2" width="471" height="93" color="0x0" size="30" multiline="true" align="center" var="tipLabel"/>
+  <Label text="这个功能暂时没有开放，请稍微等，我们会继续做下去，会约略略好的，你真的好呀" styleSkin="png.main.label" x="134" y="495" layer="2" width="471" height="163" color="0x0" size="30" multiline="true" align="center" var="tipLabel" wordWrap="false"/>
 </View>

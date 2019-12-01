@@ -18,6 +18,13 @@ namespace game
         {
             this.mainView = mainView;
         }
+        /**
+         * 显示新手引导
+         */
+        showNewHand():void
+        {
+
+        }
 
         startSpeed(speedVo:SpeedGoldCoinVo):void
         {

@@ -19,6 +19,7 @@ namespace game
         private randomKey:number;
         private time:number;
         private upImage:morn.Image;
+        private time5Key:number;
         public constructor()
         {
             super();
@@ -42,6 +43,15 @@ namespace game
             this.showGrayBg();
             this.autoEffect = new AutoRotationEffect();
             this.autoEffect.speed = 5;
+            if(this.db.mainInfoVo.tagNum == "0")
+            {
+                this.container.startBtn.visible = false;
+                this.time5Key = asf.App.timeMgr.doOnce(5000,this.close,this);
+            }
+            else
+            {
+                this.container.startBtn.visible = true;
+            }
         }
         private onClick(evt:egret.TouchEvent):void
         {
@@ -77,6 +87,12 @@ namespace game
         {
             if(this.container)
                 this.container.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
+            if(this.time5Key)
+                asf.App.timeMgr.clearTimer(this.time5Key);
+            if(this.db && this.db.mainInfoVo.tagNum == "0")
+            {
+                NewHandHelper.newHandOver();
+            }
         }
         private onLoop():void
         {

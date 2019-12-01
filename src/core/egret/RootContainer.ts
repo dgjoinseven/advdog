@@ -66,6 +66,17 @@ namespace mvc
 
             // asf.App.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
         }
+        /**
+         * 禁止所有容器启动事件
+         */
+        set touchEnabled(flag:boolean)
+        {
+            this.containerMap.forEach(function(value:egret.Sprite)
+            {
+                value.touchEnabled = flag;
+                value.touchChildren = flag;
+            },this);
+        }
 
         getRootContainer():egret.DisplayObjectContainer
         {

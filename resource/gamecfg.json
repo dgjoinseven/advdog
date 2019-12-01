@@ -7,13 +7,23 @@
 	"loadingSpeed":2,
 	"version": "2019111103",
 	"server": "http://liuwei.dev.linjiexian.cn/game/",
-	"token":"",
+	"token1":"a8108fb9b08f4f2c6d9b7436d80c05a8",
+	"token":"a8108fb9b08f4f2c6d9b7436d80c05a8",
 	"httpVer":"1.0",
 	"isSoundPoint":true,
 	"mainBottomY":0,
+	"isClientUpdateGold":false,
 	"howGameUrl":["/web/gameplay.html","怎么玩"],
 	"activeUrl":["/web/activity.html","活动"],
 	"msgUrl":["/web/systemmessage.html","消息"],
 	"fenHongUrl":["/web/bonusbetails.html","分红详情"],
+	"inviteUrl":["/web/jumpInvitation.html","邀请"],
+	"shimingUrl":["/web/shiming.html","实名认证"],
+	"lang":{
+			"hbTip":"随机红包",
+			"new1":"欢迎进入家有爱犬，快点选择你喜欢的狗狗吧",
+			"new2":"恭喜您已经有了自己的狗狗，狗狗放置在草地上会自动赚取金币，给狗狗喂狗粮，赚取的金币更多哦",
+			"new3":"狗狗喂饱了，赚取足够的金币升级狗狗，当狗狗升到38级的时候，有机会获取分红犬，分红犬能够帮主人获取公司每天发放总量2000元的奖金哦。"
+	},
 	"assets": ""
 }

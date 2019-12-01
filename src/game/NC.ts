@@ -77,6 +77,13 @@ namespace game
          * 1.转盘 2.开宝箱  3 摇一摇  4.喂狗粮食 5.加速 6.金币不足看视频 7普通  8离线双倍
          */
         static LookVideoCount_Url:string = "api/lookVideoCount";
+        /**
+         * 看视频之前请求获取剩余次数
+         * 4.喂狗粮食 5.加速 是全局的次数(每天15次) 6.金币不足看视频 商品点击购买次数每天3次
+         * 1.转盘 2.开宝箱  3 摇一摇  4.喂狗粮食 5.加速 6.金币不足看视频 7普通  8离线双倍
+         */
+        static UpdateGameGuide_Url:string = "api/updateGameGuide";
+
 
 
 

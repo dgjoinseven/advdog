@@ -67,6 +67,11 @@ namespace mvc
             // asf.App.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
         }
 
+        getRootContainer():egret.DisplayObjectContainer
+        {
+            return this.rootContainer;
+        }
+
         onResize(e?: egret.Event): void
         {
             console.info("RootContainer onResize");

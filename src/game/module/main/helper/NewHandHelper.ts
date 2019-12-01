@@ -43,8 +43,11 @@ namespace game
          * 
          */
         private static handPoint2:egret.Point; 
+        /**
+         * 新手引导的步骤
+         */
         private static step:number;
-
+        
         static getNewHand():morn.Image
         {
             if(this.newHandImg)
@@ -66,6 +69,11 @@ namespace game
             this.root = Session.instance.main;
             this.maskSprite.touchEnabled = false;
             this.maskSprite.touchChildren = false;
+
+            this.root.addChild(this.newHandImg);
+
+            // Session.instance.mvcRoot.getRootContainer().touchEnabled = false;
+            // Session.instance.mvcRoot.getRootContainer().touchChildren = false;
             return this.newHandImg;
         }
         /**
@@ -73,7 +81,43 @@ namespace game
          */
         static showShopHand(target:morn.Button):void
         {
-            this.step = 1;
+            this.createYHand(1,target);
+        }
+        /**
+         * 打开商店购买狗狗的新手引导
+         */
+        static showBuyDog(target:morn.Button):void
+        {
+            this.createYHand(2,target);
+        }
+        /**
+         * 清除当前新手引导的状态
+         */
+        static clearState():void
+        {
+            egret.Tween.removeAllTweens();
+            this.tween = null;
+            this.button.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
+            this.root.removeChild(this.button);
+            this.button = null;
+        }
+        /**
+         * 关闭新手引导，同时发送请求给服务器，更改新手状态
+         */
+        static closeNewHand():void
+        {
+            this.clearState();
+        }
+        private static createYHand(step:number,target:morn.Button):void
+        {
+            this.step = step;
+            this.createTarget(target,180);
+            this.tween = egret.Tween.get( this.newHandImg, { loop:true} );
+            this.tween.to({"y":this.handPoint2.y},800).wait(800).
+            to({"y":this.handPoint1.y},800);
+        }
+        private static createTarget(target:morn.Button,rotation:number):void
+        {
             let handImg = this.getNewHand();
             handImg.rotation = 180;
             this.target = target;
@@ -84,25 +128,30 @@ namespace game
             this.button.x = gbobla.x;
             this.button.y = gbobla.y;
             this.button.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
-            this.newHandImg.x = gbobla.x + 90;
-            this.newHandImg.y = gbobla.y - 80;
-            this.handPoint1.y = this.newHandImg.y;
-            this.handPoint2.y = this.newHandImg.y - 80;
-            this.root.addChild(this.maskSprite);
+            handImg.x = gbobla.x + 90;
+            handImg.y = gbobla.y - 80;
+            this.handPoint1.y = handImg.y;
+            this.handPoint2.y = handImg.y - 60;
             this.root.addChild(this.newHandImg);
             this.root.addChild(this.button);
-            //生成手指在动
-            this.tween = egret.Tween.get( this.newHandImg, { loop:true} );
-            this.tween.to({"y":this.handPoint2.y},1000).wait(1000).
-            to({"y":this.handPoint1.y},1000);
+            
         }
+        // private static New_Hand_Buy_Dog2()
+        // {
+        //     //2只狗都买好了，关闭掉商店界面
+        // }
 
         private static onClick(evt:egret.TouchEvent):void
         {
             if(this.step == 1)
             {
                 mvc.open(ShopView);
-                //生成商店手指效果
+                this.clearState();
+            }
+            else if(this.step == 2)
+            {
+                //需要购买2只狗
+                mvc.send(NC.New_Hand_Buy_Dog,evt);
             }
         }
         

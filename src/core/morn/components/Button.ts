@@ -80,6 +80,7 @@ namespace morn {
 			btn.btnLabel.align = this.btnLabel.align;
 			btn.btnLabel.color = this.btnLabel.color;
 			btn.labelMargin = this.labelMargin;
+			btn.tag = this.tag;
 			return btn;
 		}
 

@@ -11,6 +11,7 @@ namespace game
 
         private mouseX:number;
         private mouseY:number;
+        private dogCount:number;
         public constructor()
         {
             super();
@@ -143,6 +144,15 @@ namespace game
             // selectIndex = 10;
             if(selectIndex != 0)
                 this.container.panel.vScrollBar.scrollToValue(5 + selectIndex * (20 + 160));
+            
+            //判断是否处于新手引导状态
+            if(this.db.mainInfoVo.tagNum == "0")
+            {
+                let firtItem:ui.ShopItemUI = this.shopItems[0];
+                NewHandHelper.showBuyDog(firtItem.bugBtn);
+                this.mvcOn(NC.New_Hand_Buy_Dog,this.onClick,this);
+                this.dogCount = 0;
+            }
         }
         private selectButton:morn.Button;
         private onClick(evt:egret.TouchEvent):void
@@ -219,6 +229,17 @@ namespace game
             }
             //播放特效
             EffectUtls.playGoldEffect(this.mouseX,this.mouseY);
+
+            if(this.db.mainInfoVo.tagNum == "0")
+            {
+                this.dogCount++;
+                if(this.dogCount >=2)
+                {
+                    NewHandHelper.clearState();
+                    //买了2只狗，关闭商店了
+                    this.close();
+                }
+            }
         }
     }
 }

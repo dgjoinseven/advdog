@@ -148,6 +148,14 @@ namespace game
         * 更新token
         */
        static Update_Token:string = "OpenShowAd_Token";
+       /**
+        * 新手引导买狗
+        */
+       static New_Hand_Buy_Dog:string = "New_Hand_Buy_Dog";
+       /**
+        * 新手引导买狗结束
+        */
+       static New_Hand_Buy_Dog2:string = "New_Hand_Buy_Dog2";
 
 
        /////////////////////游戏中的一些常量/////////////////////////////

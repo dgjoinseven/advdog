@@ -142,8 +142,6 @@ namespace game
             }
             // this.container.panel.vScrollBar.value = 1700;
             // selectIndex = 10;
-            if(selectIndex != 0)
-                this.container.panel.vScrollBar.scrollToValue(5 + selectIndex * (20 + 160));
             
             //判断是否处于新手引导状态
             if(this.db.mainInfoVo.tagNum == "0")
@@ -152,7 +150,9 @@ namespace game
                 NewHandHelper.showBuyDog(firtItem.bugBtn);
                 this.mvcOn(NC.New_Hand_Buy_Dog,this.onClick,this);
                 this.dogCount = 0;
-            }
+            }//非新手引导状态才会跳转商店宠物
+            else if(selectIndex != 0)
+                this.container.panel.vScrollBar.scrollToValue(5 + selectIndex * (20 + 160));
         }
         private selectButton:morn.Button;
         private onClick(evt:egret.TouchEvent):void

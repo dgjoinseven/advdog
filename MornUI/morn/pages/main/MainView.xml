@@ -19,7 +19,6 @@
   <Label text="40%" styleSkin="png.comp.label" x="503" y="76" layer="5" width="43" height="28" size="25" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="rateLabel"/>
   <Label text="13.5t/秒" styleSkin="png.comp.label" x="133" y="109" layer="5" width="148" height="28" size="25" align="center" color="0xffffff" selectable="false" mouseEnabled="false" var="gainMoneyLabel"/>
   <Label text="100.309" styleSkin="png.comp.label" x="98" y="196" layer="5" width="196" height="38" size="40" align="left" color="0xffffff" selectable="false" mouseEnabled="false" var="gemLabel" bold="true"/>
-  <Image skin="png.main.sh" x="297" y="423" layer="5" var="foodBtn"/>
   <Image skin="png.main.water" x="517" y="423" layer="5"/>
   <Image skin="png.main.goldGainPro" x="334" y="114" layer="5" var="rateImg"/>
   <Box layers="1,1,0,0,第 1 层" layer="5" x="41" y="1146" var="bottomBox">
@@ -28,6 +27,5 @@
     <Button skin="png.main.btn_shop" x="372" y="43" layer="1" stateNum="1" var="shopBtn"/>
     <Button skin="png.main.btn_rest" x="580" y="36" layer="1" stateNum="1" var="restBtn"/>
     <Label text="200秒" styleSkin="png.loading.label" x="194" layer="1" width="157" height="40" size="30" color="0x333333" align="center" var="speedTimeLabel" visible="false" bold="true" y="9"/>
-    <Image skin="png.main.finger" x="457" y="-45" layer="1" rotation="180" anchorX="0.5" anchorY="0.5"/>
   </Box>
 </View>

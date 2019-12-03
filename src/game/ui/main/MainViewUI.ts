@@ -2,7 +2,7 @@ namespace ui
 {
 	export class MainViewUI extends morn.View
 	{
-		public imgDogBtn:morn.Button;		public fenHongBtn:morn.Button;		public howBtn:morn.Button;		public transferBtn:morn.Button;		public msgBtn:morn.Button;		public activityBtn:morn.Button;		public steupBtn:morn.Button;		public dogBtn:morn.Button;		public waterDogBtn:morn.Button;		public myDogBtn:morn.Button;		public timeGoldLabel:morn.Label;		public goldLabel:morn.Label;		public rateLabel:morn.Label;		public gainMoneyLabel:morn.Label;		public gemLabel:morn.Label;		public foodBtn:morn.Image;		public rateImg:morn.Image;		public bottomBox:morn.Box;		public inviteBtn:morn.Button;		public jiaSuBtn:morn.Button;		public shopBtn:morn.Button;		public restBtn:morn.Button;		public speedTimeLabel:morn.Label;		
+		public imgDogBtn:morn.Button;		public fenHongBtn:morn.Button;		public howBtn:morn.Button;		public transferBtn:morn.Button;		public msgBtn:morn.Button;		public activityBtn:morn.Button;		public steupBtn:morn.Button;		public dogBtn:morn.Button;		public waterDogBtn:morn.Button;		public myDogBtn:morn.Button;		public timeGoldLabel:morn.Label;		public goldLabel:morn.Label;		public rateLabel:morn.Label;		public gainMoneyLabel:morn.Label;		public gemLabel:morn.Label;		public rateImg:morn.Image;		public bottomBox:morn.Box;		public inviteBtn:morn.Button;		public jiaSuBtn:morn.Button;		public shopBtn:morn.Button;		public restBtn:morn.Button;		public speedTimeLabel:morn.Label;		
 		public constructor()
 		{
 			super();
@@ -110,7 +110,7 @@ namespace ui
 			t.goldLabel = new morn.Label
 			this.addChild(t.goldLabel)
 			t.goldLabel.x = 90
-			t.goldLabel.y = 436
+			t.goldLabel.y = 435
 			t.goldLabel.width = 187
 			t.goldLabel.height = 36
 			t.goldLabel.size = 32
@@ -157,11 +157,6 @@ namespace ui
 			t.gemLabel.selectable = false
 			t.gemLabel.mouseEnabled = false
 			t.gemLabel.bold = true
-			t.foodBtn = new morn.Image
-			this.addChild(t.foodBtn)
-			t.foodBtn.skin = "main_json.sh"
-			t.foodBtn.x = 297
-			t.foodBtn.y = 423
 			var n5:morn.Image = new morn.Image
 			this.addChild(n5)
 			n5.skin = "main_json.water"

@@ -242,12 +242,12 @@ namespace game
                             {
                                 //合成
                                 HttpManager.postHttpByParam(NC.Merge_Dog_Url,param,this.onMergeDog,this);
-                                // mvc.open(RandomMergeView,param);
                             }
                             
                         }
                         else
                         {
+                            // mvc.open(RandomMergeView,param);
                             //交换位置
                             param.fromDogLevel  = dragDogUI.dogLv;
                             param.toDogLevel = showUI.dogLv;
@@ -416,6 +416,7 @@ namespace game
             //初始化相关的界面值
             this.container.goldLabel.text = result.goldCoin;
             this.container.gemLabel.text = result.tlbc.toString();
+            // result.tagNum = "0";
             if(result.tagNum == "0")
             {
                 TipView.showTip(this.session.config.lang["new1"],this.onNew1Back,this);

@@ -20,6 +20,19 @@ namespace game
         private time:number;
         private upImage:morn.Image;
         private time5Key:number;
+
+        /**
+         * 转盘计时器key
+         */
+        private timeKey:number = 0;
+        /**
+         * 是否先转3圈
+         */
+        private isThree:boolean;
+        /**
+         * 图像的顺序，按照这个顺序进行点亮特效
+         */
+        private imgIndexs:string[] = ["effect44","effect392","effect40","effect41","effect382","effect43","effect391","effect42","effect381"];
         public constructor()
         {
             super();
@@ -58,12 +71,12 @@ namespace game
             if(evt.currentTarget == this.container.startBtn)
             {
                 //合成
-                HttpManager.postHttpByParam(NC.Merge_Dog_Url,this.openParam,this.onMergeDog,this);
+                // HttpManager.postHttpByParam(NC.Merge_Dog_Url,this.openParam,this.onMergeDog,this);
                 //自己做点模拟数据
-                // let mock:DogMergeDTOVo = asf.Global.createAny();
-                // mock.dogGradeId = asf.RandomUtils.randomInt(38,42);
-                // console.log("随机狗:" + mock.dogGradeId);
-                // this.onMergeDog(mock);
+                let mock:DogMergeDTOVo = asf.Global.createAny();
+                mock.dogGradeId = asf.RandomUtils.randomInt(38,42);
+                console.log("随机狗:" + mock.dogGradeId);
+                this.onMergeDog(mock);
             }
             else
             {     
@@ -79,9 +92,10 @@ namespace game
             //根据结构显示
             //Modules.mainModule.mainView.onMergeDog(data);
             this.randomEffectDog();
-            this.time = 6;
+            this.time = 0;
             //开启计时器
-            this.randomKey = asf.App.timeMgr.doLoop(1000,this.onLoop,this,this.randomKey)
+            this.randomKey = asf.App.timeMgr.doLoop(500,this.onLoop,this,this.randomKey)
+            // this.timeKey = asf.App.timeMgr.doLoop(500,this.onLoop,this,this.timeKey);
         }
         onClose():void
         {
@@ -89,6 +103,8 @@ namespace game
                 this.container.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
             if(this.time5Key)
                 asf.App.timeMgr.clearTimer(this.time5Key);
+            if(this.randomKey)
+                asf.App.timeMgr.clearTimer(this.randomKey);
             if(this.db && this.db.mainInfoVo.tagNum == "0")
             {
                 NewHandHelper.newHandOver();
@@ -96,22 +112,36 @@ namespace game
         }
         private onLoop():void
         {
-            this.time--;
-            if(this.time <= 0)
+            this.time++;
+            if(this.isThree)
             {
-                // this.container.startBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
-                // //显示最终结果
-                // Modules.mainModule.mainView.onMergeDog(this.data);
-                // this.randomEffectDog(this.data.dogGradeId);
-                asf.App.timeMgr.clearTimer(this.randomKey);
-                //弹出恭喜获得
-                CommonAlertView.showGainDog(this.data.dogGradeId);
-                this.close();
+                
+                if(this.time >= 3)
+                {
+                    this.time = 0;
+                    this.isThree = false;
+                }
+                else
+                {
+                    
+                    return ;
+                }
             }
-            else
-            {
-                this.randomEffectDog();
-            }
+
+
+            //以前随机旋转的
+            // this.time--;
+            // if(this.time <= 0)
+            // {
+            //     asf.App.timeMgr.clearTimer(this.randomKey);
+            //     //弹出恭喜获得
+            //     CommonAlertView.showGainDog(this.data.dogGradeId);
+            //     this.close();
+            // }
+            // else
+            // {
+            //     this.randomEffectDog();
+            // }
         }
         private randomEffectDog(dog?:number):void
         {
@@ -132,6 +162,13 @@ namespace game
             {
                 key = key + asf.RandomUtils.randomInt(1,2);
             }
+            this.updateEffectImage(key);
+        }
+        /**
+         * 更新动画图像
+         */
+        private updateEffectImage(key:string):void
+        {
             if(this.upImage)
             {
                 this.upImage.visible = false;
@@ -143,9 +180,5 @@ namespace game
             this.autoEffect.changeImage(this.upImage);
             this.autoEffect.play();
         }
-        // onOpen(param:number): void 
-        // {
-        //     HttpManager.postHttpByParam(NC.AddSpeedGoldCoin_Url,param,this.AddSpeedGoldCoin_Url,this);
-		// }
     }
 }

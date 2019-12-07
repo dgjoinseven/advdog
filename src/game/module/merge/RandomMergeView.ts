@@ -71,12 +71,12 @@ namespace game
             if(evt.currentTarget == this.container.startBtn)
             {
                 //合成
-                // HttpManager.postHttpByParam(NC.Merge_Dog_Url,this.openParam,this.onMergeDog,this);
+                HttpManager.postHttpByParam(NC.Merge_Dog_Url,this.openParam,this.onMergeDog,this);
                 //自己做点模拟数据
-                let mock:DogMergeDTOVo = asf.Global.createAny();
-                mock.dogGradeId = asf.RandomUtils.randomInt(38,42);
-                console.log("随机狗:" + mock.dogGradeId);
-                this.onMergeDog(mock);
+                // let mock:DogMergeDTOVo = asf.Global.createAny();
+                // mock.dogGradeId = asf.RandomUtils.randomInt(38,42);
+                // console.log("随机狗:" + mock.dogGradeId);
+                // this.onMergeDog(mock);
             }
             else
             {     

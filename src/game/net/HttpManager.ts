@@ -162,6 +162,12 @@ namespace game
                         mvc.closeView(ShopView);
                         //商店购买错误信息，弹出钱不够看视频的提示
                         mvc.open(GoldNoFullView,NC.Shop_Video);
+                        if(DB.instance.mainInfoVo && DB.instance.mainInfoVo.tagNum == "0")
+                        {
+                            //结束新手引导
+                            NewHandHelper.closeNewHand();
+                            NewHandHelper.newHandOver();
+                        }
                         return ;
                     }
                     if(result.code == 1101)

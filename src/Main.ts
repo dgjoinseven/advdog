@@ -311,12 +311,15 @@ class Main extends egret.DisplayObjectContainer {
             // await RES.loadGroup("loading", 0);
             // this.loadingView = new LoadingView();
             // this.stage.addChild(this.loadingView);
+
+            await RES.loadGroup("preload", 0);
+
             //关闭掉外面的loading
             window["isReadyOver"] = true;
-
-            await RES.loadGroup("preload", 0, this.loadingView);
-            this.stage.removeChild(this.loadingView);
-            this.loadingView.closeLoading();
+                
+            // await RES.loadGroup("preload", 0, this.loadingView);
+            // this.stage.removeChild(this.loadingView);
+            // this.loadingView.closeLoading();
             console.info("preload加载完成");
         }
         catch (e) {

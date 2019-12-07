@@ -44,6 +44,7 @@ namespace game
          * 
          */
         private static handPoint2:egret.Point; 
+        private static closeBtn:morn.Button;
         /**
          * 新手引导的步骤
          */
@@ -79,8 +80,25 @@ namespace game
             this.root.addChild(this.maskSprite);
             this.root.addChild(this.newHandImg);
 
+            this.closeBtn = new morn.Button();
+            this.closeBtn.skin = "main_json.btn_blue";
+            this.closeBtn.label = "关闭新手引导";
+            this.closeBtn.stateNum = 1;
+            this.closeBtn.labelSize = 22;
+            this.closeBtn.labelBold = true;
+            //位置在左上角
+            this.closeBtn.x = 580;
+            this.closeBtn.y = 51;
+            this.closeBtn.addEventListener(egret.TouchEvent.TOUCH_END,this.closeCliclNewHand,this);
+            this.root.addChild(this.closeBtn);
+
             Session.instance.mvcRoot.touchEnabled = false;
             return this.newHandImg;
+        }
+        static closeCliclNewHand(evt:egret.TouchEvent):void
+        {
+            this.closeNewHand();
+            this.newHandOver();
         }
         /**
          * 在商店显示手指
@@ -144,6 +162,9 @@ namespace game
         {
             //提交新手引导完成的指令
             HttpManager.postHttp(NC.UpdateGameGuide_Url,this.overNewHand,this);
+            Session.instance.mvcRoot.touchEnabled = true;
+            this.closeBtn.removeEventListener(egret.TouchEvent.TOUCH_END,this.closeCliclNewHand,this);
+            this.root.removeChild(this.closeBtn);
         }
         private static overNewHand(data):void
         {

@@ -174,6 +174,11 @@ namespace game
                 {
                     console.log("位置已经满了，不能买狗");
                     TipView.showTip(TipConst.Shop_Dog_Full);
+                    if(this.db.mainInfoVo.tagNum == "0")
+                    {
+                        NewHandHelper.closeNewHand();
+                        NewHandHelper.newHandOver();
+                    }
                     return ;
                 }
                 let param:any = {};

@@ -8,9 +8,6 @@
 		"js/promise.min_83a6a5d.js"
 	],
 	"game": [
-		"js/decimal.min_72d3afc5.js",
-		"js/jsbridge_44be4db.js",
-		"js/vconsole.min_1ec4fe4e.js",
-		"js/main.min_bb02732f.js"
+		"js/main.min_ab49bc3a.js"
 	]
 }

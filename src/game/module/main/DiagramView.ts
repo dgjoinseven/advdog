@@ -28,7 +28,8 @@ namespace game
             this.showGrayBg();
             this.centerView();
             //获取网络数据
-            HttpManager.postHttp("game/plate/list",this.onPostHttp,this);
+            // HttpManager.postHttp("game/plate/list",this.onPostHttp,this);
+            HttpManager.postHttp("api/platelist",this.onPostHttp,this);
         }
 
         private onPostHttp(datas:DiagramVo[]):void

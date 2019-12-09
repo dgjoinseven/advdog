@@ -57,19 +57,19 @@ namespace game
         /**
          * 获取狗狗的配置信息
          */
-        static GetDogConfigure_Url:string = "/api/getDogConfigure";
+        static GetDogConfigure_Url:string = "api/getDogConfigure";
         /**
          * 更改狗的头像
          */
-        static UpdateHomeDogAvatar_Url:string = "/api/updateHomeDogAvatar";
+        static UpdateHomeDogAvatar_Url:string = "api/updateHomeDogAvatar";
         /**
          * 回收红包狗
          */
-        static RecoveryRedPacketDog_Url:string = "/api/recoveryRedPacketDog";
+        static RecoveryRedPacketDog_Url:string = "api/recoveryRedPacketDog";
         /**
          * 喂水
          */
-        static Feedingwater_Url:string = "/api/feedingwater";
+        static Feedingwater_Url:string = "api/feedingwater";
 
         /**
          * 看视频之前请求获取剩余次数

@@ -165,6 +165,15 @@ namespace game
             Session.instance.mvcRoot.touchEnabled = true;
             this.closeBtn.removeEventListener(egret.TouchEvent.TOUCH_END,this.closeCliclNewHand,this);
             this.root.removeChild(this.closeBtn);
+
+            //避免非正常关闭新手引导导致层次错乱
+            if(this.mainView)
+            {
+                if(this.mainView.petContainer.parent != this.mainView.container)
+                    this.mainView.container.addChild(this.mainView.petContainer);
+                if(this.mainView.container.bottomBox.parent != this.mainView.container)
+                    this.mainView.container.addChild(this.mainView.container.bottomBox);
+            }
         }
         private static overNewHand(data):void
         {

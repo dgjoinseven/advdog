@@ -27,6 +27,7 @@ namespace asf
 		static init()
 		{
 			this.$poolMap = new Dictionary<any, any>();
+			console.info("初始化对象池");
 		}
 		/**
 		 * 获取到指定对象池对象

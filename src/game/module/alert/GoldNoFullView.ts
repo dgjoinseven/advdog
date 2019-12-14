@@ -13,7 +13,6 @@ namespace game
             super();
             this.lv = mvc.MvcConst.VIEW_LV_3;
             this.layer = mvc.MvcConst.TOP_LAYER;
-            this.isCloseDestroy = false;
         }
 
         public initLayoutJson(completeCallback: asf.CallBack): void

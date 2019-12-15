@@ -106,6 +106,7 @@ class Main extends egret.DisplayObjectContainer {
     private pauseGameKey:number;
     private async runGame() 
     {
+        console.info("初始化游戏引擎基础机制");
         //初始化游戏使用到的必须池库
         asf.PoolMgr.init();
         asf.ShakeUtil.init();
@@ -255,7 +256,7 @@ class Main extends egret.DisplayObjectContainer {
         //更新token
         if(this.urlParams && this.urlParams["token"] && this.urlParams["token"] != "")
         {
-            // game.HttpManager.token = this.urlParams["token"];
+            console.info("通过url参数带token的方式进行初始化");
             game.HttpManager.initHeaders(this.urlParams["token"]);
             //正式跑游戏啦
             this.runGame().catch(e => 
@@ -266,7 +267,7 @@ class Main extends egret.DisplayObjectContainer {
         }
         else if(!this.configBean.debug)
         {
-            console.info("调用app的token");
+            console.info("正式环境，调用app的token");
             mvc.smallInit();
             //url没有传递token，则走调用app的方式
             mvc.once(game.NC.Update_Token,this.onUpdateToken,this);
@@ -274,6 +275,7 @@ class Main extends egret.DisplayObjectContainer {
         }
         else
         {
+            console.info("通过debug配置带token的方式进行初始化");
             this.runGame().catch(e => 
             {
                 console.log(e);
@@ -313,7 +315,7 @@ class Main extends egret.DisplayObjectContainer {
             // this.stage.addChild(this.loadingView);
 
             await RES.loadGroup("preload", 0);
-
+            console.info("preload加载完成，isReadyOver：" + window["isReadyOver"]);
             //关闭掉外面的loading
             window["isReadyOver"] = true;
                 
@@ -323,7 +325,7 @@ class Main extends egret.DisplayObjectContainer {
             console.info("preload加载完成");
         }
         catch (e) {
-            console.error(e);
+            console.error("loadResource报错:",e);
         }
     }
 }

@@ -125,7 +125,10 @@ namespace game
         * 初始化水晶
         */
        static Init_Gem:string = "Init_Gem";
-       
+       /**
+        * 2分钟定时更新机制
+        */
+       static Time_Update_Data:string = "Time_Update_data";
        /**
         * 更新玩家的当前金币
         */

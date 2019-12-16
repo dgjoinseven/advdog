@@ -95,7 +95,6 @@ namespace game
             this.time = 0;
             //开启计时器
             this.randomKey = asf.App.timeMgr.doLoop(500,this.onLoop,this,this.randomKey)
-            // this.timeKey = asf.App.timeMgr.doLoop(500,this.onLoop,this,this.timeKey);
         }
         onClose():void
         {
@@ -112,36 +111,36 @@ namespace game
         }
         private onLoop():void
         {
-            this.time++;
-            if(this.isThree)
-            {
+            // this.time++;
+            // if(this.isThree)
+            // {
                 
-                if(this.time >= 3)
-                {
-                    this.time = 0;
-                    this.isThree = false;
-                }
-                else
-                {
+            //     if(this.time >= 3)
+            //     {
+            //         this.time = 0;
+            //         this.isThree = false;
+            //     }
+            //     else
+            //     {
                     
-                    return ;
-                }
-            }
+            //         return ;
+            //     }
+            // }
 
 
             //以前随机旋转的
-            // this.time--;
-            // if(this.time <= 0)
-            // {
-            //     asf.App.timeMgr.clearTimer(this.randomKey);
-            //     //弹出恭喜获得
-            //     CommonAlertView.showGainDog(this.data.dogGradeId);
-            //     this.close();
-            // }
-            // else
-            // {
-            //     this.randomEffectDog();
-            // }
+            this.time--;
+            if(this.time <= 0)
+            {
+                asf.App.timeMgr.clearTimer(this.randomKey);
+                //弹出恭喜获得
+                CommonAlertView.showGainDog(this.data.dogGradeId);
+                this.close();
+            }
+            else
+            {
+                this.randomEffectDog();
+            }
         }
         private randomEffectDog(dog?:number):void
         {

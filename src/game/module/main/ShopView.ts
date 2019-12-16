@@ -209,12 +209,13 @@ namespace game
                  mvc.send(NC.Update_Gold,data.goldCoin);
                  this.container.goldLabel.text = data.goldCoin;
             }
-            else
-            {
-                mvc.send(NC.Update_Tlbc,data.tlbcValue);
-            }
             Modules.mainModule.addDog(data.dogGradeId,data.positionId);
-                
+
+            if(data.tlbcValue)
+            {
+                // mvc.send(NC.Update_Tlbc,data.tlbcValue);
+                Modules.mainModule.mainView.updateGem(data.tlbcValue);
+            }
             if(data.goldCoinValue)
                 this.db.mainInfoVo.goldCoinValue = data.goldCoinValue;
 

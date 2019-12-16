@@ -26,8 +26,10 @@ namespace game
             //根据传递过来的参数进行初始化
             // this.setCloseBtn(this.container.sureBtn);
             this.showGrayBg();
+            this.container.visible = false;
             this.container.videoBtn.gray = true;
             this.addButtonEvent(this.container.videoBtn,this.onClick,this);
+            HttpManager.clearUrl(NC.LookVideoCount_Url);
             //这里应该查看是否还有看视频的次数的
             HttpManager.postHttpByParam(NC.LookVideoCount_Url,{lookType:NC.Shop_Video},this.LookVideoCount_Url,this);
         }
@@ -42,6 +44,7 @@ namespace game
                 // this.container.videoBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onClick,this);
             }
             this.container.tipLabel.text = "每天凌晨12点重置视频次数(剩余" + data.remainingTimes + "次)";
+            this.container.visible = true;
         }
 
         private onClick(evt:egret.TouchEvent):void

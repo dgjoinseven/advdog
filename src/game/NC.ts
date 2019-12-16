@@ -125,6 +125,7 @@ namespace game
         * 初始化水晶
         */
        static Init_Gem:string = "Init_Gem";
+       
        /**
         * 更新玩家的当前金币
         */

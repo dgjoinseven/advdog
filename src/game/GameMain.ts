@@ -68,6 +68,8 @@ namespace game
             {
                 DB.ins.isStopSound = Boolean(isStopSound);
             }
+            //游戏引擎初始化完毕
+            window["isGameReady"] = true;
         }
     }
 }

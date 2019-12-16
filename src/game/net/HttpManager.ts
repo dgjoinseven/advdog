@@ -113,14 +113,14 @@ namespace game
                 let lastTime:number = this.checkRestUrlMap.get(url);
                 let addTime:number = egret.getTimer() - lastTime;
                 //200毫秒以内不再请求
-                if(addTime < 200)
+                if(addTime < 100)
                 {
-                    console.log(url + "重复请求了");
+                    console.info(url + "重复请求了");
                     return true;
                 }
                 else
                 {
-                    console.log(url + "距离上次请求超过200毫秒了，可以重新请求");
+                    console.info(url + "距离上次请求超过200毫秒了，可以重新请求");
                 }
             }
             this.checkRestUrlMap.put(url,egret.getTimer());
@@ -175,8 +175,17 @@ namespace game
                         //拖动或者交换出现位置错误。进行数据纠正
                         Modules.mainModule.upMainInfo();
                     }
+                    if(result.code == -100)
+                    {
+                        //拖动或者交换出现位置错误。进行数据纠正
+                        Modules.mainModule.upMainInfo();
+                    }
                     else
                     {
+                        if(result.code == 500)
+                        {
+                            mvc.closeView(GoldNoFullView);
+                        }
                         //弹出错误码
                         //console.error(result);
                         if(result.msg && result.msg != "")

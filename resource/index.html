@@ -48,8 +48,10 @@
          data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
     </div>
 <script>
-
+    //全局关闭html的loading页面
     isReadyOver = false;
+    //游戏引擎是否初始化完毕
+    isGameReady = false;
     function ready() {  
         var progressInterID;
         window["platform"] = "egret";
@@ -77,13 +79,18 @@
         var prefixStr = showLbList[lbIndex];
 
         overLoad = function () {
-            console.log("index overLoad");
+            console.info("index overLoad");
+            console.info("检测到游戏改变isReadyOver状态了，准备清除html的loading界面");
             clearInterval(progressInterID);
             // effect.style.visibility = 'hidden';
             lbar.style.width = "99.5%";
             t1.innerHTML = prefixStr;
             if (loadingUi.parentNode)
+            {
                 loadingUi.parentNode.removeChild(loadingUi);
+                console.info("成功删除loading节点");
+            }
+                
         }
 
         var tick = function () {
@@ -107,7 +114,8 @@
                     overLoad();
                     return;
                 }
-            } else if (isReadyOver) {
+            } else if (isReadyOver) 
+            {
                 percent = 3;
                 percent1 = 2;
             }
@@ -144,7 +152,9 @@
         var s = document.createElement('script');
         s.async = false;
         s.src = src;
-        s.addEventListener('load', function () {
+        s.addEventListener('load', function () 
+        {
+            console.info(src + "加载成功");
             s.parentNode.removeChild(s);
             s.removeEventListener('load', arguments.callee, false);
             callback();
@@ -154,7 +164,9 @@
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', './manifest.json?v=' + Math.random(), true);
-    xhr.addEventListener("load", function () {
+    xhr.addEventListener("load", function () 
+    {
+        console.info("manifest.json加载成功");
         var manifest = JSON.parse(xhr.response);
         var list = manifest.initial.concat(manifest.game);
         loadScript(list, function () {
@@ -166,6 +178,7 @@
              * "calculateCanvasScaleFactor": //a function return canvas scale factor
              * }
              **/
+            console.info("egret引擎和游戏代码全部加载成功，准备初始化游戏");
             egret.runEgret({ renderMode: "webgl", audioType: 0, calculateCanvasScaleFactor:function(context) {
                 var backingStore = context.backingStorePixelRatio ||
                     context.webkitBackingStorePixelRatio ||

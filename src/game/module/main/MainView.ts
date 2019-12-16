@@ -105,6 +105,7 @@ namespace game
             this.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
             this.onResize(null); 
             
+
         }
 
         protected onResize(e: egret.Event): void 

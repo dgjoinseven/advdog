@@ -359,6 +359,8 @@ namespace game
                 callback:function(data)
                 {
                     console.info("appUpdaeGold data:" + data);
+                    if(!window["isGameReady"])
+                        return false;
                     //事件派发出去
                     mvc.send(NC.App_Update_Gold,data);
                 }

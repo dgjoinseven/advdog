@@ -177,7 +177,7 @@ namespace game
                     }
                     if(result.code == -100)
                     {
-                        //拖动或者交换出现位置错误。进行数据纠正
+                        //自动刷新首页金币和
                         Modules.mainModule.upMainInfo();
                     }
                     else

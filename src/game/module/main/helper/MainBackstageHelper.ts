@@ -37,6 +37,7 @@ namespace game
             mvc.once(NC.Init_Gem,this.createAllGem,this);
             //监听广告回调
             mvc.on(NC.AD_CallBack,this.AD_CallBack,this);
+            mvc.on(NC.Time_Update_Data,this.onMinuteUpdate,this);
             //监听加速事件
             // mvc.on(NC.Add_Speed_Gold,this.Add_Speed_Gold,this);
             //监听结束加速事件

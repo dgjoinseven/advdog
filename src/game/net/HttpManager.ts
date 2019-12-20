@@ -178,7 +178,7 @@ namespace game
                     if(result.code == -100)
                     {
                         //拖动或者交换出现位置错误。进行数据纠正
-                        Modules.mainModule.upMainInfo();
+                        mvc.send(NC.Time_Update_Data);
                     }
                     else
                     {

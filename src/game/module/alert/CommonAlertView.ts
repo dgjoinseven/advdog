@@ -57,7 +57,9 @@ namespace game
             // this.instance.showTile("main_json.title_gain","一只" + dogConfig.gradeName + "犬");
             this.instance.showTile("main_json.title_gain", dogConfig.gradeName);
             // let key = DB.ins.dogsRes.get("shop" + dogLv)
-            this.instance.container.videoImg.skin = "main_json.shop" + dogLv;
+            //对lv进行转换
+            let dogStr = DB.instance.dogsRes.get("shop" + dogLv);
+            this.instance.container.videoImg.skin = "main_json." + dogStr;
             // this.instance.container.videoImg.visible = true;
         }
         /**

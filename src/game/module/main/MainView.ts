@@ -334,6 +334,20 @@ namespace game
             }
         }
         /**
+         * 刷新首页相关信息
+         */
+        updateMainInfo(result:MainInfoVo)
+        {
+            this.db.mainInfoVo = result;
+            this.showMainPet();
+            //初始化相关的界面值
+            this.container.goldLabel.text = result.goldCoin;
+            this.container.gemLabel.text = result.tlbc.toString();
+            //更新分红数据
+            this.container.gainMoneyLabel.text = result.shareTotalAmount;
+            this.container.rateLabel.text = Math.floor(Number(result.fhdogProcess) * 100) + "%";
+        }
+        /**
          * 更新显示首页的狗狗
          */
         showMainPet():void
@@ -360,11 +374,23 @@ namespace game
                     }
                     
                     let lv = this.db.mainInfoVo["position" + index];
-                    //首页的狗不为0，并且的和已经存在狗不相等（相等就排除掉）
-                    if(lv != 0 && showUI.dogLv != lv)
+                    if(lv == 0)
                     {
-                        showUI.update(lv);
+                        //服务器告诉这个位置没有狗，清除掉原来位置上的狗
+                        if(showUI.dogLv != 0)
+                            showUI.closeDog();
                     }
+                    else
+                    {
+                        //已经存在的狗和服务器的狗不相等，重新更新狗信息
+                        if(showUI.dogLv != lv)
+                            showUI.update(lv);
+                    }
+                    //首页的狗不为0，并且的和已经存在狗不相等（相等就排除掉）
+                    // if(lv != 0 && showUI.dogLv != lv)
+                    // {
+                    //     showUI.update(lv);
+                    // }
 
                 }
             }
@@ -412,11 +438,18 @@ namespace game
 
             // console.info(DecimalUtils.goldChange(result.goldCoinValue));
 
-            this.db.mainInfoVo = result;
-            this.showMainPet();
-            //初始化相关的界面值
-            this.container.goldLabel.text = result.goldCoin;
-            this.container.gemLabel.text = result.tlbc.toString();
+            // this.db.mainInfoVo = result;
+            // this.showMainPet();
+            // //初始化相关的界面值
+            // this.container.goldLabel.text = result.goldCoin;
+            // this.container.gemLabel.text = result.tlbc.toString();
+            // //更新分红数据
+            // this.container.gainMoneyLabel.text = result.shareTotalAmount;
+            // this.container.rateLabel.text = Math.floor(Number(result.fhdogProcess) * 100) + "%";
+            this.updateMainInfo(result);
+
+            //更新当前狗狗头像
+            this.container.myDogBtn.skin = "main_json.btn_" + this.db.dogsRes.get("dog" + result.maxLevel);
             // result.tagNum = "0";
             if(result.tagNum == "0")
             {
@@ -432,11 +465,6 @@ namespace game
                 mvc.open(OfflineView);
             }
             mvc.send(NC.Init_Gem,result.tlbcDTO);
-            //更新分红数据
-            this.container.gainMoneyLabel.text = result.shareTotalAmount;
-            this.container.rateLabel.text = Math.floor(Number(result.fhdogProcess) * 100) + "%";
-            //更新当前狗狗头像
-            this.container.myDogBtn.skin = "main_json.btn_" + this.db.dogsRes.get("dog" + result.maxLevel);
         }
 
         private onNew1Back():void

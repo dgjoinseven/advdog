@@ -30,7 +30,7 @@ namespace game
         {
             // this.db.mainInfoVo = result;
             //主要是匹配下狗信息
-            this.mainView.showMainPet();
+            this.mainView.updateMainInfo(result);
         }
         /**
          * 添加一只狗

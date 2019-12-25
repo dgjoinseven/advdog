@@ -135,7 +135,17 @@ namespace game
             {
                 asf.App.timeMgr.clearTimer(this.randomKey);
                 //弹出恭喜获得
-                CommonAlertView.showGainDog(this.data.dogGradeId);
+                CommonAlertView.showGainDog(this.data.mergeLevel);
+                try
+                {
+                    Modules.mainModule.mainView.onMergeDog(this.data);
+                }
+                catch(e)
+                {
+                    console.error("随机合成的onMergeDog出现错误",this.data);
+                    console.info(e);
+                }
+                
                 this.close();
             }
             else

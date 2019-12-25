@@ -28,7 +28,7 @@ namespace game
         }
         private onMainResult(result:MainInfoVo)
         {
-            this.db.mainInfoVo = result;
+            // this.db.mainInfoVo = result;
             //主要是匹配下狗信息
             this.mainView.showMainPet();
         }

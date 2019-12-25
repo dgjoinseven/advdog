@@ -75,6 +75,7 @@ namespace game
                 //自己做点模拟数据
                 // let mock:DogMergeDTOVo = asf.Global.createAny();
                 // mock.dogGradeId = asf.RandomUtils.randomInt(38,42);
+                // mock.dogGradeId = 33;
                 // console.log("随机狗:" + mock.dogGradeId);
                 // this.onMergeDog(mock);
             }
@@ -92,7 +93,7 @@ namespace game
             //根据结构显示
             //Modules.mainModule.mainView.onMergeDog(data);
             this.randomEffectDog();
-            this.time = 0;
+            this.time = 5;
             //开启计时器
             this.randomKey = asf.App.timeMgr.doLoop(500,this.onLoop,this,this.randomKey)
         }

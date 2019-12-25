@@ -50,6 +50,15 @@
 <script>
     //全局关闭html的loading页面
     isReadyOver = false;
+    //增加一个10
+    setTimeout(function()
+    {
+        if(!isReadyOver)
+        {
+            console.info("20秒之后游戏引擎都没初始化，出异常，自动刷新");
+            location.reload();
+        }
+    },20000);
     //游戏引擎是否初始化完毕
     isGameReady = false;
     function ready() {  

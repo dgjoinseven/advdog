@@ -1,2 +1,8 @@
 8add9632f0577b4cc1b3c86fadf14669  新号
 7cad1913c34162ce6fbab0d9023fd0b9
+658c4fdaae7d03009c75c21b0b652abd
+这个号好像没有2只37的犬
+
+http://liuwei.dev.linjiexian.cn/gameweb/
+这是APP 首页加载地址，是我们先前一直在用的测试地址
+如果你要切换到你本地，你可以在你本地配置下系统的hosts吧这个域名重新指向一下就可以了！
